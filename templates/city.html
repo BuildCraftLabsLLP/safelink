@@ -1,0 +1,35 @@
+{%- extends "base.html" -%}
+{%- from "macros/breadcrumb.html" import breadcrumb -%}
+
+{%- block title %}{{ city.name }}, {{ state.name }} - Emergency Numbers{% endblock -%}
+{%- block description %}Emergency numbers for {{ city.name }} in {{ state.name }}, India.{% endblock -%}
+{%- block h1 %}{{ city.name }}{% endblock -%}
+
+{% block content %}
+{{ breadcrumb([{"url": "/", "label": "Home"}, {"url": "/state/" ~ state.slug ~ "/", "label": state.name}, {"url": "", "label": city.name}]) }}
+
+<h2 style="font-size:1.125rem">Emergency Numbers</h2>
+<p style="background:#e8f5e9;padding:0.5rem;border:1px solid #2e7d32;margin:0.25rem 0">
+National Emergency: <a href="tel:112"><b>112</b></a><br>
+Police: <a href="tel:100">100</a> | Fire: <a href="tel:101">101</a> | Ambulance: <a href="tel:108">108</a><br>
+{%- if state_numbers.disaster_helpline %}
+Disaster Helpline: <a href="tel:{{ state_numbers.disaster_helpline }}">{{ state_numbers.disaster_helpline }}</a><br>
+{%- endif %}
+{%- if state_numbers.seoc %}
+SEOC: <a href="tel:{{ state_numbers.seoc }}">{{ state_numbers.seoc }}</a>
+{%- endif %}
+</p>
+
+{% if city.population_rank %}
+<p style="font-size:0.85rem;color:#616161">Population rank: #{{ city.population_rank }} in India</p>
+{% endif %}
+
+<p><a href="/state/{{ state.slug }}/">&larr; Back to {{ state.name }}</a></p>
+
+<h2 style="font-size:1.125rem">Resources</h2>
+<p>
+<a href="https://ndma.gov.in">NDMA</a> |
+NDRF: <a href="tel:+919711077372">+91-9711077372</a> |
+NDMA Toll-free: <a href="tel:18001100551">1800-11-0551</a>
+</p>
+{% endblock %}

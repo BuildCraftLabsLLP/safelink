@@ -1,0 +1,7 @@
+{%- macro breadcrumb(items) -%}
+<p style="font-size:0.85rem;margin:0.25rem 0">
+{%- for item in items %}
+{%- if loop.last %}<b>{{ item.label }}</b>{% else %}<a href="{{ item.url }}">{{ item.label }}</a> &gt; {% endif %}
+{%- endfor %}
+</p>
+{%- endmacro -%}

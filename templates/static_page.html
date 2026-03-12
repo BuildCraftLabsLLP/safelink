@@ -1,0 +1,27 @@
+{%- extends "base.html" -%}
+{%- from "macros/breadcrumb.html" import breadcrumb -%}
+
+{%- block title %}{{ page.title }}{% endblock -%}
+{%- block description %}{{ page.subtitle|default(page.title ~ ' - SafeLink India') }}{% endblock -%}
+{%- block h1 %}{{ page.title }}{% endblock -%}
+
+{% block content %}
+{{ breadcrumb([{"url": "/", "label": "Home"}, {"url": "", "label": page.title}]) }}
+
+{% if page.subtitle %}
+<p><i>{{ page.subtitle }}</i></p>
+{% endif %}
+
+{% for section in page.sections %}
+<h2 style="font-size:1.125rem">{{ section.heading }}</h2>
+{% if section.items is defined %}
+<ul>
+{%- for item in section.items %}
+<li>{{ item }}</li>
+{%- endfor %}
+</ul>
+{% elif section.content is defined %}
+<p>{{ section.content }}</p>
+{% endif %}
+{% endfor %}
+{% endblock %}

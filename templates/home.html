@@ -1,0 +1,45 @@
+{%- extends "base.html" -%}
+
+{%- block title %}SafeLink India - Emergency Numbers & Disaster Safety{% endblock -%}
+{%- block description %}Emergency numbers, disaster safety guides, and helplines for all Indian states. Works on 2G.{% endblock -%}
+{%- block h1 %}SafeLink India{% endblock -%}
+
+{% block content %}
+<h2 style="font-size:1.125rem">Quick Reference</h2>
+<p style="background:#fff3e0;padding:0.5rem;border:1px solid #e65100;margin:0.25rem 0"><b>Earthquake:</b> DROP, COVER, HOLD ON<br><b>Cyclone:</b> Move to pucca shelter<br><b>Flood:</b> Do NOT wade through water<br><b>Fire:</b> Get low, get out, call <a href="tel:101">101</a><br><b>Gas leak:</b> Do NOT use electrical switches</p>
+
+<h2 style="font-size:1.125rem">States &amp; Union Territories</h2>
+<p>
+{%- for state in states %}
+<a href="/state/{{ state.slug }}/">{{ state.name }}</a>{% if not loop.last %} | {% endif %}
+{%- endfor %}
+</p>
+
+{% if guides %}
+<h2 style="font-size:1.125rem">Disaster Safety Guides</h2>
+<p>
+{%- for gtype, guide in guides|dictsort %}
+<a href="/guide/{{ gtype }}/">{{ guide.title }}</a>{% if not loop.last %} | {% endif %}
+{%- endfor %}
+</p>
+{% endif %}
+
+<h2 style="font-size:1.125rem">Helplines &amp; Resources</h2>
+<p><b>Mental Health:</b><br>
+iCall: <a href="tel:+919152987821">+91-9152987821</a><br>
+Vandrevala Foundation: <a href="tel:18602662345">1860-2662-345</a></p>
+<p><b>Other Helplines:</b><br>
+Women Helpline: <a href="tel:181">181</a><br>
+Child Helpline: <a href="tel:1098">1098</a><br>
+Senior Citizen: <a href="tel:14567">14567</a></p>
+
+<h2 style="font-size:1.125rem">Government Resources</h2>
+<p>
+<a href="https://pmcares.gov.in/en/">PM CARES Fund</a> |
+<a href="https://ndma.gov.in">NDMA</a> |
+NDRF: <a href="tel:+919711077372">+91-9711077372</a><br>
+<a href="https://sachet.ndma.gov.in">SACHET Early Warnings</a> |
+NDMA Toll-free: <a href="tel:18001100551">1800-11-0551</a><br>
+NDMA Control Room: <a href="tel:01126701728">011-26701728</a>
+</p>
+{% endblock %}
