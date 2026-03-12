@@ -1,0 +1,1577 @@
+[
+  {
+    "name": "Mumbai",
+    "slug": "mumbai",
+    "state_code": "MH",
+    "district_slug": "mumbai-city",
+    "population_rank": 1
+  },
+  {
+    "name": "Delhi",
+    "slug": "delhi",
+    "state_code": "DL",
+    "district_slug": "new-delhi",
+    "population_rank": 2
+  },
+  {
+    "name": "Bengaluru",
+    "slug": "bengaluru",
+    "state_code": "KA",
+    "district_slug": "bengaluru-urban",
+    "population_rank": 3
+  },
+  {
+    "name": "Hyderabad",
+    "slug": "hyderabad",
+    "state_code": "TG",
+    "district_slug": "hyderabad",
+    "population_rank": 4
+  },
+  {
+    "name": "Ahmedabad",
+    "slug": "ahmedabad",
+    "state_code": "GJ",
+    "district_slug": "ahmedabad",
+    "population_rank": 5
+  },
+  {
+    "name": "Chennai",
+    "slug": "chennai",
+    "state_code": "TN",
+    "district_slug": "chennai",
+    "population_rank": 6
+  },
+  {
+    "name": "Kolkata",
+    "slug": "kolkata",
+    "state_code": "WB",
+    "district_slug": "kolkata",
+    "population_rank": 7
+  },
+  {
+    "name": "Pune",
+    "slug": "pune",
+    "state_code": "MH",
+    "district_slug": "pune",
+    "population_rank": 8
+  },
+  {
+    "name": "Jaipur",
+    "slug": "jaipur",
+    "state_code": "RJ",
+    "district_slug": "jaipur",
+    "population_rank": 9
+  },
+  {
+    "name": "Lucknow",
+    "slug": "lucknow",
+    "state_code": "UP",
+    "district_slug": "lucknow",
+    "population_rank": 10
+  },
+  {
+    "name": "Kanpur",
+    "slug": "kanpur",
+    "state_code": "UP",
+    "district_slug": "kanpur-nagar",
+    "population_rank": 11
+  },
+  {
+    "name": "Nagpur",
+    "slug": "nagpur",
+    "state_code": "MH",
+    "district_slug": "nagpur",
+    "population_rank": 12
+  },
+  {
+    "name": "Visakhapatnam",
+    "slug": "visakhapatnam",
+    "state_code": "AP",
+    "district_slug": "visakhapatnam",
+    "population_rank": 13
+  },
+  {
+    "name": "Indore",
+    "slug": "indore",
+    "state_code": "MP",
+    "district_slug": "indore",
+    "population_rank": 14
+  },
+  {
+    "name": "Thane",
+    "slug": "thane",
+    "state_code": "MH",
+    "district_slug": "thane",
+    "population_rank": 15
+  },
+  {
+    "name": "Bhopal",
+    "slug": "bhopal",
+    "state_code": "MP",
+    "district_slug": "bhopal",
+    "population_rank": 16
+  },
+  {
+    "name": "Patna",
+    "slug": "patna",
+    "state_code": "BR",
+    "district_slug": "patna",
+    "population_rank": 17
+  },
+  {
+    "name": "Vadodara",
+    "slug": "vadodara",
+    "state_code": "GJ",
+    "district_slug": "vadodara",
+    "population_rank": 18
+  },
+  {
+    "name": "Ghaziabad",
+    "slug": "ghaziabad",
+    "state_code": "UP",
+    "district_slug": "ghaziabad",
+    "population_rank": 19
+  },
+  {
+    "name": "Ludhiana",
+    "slug": "ludhiana",
+    "state_code": "PB",
+    "district_slug": "ludhiana",
+    "population_rank": 20
+  },
+  {
+    "name": "Agra",
+    "slug": "agra",
+    "state_code": "UP",
+    "district_slug": "agra",
+    "population_rank": 21
+  },
+  {
+    "name": "Nashik",
+    "slug": "nashik",
+    "state_code": "MH",
+    "district_slug": "nashik",
+    "population_rank": 22
+  },
+  {
+    "name": "Ranchi",
+    "slug": "ranchi",
+    "state_code": "JH",
+    "district_slug": "ranchi",
+    "population_rank": 23
+  },
+  {
+    "name": "Faridabad",
+    "slug": "faridabad",
+    "state_code": "HR",
+    "district_slug": "faridabad",
+    "population_rank": 24
+  },
+  {
+    "name": "Meerut",
+    "slug": "meerut",
+    "state_code": "UP",
+    "district_slug": "meerut",
+    "population_rank": 25
+  },
+  {
+    "name": "Rajkot",
+    "slug": "rajkot",
+    "state_code": "GJ",
+    "district_slug": "rajkot",
+    "population_rank": 26
+  },
+  {
+    "name": "Varanasi",
+    "slug": "varanasi",
+    "state_code": "UP",
+    "district_slug": "varanasi",
+    "population_rank": 27
+  },
+  {
+    "name": "Srinagar",
+    "slug": "srinagar",
+    "state_code": "JK",
+    "district_slug": "srinagar",
+    "population_rank": 28
+  },
+  {
+    "name": "Chhatrapati Sambhajinagar",
+    "slug": "chhatrapati-sambhajinagar",
+    "state_code": "MH",
+    "district_slug": "aurangabad",
+    "population_rank": 29
+  },
+  {
+    "name": "Dhanbad",
+    "slug": "dhanbad",
+    "state_code": "JH",
+    "district_slug": "dhanbad",
+    "population_rank": 30
+  },
+  {
+    "name": "Amritsar",
+    "slug": "amritsar",
+    "state_code": "PB",
+    "district_slug": "amritsar",
+    "population_rank": 31
+  },
+  {
+    "name": "Prayagraj",
+    "slug": "prayagraj",
+    "state_code": "UP",
+    "district_slug": "prayagraj",
+    "population_rank": 32
+  },
+  {
+    "name": "Howrah",
+    "slug": "howrah",
+    "state_code": "WB",
+    "district_slug": "howrah",
+    "population_rank": 33
+  },
+  {
+    "name": "Coimbatore",
+    "slug": "coimbatore",
+    "state_code": "TN",
+    "district_slug": "coimbatore",
+    "population_rank": 34
+  },
+  {
+    "name": "Gwalior",
+    "slug": "gwalior",
+    "state_code": "MP",
+    "district_slug": "gwalior",
+    "population_rank": 35
+  },
+  {
+    "name": "Vijayawada",
+    "slug": "vijayawada",
+    "state_code": "AP",
+    "district_slug": "krishna",
+    "population_rank": 36
+  },
+  {
+    "name": "Jodhpur",
+    "slug": "jodhpur",
+    "state_code": "RJ",
+    "district_slug": "jodhpur",
+    "population_rank": 37
+  },
+  {
+    "name": "Madurai",
+    "slug": "madurai",
+    "state_code": "TN",
+    "district_slug": "madurai",
+    "population_rank": 38
+  },
+  {
+    "name": "Raipur",
+    "slug": "raipur",
+    "state_code": "CT",
+    "district_slug": "raipur",
+    "population_rank": 39
+  },
+  {
+    "name": "Kochi",
+    "slug": "kochi",
+    "state_code": "KL",
+    "district_slug": "ernakulam",
+    "population_rank": 40
+  },
+  {
+    "name": "Chandigarh",
+    "slug": "chandigarh",
+    "state_code": "CH",
+    "district_slug": "chandigarh",
+    "population_rank": 41
+  },
+  {
+    "name": "Guwahati",
+    "slug": "guwahati",
+    "state_code": "AS",
+    "district_slug": "kamrup-metropolitan",
+    "population_rank": 42
+  },
+  {
+    "name": "Solapur",
+    "slug": "solapur",
+    "state_code": "MH",
+    "district_slug": "solapur",
+    "population_rank": 43
+  },
+  {
+    "name": "Hubli-Dharwad",
+    "slug": "hubli-dharwad",
+    "state_code": "KA",
+    "district_slug": "dharwad",
+    "population_rank": 44
+  },
+  {
+    "name": "Tiruchirappalli",
+    "slug": "tiruchirappalli",
+    "state_code": "TN",
+    "district_slug": "tiruchirappalli",
+    "population_rank": 45
+  },
+  {
+    "name": "Bareilly",
+    "slug": "bareilly",
+    "state_code": "UP",
+    "district_slug": "bareilly",
+    "population_rank": 46
+  },
+  {
+    "name": "Mysuru",
+    "slug": "mysuru",
+    "state_code": "KA",
+    "district_slug": "mysuru",
+    "population_rank": 47
+  },
+  {
+    "name": "Thiruvananthapuram",
+    "slug": "thiruvananthapuram",
+    "state_code": "KL",
+    "district_slug": "thiruvananthapuram",
+    "population_rank": 48
+  },
+  {
+    "name": "Jalandhar",
+    "slug": "jalandhar",
+    "state_code": "PB",
+    "district_slug": "jalandhar",
+    "population_rank": 49
+  },
+  {
+    "name": "Bhubaneswar",
+    "slug": "bhubaneswar",
+    "state_code": "OR",
+    "district_slug": "khordha",
+    "population_rank": 50
+  },
+  {
+    "name": "Salem",
+    "slug": "salem",
+    "state_code": "TN",
+    "district_slug": "salem",
+    "population_rank": 51
+  },
+  {
+    "name": "Warangal",
+    "slug": "warangal",
+    "state_code": "TG",
+    "district_slug": "warangal",
+    "population_rank": 52
+  },
+  {
+    "name": "Guntur",
+    "slug": "guntur",
+    "state_code": "AP",
+    "district_slug": "guntur",
+    "population_rank": 53
+  },
+  {
+    "name": "Bhiwandi",
+    "slug": "bhiwandi",
+    "state_code": "MH",
+    "district_slug": "thane",
+    "population_rank": 54
+  },
+  {
+    "name": "Noida",
+    "slug": "noida",
+    "state_code": "UP",
+    "district_slug": "gautam-buddha-nagar",
+    "population_rank": 55
+  },
+  {
+    "name": "Dehradun",
+    "slug": "dehradun",
+    "state_code": "UT",
+    "district_slug": "dehradun",
+    "population_rank": 56
+  },
+  {
+    "name": "Udaipur",
+    "slug": "udaipur",
+    "state_code": "RJ",
+    "district_slug": "udaipur",
+    "population_rank": 57
+  },
+  {
+    "name": "Jamshedpur",
+    "slug": "jamshedpur",
+    "state_code": "JH",
+    "district_slug": "east-singhbhum",
+    "population_rank": 58
+  },
+  {
+    "name": "Bikaner",
+    "slug": "bikaner",
+    "state_code": "RJ",
+    "district_slug": "bikaner",
+    "population_rank": 59
+  },
+  {
+    "name": "Mangaluru",
+    "slug": "mangaluru",
+    "state_code": "KA",
+    "district_slug": "dakshina-kannada",
+    "population_rank": 60
+  },
+  {
+    "name": "Ajmer",
+    "slug": "ajmer",
+    "state_code": "RJ",
+    "district_slug": "ajmer",
+    "population_rank": 61
+  },
+  {
+    "name": "Erode",
+    "slug": "erode",
+    "state_code": "TN",
+    "district_slug": "erode",
+    "population_rank": 62
+  },
+  {
+    "name": "Gorakhpur",
+    "slug": "gorakhpur",
+    "state_code": "UP",
+    "district_slug": "gorakhpur",
+    "population_rank": 63
+  },
+  {
+    "name": "Nellore",
+    "slug": "nellore",
+    "state_code": "AP",
+    "district_slug": "sri-potti-sriramulu-nellore",
+    "population_rank": 64
+  },
+  {
+    "name": "Tiruppur",
+    "slug": "tiruppur",
+    "state_code": "TN",
+    "district_slug": "tiruppur",
+    "population_rank": 65
+  },
+  {
+    "name": "Ujjain",
+    "slug": "ujjain",
+    "state_code": "MP",
+    "district_slug": "ujjain",
+    "population_rank": 66
+  },
+  {
+    "name": "Navi Mumbai",
+    "slug": "navi-mumbai",
+    "state_code": "MH",
+    "district_slug": "thane",
+    "population_rank": 67
+  },
+  {
+    "name": "Jabalpur",
+    "slug": "jabalpur",
+    "state_code": "MP",
+    "district_slug": "jabalpur",
+    "population_rank": 68
+  },
+  {
+    "name": "Moradabad",
+    "slug": "moradabad",
+    "state_code": "UP",
+    "district_slug": "moradabad",
+    "population_rank": 69
+  },
+  {
+    "name": "Kota",
+    "slug": "kota",
+    "state_code": "RJ",
+    "district_slug": "kota",
+    "population_rank": 70
+  },
+  {
+    "name": "Saharanpur",
+    "slug": "saharanpur",
+    "state_code": "UP",
+    "district_slug": "saharanpur",
+    "population_rank": 71
+  },
+  {
+    "name": "Aligarh",
+    "slug": "aligarh",
+    "state_code": "UP",
+    "district_slug": "aligarh",
+    "population_rank": 72
+  },
+  {
+    "name": "Surat",
+    "slug": "surat",
+    "state_code": "GJ",
+    "district_slug": "surat",
+    "population_rank": 73
+  },
+  {
+    "name": "Bhavnagar",
+    "slug": "bhavnagar",
+    "state_code": "GJ",
+    "district_slug": "bhavnagar",
+    "population_rank": 74
+  },
+  {
+    "name": "Jamnagar",
+    "slug": "jamnagar",
+    "state_code": "GJ",
+    "district_slug": "jamnagar",
+    "population_rank": 75
+  },
+  {
+    "name": "Junagadh",
+    "slug": "junagadh",
+    "state_code": "GJ",
+    "district_slug": "junagadh",
+    "population_rank": 76
+  },
+  {
+    "name": "Gandhinagar",
+    "slug": "gandhinagar",
+    "state_code": "GJ",
+    "district_slug": "gandhinagar",
+    "population_rank": 77
+  },
+  {
+    "name": "Anand",
+    "slug": "anand",
+    "state_code": "GJ",
+    "district_slug": "anand",
+    "population_rank": 78
+  },
+  {
+    "name": "Mehsana",
+    "slug": "mehsana",
+    "state_code": "GJ",
+    "district_slug": "mehsana",
+    "population_rank": 79
+  },
+  {
+    "name": "Cuttack",
+    "slug": "cuttack",
+    "state_code": "OR",
+    "district_slug": "cuttack",
+    "population_rank": 80
+  },
+  {
+    "name": "Rourkela",
+    "slug": "rourkela",
+    "state_code": "OR",
+    "district_slug": "sundargarh",
+    "population_rank": 81
+  },
+  {
+    "name": "Berhampur",
+    "slug": "berhampur",
+    "state_code": "OR",
+    "district_slug": "ganjam",
+    "population_rank": 82
+  },
+  {
+    "name": "Sambalpur",
+    "slug": "sambalpur",
+    "state_code": "OR",
+    "district_slug": "sambalpur",
+    "population_rank": 83
+  },
+  {
+    "name": "Bellary",
+    "slug": "bellary",
+    "state_code": "KA",
+    "district_slug": "ballari",
+    "population_rank": 84
+  },
+  {
+    "name": "Davangere",
+    "slug": "davangere",
+    "state_code": "KA",
+    "district_slug": "davanagere",
+    "population_rank": 85
+  },
+  {
+    "name": "Gulbarga",
+    "slug": "gulbarga",
+    "state_code": "KA",
+    "district_slug": "kalaburagi",
+    "population_rank": 86
+  },
+  {
+    "name": "Shimoga",
+    "slug": "shimoga",
+    "state_code": "KA",
+    "district_slug": "shivamogga",
+    "population_rank": 87
+  },
+  {
+    "name": "Tumkur",
+    "slug": "tumkur",
+    "state_code": "KA",
+    "district_slug": "tumakuru",
+    "population_rank": 88
+  },
+  {
+    "name": "Belagavi",
+    "slug": "belagavi",
+    "state_code": "KA",
+    "district_slug": "belagavi",
+    "population_rank": 89
+  },
+  {
+    "name": "Tirunelveli",
+    "slug": "tirunelveli",
+    "state_code": "TN",
+    "district_slug": "tirunelveli",
+    "population_rank": 90
+  },
+  {
+    "name": "Thanjavur",
+    "slug": "thanjavur",
+    "state_code": "TN",
+    "district_slug": "thanjavur",
+    "population_rank": 91
+  },
+  {
+    "name": "Thoothukudi",
+    "slug": "thoothukudi",
+    "state_code": "TN",
+    "district_slug": "thoothukudi",
+    "population_rank": 92
+  },
+  {
+    "name": "Vellore",
+    "slug": "vellore",
+    "state_code": "TN",
+    "district_slug": "vellore",
+    "population_rank": 93
+  },
+  {
+    "name": "Dindigul",
+    "slug": "dindigul",
+    "state_code": "TN",
+    "district_slug": "dindigul",
+    "population_rank": 94
+  },
+  {
+    "name": "Nagercoil",
+    "slug": "nagercoil",
+    "state_code": "TN",
+    "district_slug": "kanniyakumari",
+    "population_rank": 95
+  },
+  {
+    "name": "Kozhikode",
+    "slug": "kozhikode",
+    "state_code": "KL",
+    "district_slug": "kozhikode",
+    "population_rank": 96
+  },
+  {
+    "name": "Thrissur",
+    "slug": "thrissur",
+    "state_code": "KL",
+    "district_slug": "thrissur",
+    "population_rank": 97
+  },
+  {
+    "name": "Palakkad",
+    "slug": "palakkad",
+    "state_code": "KL",
+    "district_slug": "palakkad",
+    "population_rank": 98
+  },
+  {
+    "name": "Kollam",
+    "slug": "kollam",
+    "state_code": "KL",
+    "district_slug": "kollam",
+    "population_rank": 99
+  },
+  {
+    "name": "Kannur",
+    "slug": "kannur",
+    "state_code": "KL",
+    "district_slug": "kannur",
+    "population_rank": 100
+  },
+  {
+    "name": "Alappuzha",
+    "slug": "alappuzha",
+    "state_code": "KL",
+    "district_slug": "alappuzha",
+    "population_rank": 101
+  },
+  {
+    "name": "Kottayam",
+    "slug": "kottayam",
+    "state_code": "KL",
+    "district_slug": "kottayam",
+    "population_rank": 102
+  },
+  {
+    "name": "Malappuram",
+    "slug": "malappuram",
+    "state_code": "KL",
+    "district_slug": "malappuram",
+    "population_rank": 103
+  },
+  {
+    "name": "Muzaffarpur",
+    "slug": "muzaffarpur",
+    "state_code": "BR",
+    "district_slug": "muzaffarpur",
+    "population_rank": 104
+  },
+  {
+    "name": "Gaya",
+    "slug": "gaya",
+    "state_code": "BR",
+    "district_slug": "gaya",
+    "population_rank": 105
+  },
+  {
+    "name": "Bhagalpur",
+    "slug": "bhagalpur",
+    "state_code": "BR",
+    "district_slug": "bhagalpur",
+    "population_rank": 106
+  },
+  {
+    "name": "Purnia",
+    "slug": "purnia",
+    "state_code": "BR",
+    "district_slug": "purnia",
+    "population_rank": 107
+  },
+  {
+    "name": "Darbhanga",
+    "slug": "darbhanga",
+    "state_code": "BR",
+    "district_slug": "darbhanga",
+    "population_rank": 108
+  },
+  {
+    "name": "Siliguri",
+    "slug": "siliguri",
+    "state_code": "WB",
+    "district_slug": "darjeeling",
+    "population_rank": 109
+  },
+  {
+    "name": "Asansol",
+    "slug": "asansol",
+    "state_code": "WB",
+    "district_slug": "paschim-bardhaman",
+    "population_rank": 110
+  },
+  {
+    "name": "Durgapur",
+    "slug": "durgapur",
+    "state_code": "WB",
+    "district_slug": "paschim-bardhaman",
+    "population_rank": 111
+  },
+  {
+    "name": "Burdwan",
+    "slug": "burdwan",
+    "state_code": "WB",
+    "district_slug": "purba-bardhaman",
+    "population_rank": 112
+  },
+  {
+    "name": "Malda",
+    "slug": "malda",
+    "state_code": "WB",
+    "district_slug": "malda",
+    "population_rank": 113
+  },
+  {
+    "name": "Baharampur",
+    "slug": "baharampur",
+    "state_code": "WB",
+    "district_slug": "murshidabad",
+    "population_rank": 114
+  },
+  {
+    "name": "Kalyani",
+    "slug": "kalyani",
+    "state_code": "WB",
+    "district_slug": "nadia",
+    "population_rank": 115
+  },
+  {
+    "name": "Barrackpore",
+    "slug": "barrackpore",
+    "state_code": "WB",
+    "district_slug": "north-24-parganas",
+    "population_rank": 116
+  },
+  {
+    "name": "Bilaspur",
+    "slug": "bilaspur",
+    "state_code": "CT",
+    "district_slug": "bilaspur",
+    "population_rank": 117
+  },
+  {
+    "name": "Bhilai",
+    "slug": "bhilai",
+    "state_code": "CT",
+    "district_slug": "durg",
+    "population_rank": 118
+  },
+  {
+    "name": "Korba",
+    "slug": "korba",
+    "state_code": "CT",
+    "district_slug": "korba",
+    "population_rank": 119
+  },
+  {
+    "name": "Durg",
+    "slug": "durg",
+    "state_code": "CT",
+    "district_slug": "durg",
+    "population_rank": 120
+  },
+  {
+    "name": "Rajnandgaon",
+    "slug": "rajnandgaon",
+    "state_code": "CT",
+    "district_slug": "rajnandgaon",
+    "population_rank": 121
+  },
+  {
+    "name": "Bathinda",
+    "slug": "bathinda",
+    "state_code": "PB",
+    "district_slug": "bathinda",
+    "population_rank": 122
+  },
+  {
+    "name": "Patiala",
+    "slug": "patiala",
+    "state_code": "PB",
+    "district_slug": "patiala",
+    "population_rank": 123
+  },
+  {
+    "name": "Hoshiarpur",
+    "slug": "hoshiarpur",
+    "state_code": "PB",
+    "district_slug": "hoshiarpur",
+    "population_rank": 124
+  },
+  {
+    "name": "Pathankot",
+    "slug": "pathankot",
+    "state_code": "PB",
+    "district_slug": "pathankot",
+    "population_rank": 125
+  },
+  {
+    "name": "Mohali",
+    "slug": "mohali",
+    "state_code": "PB",
+    "district_slug": "mohali",
+    "population_rank": 126
+  },
+  {
+    "name": "Gurugram",
+    "slug": "gurugram",
+    "state_code": "HR",
+    "district_slug": "gurugram",
+    "population_rank": 127
+  },
+  {
+    "name": "Rohtak",
+    "slug": "rohtak",
+    "state_code": "HR",
+    "district_slug": "rohtak",
+    "population_rank": 128
+  },
+  {
+    "name": "Panipat",
+    "slug": "panipat",
+    "state_code": "HR",
+    "district_slug": "panipat",
+    "population_rank": 129
+  },
+  {
+    "name": "Karnal",
+    "slug": "karnal",
+    "state_code": "HR",
+    "district_slug": "karnal",
+    "population_rank": 130
+  },
+  {
+    "name": "Hisar",
+    "slug": "hisar",
+    "state_code": "HR",
+    "district_slug": "hisar",
+    "population_rank": 131
+  },
+  {
+    "name": "Ambala",
+    "slug": "ambala",
+    "state_code": "HR",
+    "district_slug": "ambala",
+    "population_rank": 132
+  },
+  {
+    "name": "Sonipat",
+    "slug": "sonipat",
+    "state_code": "HR",
+    "district_slug": "sonipat",
+    "population_rank": 133
+  },
+  {
+    "name": "Bhiwani",
+    "slug": "bhiwani",
+    "state_code": "HR",
+    "district_slug": "bhiwani",
+    "population_rank": 134
+  },
+  {
+    "name": "Sirsa",
+    "slug": "sirsa",
+    "state_code": "HR",
+    "district_slug": "sirsa",
+    "population_rank": 135
+  },
+  {
+    "name": "Haridwar",
+    "slug": "haridwar",
+    "state_code": "UT",
+    "district_slug": "haridwar",
+    "population_rank": 136
+  },
+  {
+    "name": "Haldwani",
+    "slug": "haldwani",
+    "state_code": "UT",
+    "district_slug": "nainital",
+    "population_rank": 137
+  },
+  {
+    "name": "Roorkee",
+    "slug": "roorkee",
+    "state_code": "UT",
+    "district_slug": "haridwar",
+    "population_rank": 138
+  },
+  {
+    "name": "Kashipur",
+    "slug": "kashipur",
+    "state_code": "UT",
+    "district_slug": "udham-singh-nagar",
+    "population_rank": 139
+  },
+  {
+    "name": "Shimla",
+    "slug": "shimla",
+    "state_code": "HP",
+    "district_slug": "shimla",
+    "population_rank": 140
+  },
+  {
+    "name": "Dharamshala",
+    "slug": "dharamshala",
+    "state_code": "HP",
+    "district_slug": "kangra",
+    "population_rank": 141
+  },
+  {
+    "name": "Solan",
+    "slug": "solan",
+    "state_code": "HP",
+    "district_slug": "solan",
+    "population_rank": 142
+  },
+  {
+    "name": "Mandi",
+    "slug": "mandi",
+    "state_code": "HP",
+    "district_slug": "mandi",
+    "population_rank": 143
+  },
+  {
+    "name": "Imphal",
+    "slug": "imphal",
+    "state_code": "MN",
+    "district_slug": "imphal-west",
+    "population_rank": 144
+  },
+  {
+    "name": "Shillong",
+    "slug": "shillong",
+    "state_code": "ML",
+    "district_slug": "east-khasi-hills",
+    "population_rank": 145
+  },
+  {
+    "name": "Aizawl",
+    "slug": "aizawl",
+    "state_code": "MZ",
+    "district_slug": "aizawl",
+    "population_rank": 146
+  },
+  {
+    "name": "Kohima",
+    "slug": "kohima",
+    "state_code": "NL",
+    "district_slug": "kohima",
+    "population_rank": 147
+  },
+  {
+    "name": "Dimapur",
+    "slug": "dimapur",
+    "state_code": "NL",
+    "district_slug": "dimapur",
+    "population_rank": 148
+  },
+  {
+    "name": "Gangtok",
+    "slug": "gangtok",
+    "state_code": "SK",
+    "district_slug": "east-sikkim",
+    "population_rank": 149
+  },
+  {
+    "name": "Panaji",
+    "slug": "panaji",
+    "state_code": "GA",
+    "district_slug": "north-goa",
+    "population_rank": 150
+  },
+  {
+    "name": "Margao",
+    "slug": "margao",
+    "state_code": "GA",
+    "district_slug": "south-goa",
+    "population_rank": 151
+  },
+  {
+    "name": "Vasco da Gama",
+    "slug": "vasco-da-gama",
+    "state_code": "GA",
+    "district_slug": "south-goa",
+    "population_rank": 152
+  },
+  {
+    "name": "Agartala",
+    "slug": "agartala",
+    "state_code": "TR",
+    "district_slug": "west-tripura",
+    "population_rank": 153
+  },
+  {
+    "name": "Itanagar",
+    "slug": "itanagar",
+    "state_code": "AR",
+    "district_slug": "papum-pare",
+    "population_rank": 154
+  },
+  {
+    "name": "Naharlagun",
+    "slug": "naharlagun",
+    "state_code": "AR",
+    "district_slug": "papum-pare",
+    "population_rank": 155
+  },
+  {
+    "name": "Port Blair",
+    "slug": "port-blair",
+    "state_code": "AN",
+    "district_slug": "south-andaman",
+    "population_rank": 156
+  },
+  {
+    "name": "Daman",
+    "slug": "daman",
+    "state_code": "DD",
+    "district_slug": "daman",
+    "population_rank": 157
+  },
+  {
+    "name": "Kavaratti",
+    "slug": "kavaratti",
+    "state_code": "LD",
+    "district_slug": "lakshadweep",
+    "population_rank": 158
+  },
+  {
+    "name": "Puducherry",
+    "slug": "puducherry",
+    "state_code": "PY",
+    "district_slug": "puducherry",
+    "population_rank": 159
+  },
+  {
+    "name": "Leh",
+    "slug": "leh",
+    "state_code": "LA",
+    "district_slug": "leh",
+    "population_rank": 160
+  },
+  {
+    "name": "Jammu",
+    "slug": "jammu",
+    "state_code": "JK",
+    "district_slug": "jammu",
+    "population_rank": 161
+  },
+  {
+    "name": "New Delhi",
+    "slug": "new-delhi",
+    "state_code": "DL",
+    "district_slug": "new-delhi",
+    "population_rank": 162
+  },
+  {
+    "name": "Nanded",
+    "slug": "nanded",
+    "state_code": "MH",
+    "district_slug": "nanded",
+    "population_rank": 163
+  },
+  {
+    "name": "Kolhapur",
+    "slug": "kolhapur",
+    "state_code": "MH",
+    "district_slug": "kolhapur",
+    "population_rank": 164
+  },
+  {
+    "name": "Sangli",
+    "slug": "sangli",
+    "state_code": "MH",
+    "district_slug": "sangli",
+    "population_rank": 165
+  },
+  {
+    "name": "Latur",
+    "slug": "latur",
+    "state_code": "MH",
+    "district_slug": "latur",
+    "population_rank": 166
+  },
+  {
+    "name": "Parbhani",
+    "slug": "parbhani",
+    "state_code": "MH",
+    "district_slug": "parbhani",
+    "population_rank": 167
+  },
+  {
+    "name": "Jalgaon",
+    "slug": "jalgaon",
+    "state_code": "MH",
+    "district_slug": "jalgaon",
+    "population_rank": 168
+  },
+  {
+    "name": "Dhule",
+    "slug": "dhule",
+    "state_code": "MH",
+    "district_slug": "dhule",
+    "population_rank": 169
+  },
+  {
+    "name": "Chandrapur",
+    "slug": "chandrapur",
+    "state_code": "MH",
+    "district_slug": "chandrapur",
+    "population_rank": 170
+  },
+  {
+    "name": "Satara",
+    "slug": "satara",
+    "state_code": "MH",
+    "district_slug": "satara",
+    "population_rank": 171
+  },
+  {
+    "name": "Ratnagiri",
+    "slug": "ratnagiri",
+    "state_code": "MH",
+    "district_slug": "ratnagiri",
+    "population_rank": 172
+  },
+  {
+    "name": "Palghar",
+    "slug": "palghar",
+    "state_code": "MH",
+    "district_slug": "palghar",
+    "population_rank": 173
+  },
+  {
+    "name": "Anantapur",
+    "slug": "anantapur",
+    "state_code": "AP",
+    "district_slug": "anantapur",
+    "population_rank": 174
+  },
+  {
+    "name": "Kurnool",
+    "slug": "kurnool",
+    "state_code": "AP",
+    "district_slug": "kurnool",
+    "population_rank": 175
+  },
+  {
+    "name": "Tirupati",
+    "slug": "tirupati",
+    "state_code": "AP",
+    "district_slug": "tirupati",
+    "population_rank": 176
+  },
+  {
+    "name": "Rajahmundry",
+    "slug": "rajahmundry",
+    "state_code": "AP",
+    "district_slug": "east-godavari",
+    "population_rank": 177
+  },
+  {
+    "name": "Kakinada",
+    "slug": "kakinada",
+    "state_code": "AP",
+    "district_slug": "kakinada",
+    "population_rank": 178
+  },
+  {
+    "name": "Kadapa",
+    "slug": "kadapa",
+    "state_code": "AP",
+    "district_slug": "ysr-kadapa",
+    "population_rank": 179
+  },
+  {
+    "name": "Ongole",
+    "slug": "ongole",
+    "state_code": "AP",
+    "district_slug": "prakasam",
+    "population_rank": 180
+  },
+  {
+    "name": "Srikakulam",
+    "slug": "srikakulam",
+    "state_code": "AP",
+    "district_slug": "srikakulam",
+    "population_rank": 181
+  },
+  {
+    "name": "Nizamabad",
+    "slug": "nizamabad",
+    "state_code": "TG",
+    "district_slug": "nizamabad",
+    "population_rank": 182
+  },
+  {
+    "name": "Karimnagar",
+    "slug": "karimnagar",
+    "state_code": "TG",
+    "district_slug": "karimnagar",
+    "population_rank": 183
+  },
+  {
+    "name": "Khammam",
+    "slug": "khammam",
+    "state_code": "TG",
+    "district_slug": "khammam",
+    "population_rank": 184
+  },
+  {
+    "name": "Ramagundam",
+    "slug": "ramagundam",
+    "state_code": "TG",
+    "district_slug": "peddapalli",
+    "population_rank": 185
+  },
+  {
+    "name": "Mahbubnagar",
+    "slug": "mahbubnagar",
+    "state_code": "TG",
+    "district_slug": "mahabubnagar",
+    "population_rank": 186
+  },
+  {
+    "name": "Nalgonda",
+    "slug": "nalgonda",
+    "state_code": "TG",
+    "district_slug": "nalgonda",
+    "population_rank": 187
+  },
+  {
+    "name": "Adilabad",
+    "slug": "adilabad",
+    "state_code": "TG",
+    "district_slug": "adilabad",
+    "population_rank": 188
+  },
+  {
+    "name": "Mathura",
+    "slug": "mathura",
+    "state_code": "UP",
+    "district_slug": "mathura",
+    "population_rank": 189
+  },
+  {
+    "name": "Firozabad",
+    "slug": "firozabad",
+    "state_code": "UP",
+    "district_slug": "firozabad",
+    "population_rank": 190
+  },
+  {
+    "name": "Shahjahanpur",
+    "slug": "shahjahanpur",
+    "state_code": "UP",
+    "district_slug": "shahjahanpur",
+    "population_rank": 191
+  },
+  {
+    "name": "Rampur",
+    "slug": "rampur",
+    "state_code": "UP",
+    "district_slug": "rampur",
+    "population_rank": 192
+  },
+  {
+    "name": "Jhansi",
+    "slug": "jhansi",
+    "state_code": "UP",
+    "district_slug": "jhansi",
+    "population_rank": 193
+  },
+  {
+    "name": "Muzaffarnagar",
+    "slug": "muzaffarnagar",
+    "state_code": "UP",
+    "district_slug": "muzaffarnagar",
+    "population_rank": 194
+  },
+  {
+    "name": "Azamgarh",
+    "slug": "azamgarh",
+    "state_code": "UP",
+    "district_slug": "azamgarh",
+    "population_rank": 195
+  },
+  {
+    "name": "Etawah",
+    "slug": "etawah",
+    "state_code": "UP",
+    "district_slug": "etawah",
+    "population_rank": 196
+  },
+  {
+    "name": "Sitapur",
+    "slug": "sitapur",
+    "state_code": "UP",
+    "district_slug": "sitapur",
+    "population_rank": 197
+  },
+  {
+    "name": "Sultanpur",
+    "slug": "sultanpur",
+    "state_code": "UP",
+    "district_slug": "sultanpur",
+    "population_rank": 198
+  },
+  {
+    "name": "Bahraich",
+    "slug": "bahraich",
+    "state_code": "UP",
+    "district_slug": "bahraich",
+    "population_rank": 199
+  },
+  {
+    "name": "Ayodhya",
+    "slug": "ayodhya",
+    "state_code": "UP",
+    "district_slug": "ayodhya",
+    "population_rank": 200
+  },
+  {
+    "name": "Unnao",
+    "slug": "unnao",
+    "state_code": "UP",
+    "district_slug": "unnao",
+    "population_rank": 201
+  },
+  {
+    "name": "Banda",
+    "slug": "banda",
+    "state_code": "UP",
+    "district_slug": "banda",
+    "population_rank": 202
+  },
+  {
+    "name": "Mirzapur",
+    "slug": "mirzapur",
+    "state_code": "UP",
+    "district_slug": "mirzapur",
+    "population_rank": 203
+  },
+  {
+    "name": "Basti",
+    "slug": "basti",
+    "state_code": "UP",
+    "district_slug": "basti",
+    "population_rank": 204
+  },
+  {
+    "name": "Deoria",
+    "slug": "deoria",
+    "state_code": "UP",
+    "district_slug": "deoria",
+    "population_rank": 205
+  },
+  {
+    "name": "Jaunpur",
+    "slug": "jaunpur",
+    "state_code": "UP",
+    "district_slug": "jaunpur",
+    "population_rank": 206
+  },
+  {
+    "name": "Pratapgarh",
+    "slug": "pratapgarh",
+    "state_code": "UP",
+    "district_slug": "pratapgarh",
+    "population_rank": 207
+  },
+  {
+    "name": "Fatehpur",
+    "slug": "fatehpur",
+    "state_code": "UP",
+    "district_slug": "fatehpur",
+    "population_rank": 208
+  },
+  {
+    "name": "Hardoi",
+    "slug": "hardoi",
+    "state_code": "UP",
+    "district_slug": "hardoi",
+    "population_rank": 209
+  },
+  {
+    "name": "Barmer",
+    "slug": "barmer",
+    "state_code": "RJ",
+    "district_slug": "barmer",
+    "population_rank": 210
+  },
+  {
+    "name": "Alwar",
+    "slug": "alwar",
+    "state_code": "RJ",
+    "district_slug": "alwar",
+    "population_rank": 211
+  },
+  {
+    "name": "Sikar",
+    "slug": "sikar",
+    "state_code": "RJ",
+    "district_slug": "sikar",
+    "population_rank": 212
+  },
+  {
+    "name": "Bharatpur",
+    "slug": "bharatpur",
+    "state_code": "RJ",
+    "district_slug": "bharatpur",
+    "population_rank": 213
+  },
+  {
+    "name": "Sri Ganganagar",
+    "slug": "sri-ganganagar",
+    "state_code": "RJ",
+    "district_slug": "sri-ganganagar",
+    "population_rank": 214
+  },
+  {
+    "name": "Pali",
+    "slug": "pali",
+    "state_code": "RJ",
+    "district_slug": "pali",
+    "population_rank": 215
+  },
+  {
+    "name": "Chittorgarh",
+    "slug": "chittorgarh",
+    "state_code": "RJ",
+    "district_slug": "chittorgarh",
+    "population_rank": 216
+  },
+  {
+    "name": "Jhunjhunu",
+    "slug": "jhunjhunu",
+    "state_code": "RJ",
+    "district_slug": "jhunjhunu",
+    "population_rank": 217
+  },
+  {
+    "name": "Churu",
+    "slug": "churu",
+    "state_code": "RJ",
+    "district_slug": "churu",
+    "population_rank": 218
+  },
+  {
+    "name": "Bhilwara",
+    "slug": "bhilwara",
+    "state_code": "RJ",
+    "district_slug": "bhilwara",
+    "population_rank": 219
+  },
+  {
+    "name": "Bundi",
+    "slug": "bundi",
+    "state_code": "RJ",
+    "district_slug": "bundi",
+    "population_rank": 220
+  },
+  {
+    "name": "Tonk",
+    "slug": "tonk",
+    "state_code": "RJ",
+    "district_slug": "tonk",
+    "population_rank": 221
+  },
+  {
+    "name": "Sawai Madhopur",
+    "slug": "sawai-madhopur",
+    "state_code": "RJ",
+    "district_slug": "sawai-madhopur",
+    "population_rank": 222
+  },
+  {
+    "name": "Hanumangarh",
+    "slug": "hanumangarh",
+    "state_code": "RJ",
+    "district_slug": "hanumangarh",
+    "population_rank": 223
+  },
+  {
+    "name": "Nagaur",
+    "slug": "nagaur",
+    "state_code": "RJ",
+    "district_slug": "nagaur",
+    "population_rank": 224
+  },
+  {
+    "name": "Jaisalmer",
+    "slug": "jaisalmer",
+    "state_code": "RJ",
+    "district_slug": "jaisalmer",
+    "population_rank": 225
+  }
+]

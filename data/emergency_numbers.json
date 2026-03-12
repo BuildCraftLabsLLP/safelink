@@ -1,0 +1,211 @@
+{
+  "national": {
+    "emergency": {"number": "112", "label": "National Emergency"},
+    "police": {"number": "100", "label": "Police"},
+    "fire": {"number": "101", "label": "Fire"},
+    "ambulance": {"number": "102", "label": "Ambulance"},
+    "ambulance_medical": {"number": "108", "label": "Medical Emergency"},
+    "disaster": {"number": "1070", "label": "Disaster Helpline"},
+    "ndrf": {"number": "+91-9711077372", "label": "NDRF"},
+    "ndma": {"number": "1800-11-0551", "label": "NDMA (toll-free)"},
+    "ndma_control_room": {"number": "011-26701728", "label": "NDMA Control Room"},
+    "women": {"number": "181", "label": "Women Helpline"},
+    "child": {"number": "1098", "label": "Child Helpline"},
+    "senior_citizen": {"number": "14567", "label": "Senior Citizen"},
+    "mental_health_icall": {"number": "+91-9152987821", "label": "iCall"},
+    "mental_health_vandrevala": {"number": "1860-2662-345", "label": "Vandrevala Foundation"},
+    "pm_cares_url": "https://pmcares.gov.in/en/",
+    "pmnrf_url": "https://pmnrf.gov.in/en/"
+  },
+  "states": {
+    "AP": {
+      "disaster_helpline": "1070",
+      "seoc": "",
+      "sdma_url": "http://apsdma.ap.gov.in"
+    },
+    "AR": {
+      "disaster_helpline": "1070",
+      "seoc": "",
+      "sdma_url": ""
+    },
+    "AS": {
+      "disaster_helpline": "1077",
+      "seoc": "0361-2237219",
+      "sdma_url": "https://asdma.assam.gov.in"
+    },
+    "BR": {
+      "disaster_helpline": "1078",
+      "toll_free": "18002456145",
+      "sdrf": "9801598289",
+      "seoc": "",
+      "sdma_url": "http://bsdma.org"
+    },
+    "CT": {
+      "disaster_helpline": "1070",
+      "seoc": "",
+      "sdma_url": ""
+    },
+    "GA": {
+      "disaster_helpline": "1070",
+      "seoc": "",
+      "sdma_url": ""
+    },
+    "GJ": {
+      "disaster_helpline": "1070",
+      "seoc": "079-23276944",
+      "sdma_url": "http://gsdma.org"
+    },
+    "HR": {
+      "disaster_helpline": "1070",
+      "seoc": "",
+      "sdma_url": ""
+    },
+    "HP": {
+      "disaster_helpline": "1070",
+      "seoc": "",
+      "sdma_url": ""
+    },
+    "JH": {
+      "disaster_helpline": "1070",
+      "seoc": "",
+      "sdma_url": ""
+    },
+    "KA": {
+      "disaster_helpline": "1070",
+      "seoc": "080-22340676",
+      "whatsapp": "9008405955",
+      "sdma_url": "https://ksdma.karnataka.gov.in"
+    },
+    "KL": {
+      "disaster_helpline": "1070",
+      "seoc": "0471-2333198",
+      "sdma_url": "https://sdma.kerala.gov.in"
+    },
+    "MP": {
+      "disaster_helpline": "1070",
+      "seoc": "",
+      "sdma_url": ""
+    },
+    "MH": {
+      "disaster_helpline": "1070",
+      "seoc": "11077",
+      "seoc_mobile": "+91-9321587143",
+      "sdma_url": "https://sdma.maharashtra.gov.in",
+      "additional": [
+        {"number": "1916", "label": "Mumbai Flood Helpline"}
+      ]
+    },
+    "MN": {
+      "disaster_helpline": "1070",
+      "seoc": "",
+      "sdma_url": ""
+    },
+    "ML": {
+      "disaster_helpline": "1070",
+      "seoc": "",
+      "sdma_url": ""
+    },
+    "MZ": {
+      "disaster_helpline": "1070",
+      "seoc": "",
+      "sdma_url": ""
+    },
+    "NL": {
+      "disaster_helpline": "1070",
+      "seoc": "",
+      "sdma_url": ""
+    },
+    "OR": {
+      "disaster_helpline": "1070",
+      "seoc": "",
+      "sdma_url": "http://www.osdma.org"
+    },
+    "PB": {
+      "disaster_helpline": "1070",
+      "seoc": "",
+      "sdma_url": ""
+    },
+    "RJ": {
+      "disaster_helpline": "1070",
+      "seoc": "",
+      "sdma_url": "http://www.rajsdma.nic.in"
+    },
+    "SK": {
+      "disaster_helpline": "1070",
+      "seoc": "",
+      "sdma_url": ""
+    },
+    "TN": {
+      "disaster_helpline": "1070",
+      "whatsapp": "9445869848",
+      "seoc": "",
+      "sdma_url": "https://tnsdma.tn.gov.in"
+    },
+    "TG": {
+      "disaster_helpline": "1070",
+      "seoc": "",
+      "sdma_url": ""
+    },
+    "TR": {
+      "disaster_helpline": "1070",
+      "seoc": "",
+      "sdma_url": ""
+    },
+    "UP": {
+      "disaster_helpline": "1070",
+      "seoc": "",
+      "sdma_url": "http://upsdma.up.nic.in"
+    },
+    "UT": {
+      "disaster_helpline": "1070",
+      "seoc": "0135-2710334",
+      "seoc_mobile": "95574-44486",
+      "sdma_url": ""
+    },
+    "WB": {
+      "disaster_helpline": "1070",
+      "seoc": "",
+      "sdma_url": "http://wbdmd.gov.in"
+    },
+    "AN": {
+      "disaster_helpline": "1070",
+      "seoc": "",
+      "sdma_url": ""
+    },
+    "CH": {
+      "disaster_helpline": "1070",
+      "seoc": "",
+      "sdma_url": ""
+    },
+    "DD": {
+      "disaster_helpline": "1070",
+      "seoc": "",
+      "sdma_url": ""
+    },
+    "DL": {
+      "disaster_helpline": "011-24611210",
+      "seoc": "",
+      "sdma_url": "http://www.dvdms.delhi.gov.in"
+    },
+    "JK": {
+      "disaster_helpline": "1070",
+      "seoc": "",
+      "sdma_url": ""
+    },
+    "LA": {
+      "disaster_helpline": "1070",
+      "seoc": "",
+      "sdma_url": ""
+    },
+    "LD": {
+      "disaster_helpline": "1070",
+      "seoc": "",
+      "sdma_url": ""
+    },
+    "PY": {
+      "disaster_helpline": "1070",
+      "seoc": "",
+      "sdma_url": ""
+    }
+  }
+}
