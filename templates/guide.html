@@ -15,7 +15,7 @@
 {% for section in guide.sections %}
 <h2 style="font-size:1.125rem">{{ section.heading }}</h2>
 <ul>
-{%- for item in section.items %}
+{%- for item in section['items'] %}
 <li>{{ item }}</li>
 {%- endfor %}
 </ul>
