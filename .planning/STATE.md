@@ -12,11 +12,11 @@ See: .planning/PROJECT.md (updated 2026-03-12)
 ## Current Status
 
 **Phase:** 1 of 4 (Foundation & English Site)
-**Plan:** 02 of 04 complete (Wave 1 complete: Data Pipeline + Build System)
-**Status:** In progress - Wave 1 complete, Wave 2 (Plan 03) ready to execute
-**Last activity:** 2026-03-13 - Completed 01-01 Data Pipeline
+**Plan:** 03 of 04 complete (Wave 1+2 complete: Data + Build + Content Pages)
+**Status:** In progress - Wave 2 complete, Wave 3 (Plan 04: Deployment) ready to execute
+**Last activity:** 2026-03-13 - Completed 01-03 Content Pages
 
-Progress: `[#####-----] 50%` (2 of 4 plans complete in Phase 1)
+Progress: `[#######---] 75%` (3 of 4 plans complete in Phase 1)
 
 ---
 
@@ -35,8 +35,8 @@ Progress: `[#####-----] 50%` (2 of 4 plans complete in Phase 1)
 |------|------|------|--------|---------|
 | 01 | Data Pipeline | 1 | Complete | 14 JSON files: 36 states, 786 districts, 225 cities, emergency numbers, 5 guides, 5 content |
 | 02 | Build System | 1 | Complete | build.py + 10 Jinja2 templates |
-| 03 | Content Pages | 2 | Ready (unblocked) | Depends on 01 + 02 (both complete) |
-| 04 | Deployment | 3 | Pending | Depends on 03 |
+| 03 | Content Pages | 2 | Complete | 1,058 HTML pages, all validated, 31 Puppeteer tests pass |
+| 04 | Deployment | 3 | Ready (unblocked) | Depends on 03 (complete) |
 
 ---
 
@@ -55,7 +55,9 @@ Progress: `[#####-----] 50%` (2 of 4 plans complete in Phase 1)
 | `.planning/phases/01-foundation-english-site/02-build-system-PLAN.md` | Plan 02: Build system |
 | `.planning/phases/01-foundation-english-site/02-build-system-SUMMARY.md` | Plan 02: COMPLETE |
 | `.planning/phases/01-foundation-english-site/03-content-pages-PLAN.md` | Plan 03: Integration + testing |
+| `.planning/phases/01-foundation-english-site/03-content-pages-SUMMARY.md` | Plan 03: COMPLETE |
 | `.planning/phases/01-foundation-english-site/04-deployment-PLAN.md` | Plan 04: CF Pages deploy |
+| `test_pages.js` | Puppeteer test suite (31 tests) |
 | `data/states.json` | 36 Indian states and UTs |
 | `data/districts.json` | 786 districts with state_code FK |
 | `data/cities.json` | 225 major cities with state_code FK |
@@ -78,6 +80,7 @@ Progress: `[#####-----] 50%` (2 of 4 plans complete in Phase 1)
 | DATA-01 | state_code used as foreign key in districts and cities | 01-01 | Enables referential integrity validation |
 | DATA-02 | 786 districts covering all 36 states/UTs | 01-01 | Exceeds 750 minimum, reflects latest reorganizations |
 | DATA-03 | 225 cities covering every state/UT capital | 01-01 | Exceeds 200 minimum, includes tier-2/3 cities |
+| JINJA2-01 | Use bracket notation for dict keys that shadow Python methods | 01-03 | section['items'] not section.items to avoid dict.items() collision |
 
 ## Tech Decisions Locked
 
@@ -91,15 +94,15 @@ Progress: `[#####-----] 50%` (2 of 4 plans complete in Phase 1)
 
 ## Blockers / Concerns
 
-- System git requires Xcode license acceptance (`sudo xcodebuild -license accept`) - using CommandLineTools git as workaround
-- Plan 03 now unblocked - both Plan 01 and Plan 02 are complete
+- System git requires Xcode license acceptance (`sudo xcodebuild -license accept`) - using `DEVELOPER_DIR=/Library/Developer/CommandLineTools /usr/bin/git` as workaround
+- Plan 04 (Deployment) now unblocked - Plans 01, 02, 03 all complete
 
 ---
 
 ## Session Continuity
 
 Last session: 2026-03-13
-Stopped at: Completed 01-01-data-pipeline-PLAN.md
+Stopped at: Completed 01-03-content-pages-PLAN.md
 Resume file: None
 
 ---
@@ -107,3 +110,4 @@ Resume file: None
 *Phase 1 planned: 2026-03-12*
 *Plan 01-02 complete: 2026-03-13*
 *Plan 01-01 complete: 2026-03-13*
+*Plan 01-03 complete: 2026-03-13*
