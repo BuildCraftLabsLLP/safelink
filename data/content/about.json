@@ -1,0 +1,25 @@
+{
+  "title": "About SafeLink India",
+  "sections": [
+    {
+      "heading": "What is SafeLink India?",
+      "content": "SafeLink India is a free, lightweight emergency information website designed to work on any internet connection, including 2G. It provides critical emergency numbers, disaster safety guides, and government relief information for all 36 states and union territories of India."
+    },
+    {
+      "heading": "Why This Exists",
+      "content": "During emergencies, people need fast access to critical information. Many existing resources are heavy websites that fail to load on slow connections. SafeLink India keeps every page under 15KB so it loads in seconds even on the slowest networks."
+    },
+    {
+      "heading": "Data Sources",
+      "content": "Emergency numbers are sourced from official government websites including india.gov.in, 112.gov.in, ndma.gov.in, and individual state disaster management authority (SDMA) websites. Disaster safety guidance follows NDMA published guidelines."
+    },
+    {
+      "heading": "Languages",
+      "content": "SafeLink India aims to be available in 10 languages: English, Hindi, Tamil, Telugu, Bengali, Marathi, Kannada, Malayalam, Gujarati, and Punjabi. Language support is being added progressively."
+    },
+    {
+      "heading": "Contact",
+      "content": "This is an open-source project. If you find incorrect information, please report it so we can update our records."
+    }
+  ]
+}

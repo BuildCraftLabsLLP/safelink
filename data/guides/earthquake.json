@@ -1,0 +1,53 @@
+{
+  "type": "earthquake",
+  "title": "Earthquake Safety Guide - India",
+  "slug": "earthquake",
+  "sections": [
+    {
+      "heading": "During an Earthquake",
+      "items": [
+        "DROP to your hands and knees immediately",
+        "Take COVER under a sturdy desk, table, or bed - protect your head and neck",
+        "HOLD ON to your shelter until the shaking stops completely",
+        "If no shelter is available, cover your head with your arms and crouch near an interior wall",
+        "If outdoors, move to an open area away from buildings, trees, and power lines",
+        "If driving, pull over to the side of the road, stop, and stay inside the vehicle",
+        "If in a multi-story building, do NOT use elevators",
+        "If near the coast, move to higher ground immediately after shaking stops - tsunami risk",
+        "Do NOT run outside during shaking - falling debris is the biggest danger"
+      ]
+    },
+    {
+      "heading": "After an Earthquake",
+      "items": [
+        "Expect aftershocks - they can be strong and cause additional damage",
+        "Check yourself and others for injuries - provide first aid",
+        "Do NOT use elevators - use stairs only",
+        "Check for gas leaks - if you smell gas, open windows and leave immediately",
+        "Stay away from damaged buildings and structures",
+        "Do NOT re-enter a building that has visible cracks or damage",
+        "Check water and electrical lines for damage",
+        "Use text messages rather than phone calls to keep lines open for emergencies",
+        "Listen to All India Radio for official updates and instructions"
+      ]
+    },
+    {
+      "heading": "Know Your Seismic Zone",
+      "items": [
+        "Seismic Zone V (Very High Risk): Entire Northeast India, Jammu & Kashmir, Himachal Pradesh, Uttarakhand, Kutch region of Gujarat, parts of Bihar",
+        "Seismic Zone IV (High Risk): Delhi, NCR, parts of Uttar Pradesh, Bihar, West Bengal, parts of Maharashtra, Rajasthan",
+        "Seismic Zone III (Moderate Risk): Most of peninsular India, parts of Madhya Pradesh, Rajasthan, Maharashtra, Karnataka",
+        "Seismic Zone II (Low Risk): Parts of southern peninsular India",
+        "59% of India's land area is vulnerable to earthquakes of moderate to severe intensity",
+        "The Himalayan belt is extremely earthquake-prone due to the collision of Indian and Eurasian tectonic plates",
+        "Major historical earthquakes: Bhuj 2001 (7.7), Kashmir 2005 (7.6), Sikkim 2011 (6.9), Nepal-Bihar 2015 (7.8)"
+      ]
+    }
+  ],
+  "emergency_actions": [
+    "Call 112 or 1070 for disaster helpline",
+    "Contact NDRF: +91-9711077372",
+    "Call 108 for medical emergency"
+  ],
+  "india_specific": "India lies at the boundary of the Indian and Eurasian tectonic plates. The Himalayan belt is extremely earthquake-prone. 59% of India is vulnerable to earthquakes. The Bureau of Indian Standards (BIS) classifies India into four seismic zones (II-V). NDMA guidelines recommend earthquake-resistant construction in Zones IV and V."
+}

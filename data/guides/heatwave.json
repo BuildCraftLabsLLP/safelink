@@ -1,0 +1,55 @@
+{
+  "type": "heatwave",
+  "title": "Heatwave Safety Guide - India",
+  "slug": "heatwave",
+  "sections": [
+    {
+      "heading": "During a Heatwave",
+      "items": [
+        "Stay indoors between 11am and 4pm when heat is most intense",
+        "Drink water frequently - do NOT wait until you feel thirsty",
+        "Use ORS (Oral Rehydration Solution): mix salt + sugar + water, or use ORS packets",
+        "Wear loose, light-colored cotton clothing",
+        "Use a wet cloth on your head and neck to stay cool",
+        "Avoid direct sun exposure - use an umbrella or hat when outdoors",
+        "Eat light meals - avoid heavy, spicy, and oily food",
+        "Drink buttermilk (chaas), lemon water (nimbu pani), or coconut water",
+        "Avoid alcohol, tea, coffee, and carbonated drinks - they cause dehydration",
+        "Keep windows covered with wet cloth or curtains during peak heat",
+        "Use fans and coolers - splash water on the floor for natural cooling"
+      ]
+    },
+    {
+      "heading": "Heat Stroke Warning Signs",
+      "items": [
+        "Body temperature above 40°C (104°F)",
+        "No sweating despite the heat - skin is hot and dry",
+        "Confusion, disorientation, or unconsciousness",
+        "Rapid pulse and rapid breathing",
+        "Severe headache, nausea, or vomiting",
+        "THIS IS A MEDICAL EMERGENCY - call 108 immediately",
+        "While waiting for ambulance: move person to shade, remove excess clothing, cool with wet sheets and fan",
+        "Do NOT give water if person is unconscious",
+        "Apply ice packs to neck, armpits, and groin for rapid cooling"
+      ]
+    },
+    {
+      "heading": "Protecting Vulnerable People",
+      "items": [
+        "Check on elderly neighbors and relatives regularly",
+        "NEVER leave children or animals in parked vehicles - temperature inside can reach 70°C",
+        "Outdoor workers (construction, farming, delivery) must take frequent breaks in shade",
+        "Ensure elderly people and children drink water even if they do not ask",
+        "Reschedule outdoor work and exercise to early morning or evening",
+        "Schools should ensure children have access to water and shade during recess",
+        "Monitor infants for signs of dehydration: dry mouth, no tears, fewer wet diapers"
+      ]
+    }
+  ],
+  "emergency_actions": [
+    "Call 108 for heat stroke medical emergency",
+    "Call 112 for national emergency",
+    "Call 1070 for disaster helpline"
+  ],
+  "india_specific": "Heatwave season: April-June. Rajasthan, Uttar Pradesh, Madhya Pradesh, Maharashtra, Telangana, and Andhra Pradesh are most affected. IMD declares a heatwave when plains temperature exceeds 40°C or is 4.5°C above normal. For hill stations, heatwave is declared at 30°C or above. India has seen increasing heatwave frequency and intensity due to climate change."
+}

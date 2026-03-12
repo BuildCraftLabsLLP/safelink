@@ -1,0 +1,54 @@
+{
+  "type": "landslide",
+  "title": "Landslide Safety Guide - India",
+  "slug": "landslide",
+  "sections": [
+    {
+      "heading": "Warning Signs",
+      "items": [
+        "New cracks appearing in walls, ground, roads, or retaining walls",
+        "Tilting of trees, utility poles, fences, or walls",
+        "Unusual water seepage or springs appearing in new locations",
+        "Rumbling sounds from the hillside that increase in volume",
+        "Sudden decrease in stream or river water level (debris may be blocking flow upstream)",
+        "Doors or windows that suddenly stick or jam",
+        "Ground shifting or bulging at the base of a slope",
+        "Fences, utility poles, or trees tilting or moving",
+        "Water breaking through the ground surface in new locations"
+      ]
+    },
+    {
+      "heading": "During a Landslide",
+      "items": [
+        "Move away from the path of the landslide as quickly as possible",
+        "Move to higher ground away from the slide direction",
+        "If indoors, take cover under a sturdy desk or table and protect your head",
+        "Avoid river valleys and low-lying areas where debris can accumulate",
+        "If driving, stop the vehicle and stay inside - do NOT try to cross a landslide area",
+        "If escape is not possible, curl into a tight ball and protect your head",
+        "Stay alert for unusual sounds - breaking trees, boulders rolling",
+        "Alert neighbors if possible"
+      ]
+    },
+    {
+      "heading": "After a Landslide",
+      "items": [
+        "Stay away from the slide area - more slides may follow, especially during continued rain",
+        "Check for trapped or injured people without entering the slide area directly",
+        "Report the landslide to local authorities and district administration",
+        "Avoid damaged structures and buildings near the slide path",
+        "Watch for flooding - landslides can block rivers and streams, creating temporary dams that may burst",
+        "Check for damaged water supply lines and electrical cables",
+        "Do NOT attempt to cross areas where landslide debris is still moving",
+        "Look for and help neighbors who may need assistance",
+        "Replant damaged ground to prevent further erosion when safe"
+      ]
+    }
+  ],
+  "emergency_actions": [
+    "Call 112 or 1070 for disaster helpline",
+    "Contact NDRF: +91-9711077372",
+    "Call 108 for medical emergency"
+  ],
+  "india_specific": "High-risk zones: Entire Northeast India, Western Ghats (Kerala, Karnataka, Goa), and the Himalayan belt (Himachal Pradesh, Uttarakhand, Jammu & Kashmir, Sikkim). Monsoon season (June-September) sees the most landslides due to heavy rainfall saturating hill slopes. GSI (Geological Survey of India) monitors landslide-prone areas. Deforestation and unplanned construction on hill slopes significantly increase risk."
+}

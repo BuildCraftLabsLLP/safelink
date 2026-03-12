@@ -1,0 +1,70 @@
+{
+  "title": "First Aid Reference",
+  "subtitle": "Basic first aid actions for common emergencies in India",
+  "sections": [
+    {
+      "heading": "CPR (Cardiopulmonary Resuscitation)",
+      "items": [
+        "Call 108 or 112 immediately",
+        "Place person on firm flat surface",
+        "Push hard and fast in center of chest (100-120 compressions per minute)",
+        "If trained: give 2 rescue breaths every 30 compressions",
+        "Continue until medical help arrives"
+      ]
+    },
+    {
+      "heading": "Severe Bleeding",
+      "items": [
+        "Apply direct pressure with clean cloth",
+        "Do NOT remove embedded objects",
+        "Keep the injured part elevated",
+        "Apply tourniquet only as last resort (above wound, note the time)",
+        "Call 108"
+      ]
+    },
+    {
+      "heading": "Burns",
+      "items": [
+        "Cool burn under running water for at least 10 minutes",
+        "Do NOT apply ice, butter, toothpaste, or oil",
+        "Cover loosely with clean cloth",
+        "For chemical burns: remove contaminated clothing, flush with water",
+        "Seek medical help for burns larger than palm size"
+      ]
+    },
+    {
+      "heading": "Snake Bite (India-Specific)",
+      "items": [
+        "Keep the person calm and still",
+        "Remove jewelry/watches near bite before swelling starts",
+        "Do NOT cut the wound, suck venom, or apply tourniquet",
+        "Do NOT apply ice or traditional remedies",
+        "Immobilize the bitten limb",
+        "Rush to nearest hospital with anti-venom facility",
+        "Call 108",
+        "India's Big 4 venomous snakes: Cobra, Krait, Russell's Viper, Saw-scaled Viper"
+      ]
+    },
+    {
+      "heading": "Heat Stroke",
+      "items": [
+        "THIS IS A MEDICAL EMERGENCY - call 108 immediately",
+        "Move person to shade/cool area",
+        "Remove excess clothing",
+        "Cool person rapidly: wet sheets, fan, ice packs at neck/armpits/groin",
+        "Do NOT give water if person is unconscious",
+        "Monitor breathing"
+      ]
+    },
+    {
+      "heading": "Drowning",
+      "items": [
+        "Call for help - do NOT enter water unless trained",
+        "Throw a rope, branch, or floating object",
+        "Once on land: check breathing",
+        "If not breathing: begin CPR",
+        "Call 108"
+      ]
+    }
+  ]
+}

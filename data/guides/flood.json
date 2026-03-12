@@ -1,0 +1,54 @@
+{
+  "type": "flood",
+  "title": "Flood Safety Guide - India",
+  "slug": "flood",
+  "sections": [
+    {
+      "heading": "Before a Flood",
+      "items": [
+        "Monitor IMD weather bulletins and CWC (Central Water Commission) flood bulletins at cwc.gov.in",
+        "Elevate valuables, electronics, and important documents above expected flood level",
+        "Know your evacuation routes and nearest elevated ground or shelter",
+        "Store at least 3 days of clean drinking water in sealed containers",
+        "Keep Aadhaar card, ration card, and insurance copies in a waterproof pouch",
+        "Charge all devices and power banks fully",
+        "Stock ORS packets, water purification tablets, and basic medicines",
+        "If in a flood-prone area, keep inflatable tubes or life jackets at home"
+      ]
+    },
+    {
+      "heading": "During a Flood",
+      "items": [
+        "NEVER wade through flood water - just 15cm of fast-moving water can knock you down",
+        "Flood water hides open manholes, broken glass, snakes, and crocodiles",
+        "Move to higher ground immediately if water starts rising",
+        "Avoid bridges over fast-flowing water",
+        "Do NOT drive through flooded roads - even 30cm of water can stall most vehicles",
+        "Stay away from electricity poles and substations in flooded areas",
+        "If trapped on an upper floor, signal for help from the roof or window",
+        "Listen to All India Radio for flood warnings and evacuation orders",
+        "Do NOT attempt to swim across flood currents"
+      ]
+    },
+    {
+      "heading": "After a Flood",
+      "items": [
+        "Boil all drinking water or use purification tablets - flood water contaminates wells and pipes",
+        "Watch for snakes and scorpions that may have entered homes seeking dry ground",
+        "Check structural damage before re-entering your home - look for cracks and tilting",
+        "Dispose of all food that came in contact with flood water",
+        "Clean and disinfect everything that was submerged",
+        "Watch for waterborne diseases - cholera, typhoid, leptospirosis, hepatitis A",
+        "Use ORS immediately for any diarrhea symptoms",
+        "Report damage for government relief claims - photograph everything",
+        "Avoid walking or playing in stagnant water - risk of leptospirosis"
+      ]
+    }
+  ],
+  "emergency_actions": [
+    "Call 112 or 1070 for disaster helpline",
+    "Contact NDRF: +91-9711077372",
+    "Call 108 for medical emergency"
+  ],
+  "india_specific": "India's monsoon season (June-September) brings annual flooding. Bihar and Assam face floods almost every year from Himalayan river systems. CWC (Central Water Commission) issues flood bulletins at cwc.gov.in. Urban flooding affects Mumbai, Chennai, Hyderabad, and Bengaluru due to poor drainage. Flash floods are common in Uttarakhand, Himachal Pradesh, and Jammu & Kashmir."
+}

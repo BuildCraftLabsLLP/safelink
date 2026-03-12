@@ -1,0 +1,79 @@
+{
+  "title": "Emergency Kit Checklist",
+  "subtitle": "Essential items for disaster preparedness in India",
+  "sections": [
+    {
+      "heading": "Documents (in waterproof pouch)",
+      "items": [
+        "Aadhaar card copy",
+        "Ration card copy",
+        "Voter ID / PAN card copy",
+        "Insurance policy documents",
+        "Bank passbook / account details",
+        "Emergency contact numbers (written on paper)",
+        "Passport-size photos"
+      ]
+    },
+    {
+      "heading": "Water & Food",
+      "items": [
+        "Drinking water: 3 litres per person per day (minimum 3 days)",
+        "Water purification tablets or liquid chlorine",
+        "ORS packets",
+        "Ready-to-eat food: chivda, dry fruits, biscuits, puffed rice",
+        "Glucose powder/tablets"
+      ]
+    },
+    {
+      "heading": "Medical",
+      "items": [
+        "Basic first aid kit",
+        "Prescribed medicines (7-day supply)",
+        "ORS sachets",
+        "Paracetamol",
+        "Antiseptic liquid (Dettol/Savlon)",
+        "Bandages, cotton, adhesive tape",
+        "Anti-diarrheal tablets"
+      ]
+    },
+    {
+      "heading": "Tools & Safety",
+      "items": [
+        "Torch/flashlight with extra batteries",
+        "Battery-powered or hand-crank radio (All India Radio)",
+        "Multi-tool or Swiss knife",
+        "Matchbox/lighter in waterproof bag",
+        "Rope (minimum 10 metres)",
+        "Whistle (to signal for rescue)",
+        "N95 masks"
+      ]
+    },
+    {
+      "heading": "Cash",
+      "items": [
+        "Cash in small denominations: Rs 100 and Rs 200 notes",
+        "Keep Rs 2000-5000 minimum",
+        "ATMs and UPI may not work during disasters"
+      ]
+    },
+    {
+      "heading": "Clothing & Shelter",
+      "items": [
+        "Rain poncho or plastic sheet",
+        "Warm clothing (if in cold region)",
+        "Sturdy closed-toe shoes",
+        "Mosquito net or repellent",
+        "Tarpaulin sheet for temporary shelter"
+      ]
+    },
+    {
+      "heading": "Communication",
+      "items": [
+        "Fully charged power bank",
+        "Mobile phone with emergency numbers saved",
+        "Battery-operated radio",
+        "Written list of emergency contacts"
+      ]
+    }
+  ]
+}

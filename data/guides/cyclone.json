@@ -1,0 +1,54 @@
+{
+  "type": "cyclone",
+  "title": "Cyclone Safety Guide - India",
+  "slug": "cyclone",
+  "sections": [
+    {
+      "heading": "Before a Cyclone",
+      "items": [
+        "Track IMD warnings at mausam.imd.gov.in and listen to All India Radio",
+        "Secure loose objects on balconies, rooftops, and in yards",
+        "Stock your emergency kit with food, water, medicines, and torch",
+        "Identify the nearest pucca (concrete) shelter or cyclone shelter",
+        "Fully charge all mobile devices and power banks",
+        "Fill all water containers - water supply may be disrupted for days",
+        "Keep important documents (Aadhaar, ration card, insurance) in a waterproof bag",
+        "Trim dead branches from trees near your home",
+        "Board up or tape glass windows to prevent shattering"
+      ]
+    },
+    {
+      "heading": "During a Cyclone",
+      "items": [
+        "Stay indoors and away from windows, skylights, and glass doors",
+        "Move to an interior room on the ground floor",
+        "Do NOT go outside during the eye of the storm - the calm is temporary and winds will return suddenly",
+        "Avoid using electrical equipment - unplug appliances to prevent damage from surges",
+        "Listen to All India Radio or Doordarshan for official updates",
+        "Stay away from the coastline - storm surge can travel several kilometers inland",
+        "If in a kutcha (fragile) house, move to the nearest pucca shelter immediately",
+        "Keep emergency kit, water, and torch within reach"
+      ]
+    },
+    {
+      "heading": "After a Cyclone",
+      "items": [
+        "Do NOT touch fallen power lines - assume all downed wires are live",
+        "Avoid wading through flood water - risk of electrocution from submerged wires and snake/scorpion bites",
+        "Check for gas leaks - do not use open flame to inspect",
+        "Boil all drinking water or use purification tablets",
+        "Report damage to local authorities and SDMA",
+        "Contact NDRF if people are trapped: +91-9711077372",
+        "Avoid damaged buildings and bridges",
+        "Watch for waterborne diseases - cholera, typhoid, leptospirosis",
+        "Photograph damage for insurance and government relief claims"
+      ]
+    }
+  ],
+  "emergency_actions": [
+    "Call 112 or 1070 for disaster helpline",
+    "Contact NDRF: +91-9711077372",
+    "Call 108 for medical emergency"
+  ],
+  "india_specific": "Bay of Bengal cyclone season: October-December (east coast). Arabian Sea: May-June (west coast). Follow IMD (mausam.imd.gov.in) for cyclone tracking. NDMA App provides real-time alerts. NDRF pre-deploys battalions to likely landfall areas. Most affected states: Odisha, Andhra Pradesh, Tamil Nadu, West Bengal, Gujarat."
+}
