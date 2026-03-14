@@ -11,12 +11,12 @@ See: .planning/PROJECT.md (updated 2026-03-12)
 
 ## Current Status
 
-**Phase:** 1 of 4 (Foundation & English Site)
-**Plan:** 03 of 04 complete (Wave 1+2 complete: Data + Build + Content Pages)
-**Status:** In progress - Wave 2 complete, Wave 3 (Plan 04: Deployment) ready to execute
-**Last activity:** 2026-03-13 - Completed 01-03 Content Pages
+**Phase:** 1 of 4 (Foundation & English Site) — COMPLETE
+**Plan:** 04 of 04 complete (All waves complete: Data + Build + Content Pages + Deployment)
+**Status:** Phase 1 complete - Site live at https://safelink-india.pages.dev/
+**Last activity:** 2026-03-15 - Completed 01-04 Deployment, Phase 1 fully done
 
-Progress: `[#######---] 75%` (3 of 4 plans complete in Phase 1)
+Progress: `[##########] 100%` (4 of 4 plans complete in Phase 1)
 
 ---
 
@@ -24,7 +24,7 @@ Progress: `[#######---] 75%` (3 of 4 plans complete in Phase 1)
 
 | Phase | Name | Status | Plans |
 |-------|------|--------|-------|
-| 1 | Foundation & English Site | In Progress | 4 plans (3 waves) |
+| 1 | Foundation & English Site | **COMPLETE** | 4 plans (3 waves) - all done |
 | 2 | Multi-Language (10 Languages) | Pending | Not planned |
 | 3 | Live Alert Banner | Pending | Not planned |
 | 4 | PWA, SEO & Launch Polish | Pending | Not planned |
@@ -36,7 +36,7 @@ Progress: `[#######---] 75%` (3 of 4 plans complete in Phase 1)
 | 01 | Data Pipeline | 1 | Complete | 14 JSON files: 36 states, 786 districts, 225 cities, emergency numbers, 5 guides, 5 content |
 | 02 | Build System | 1 | Complete | build.py + 10 Jinja2 templates |
 | 03 | Content Pages | 2 | Complete | 1,058 HTML pages, all validated, 31 Puppeteer tests pass |
-| 04 | Deployment | 3 | Ready (unblocked) | Depends on 03 (complete) |
+| 04 | Deployment | 3 | **Complete** | Live: https://safelink-india.pages.dev/ (commit: 97ce6d7) |
 
 ---
 
@@ -57,6 +57,9 @@ Progress: `[#######---] 75%` (3 of 4 plans complete in Phase 1)
 | `.planning/phases/01-foundation-english-site/03-content-pages-PLAN.md` | Plan 03: Integration + testing |
 | `.planning/phases/01-foundation-english-site/03-content-pages-SUMMARY.md` | Plan 03: COMPLETE |
 | `.planning/phases/01-foundation-english-site/04-deployment-PLAN.md` | Plan 04: CF Pages deploy |
+| `.planning/phases/01-foundation-english-site/04-deployment-SUMMARY.md` | Plan 04: COMPLETE |
+| `deploy.sh` | Build + deploy script (python build.py + wrangler pages deploy) |
+| `dist/_headers` | Cloudflare Pages HTTP security and cache headers |
 | `test_pages.js` | Puppeteer test suite (31 tests) |
 | `data/states.json` | 36 Indian states and UTs |
 | `data/districts.json` | 786 districts with state_code FK |
@@ -81,6 +84,9 @@ Progress: `[#######---] 75%` (3 of 4 plans complete in Phase 1)
 | DATA-02 | 786 districts covering all 36 states/UTs | 01-01 | Exceeds 750 minimum, reflects latest reorganizations |
 | DATA-03 | 225 cities covering every state/UT capital | 01-01 | Exceeds 200 minimum, includes tier-2/3 cities |
 | JINJA2-01 | Use bracket notation for dict keys that shadow Python methods | 01-03 | section['items'] not section.items to avoid dict.items() collision |
+| DEPLOY-01 | Direct upload (wrangler pages deploy) not Git integration | 01-04 | Decouples deployment from repo, no Cloudflare Git access needed |
+| DEPLOY-02 | CF Pages project name: safelink-india | 01-04 | Pages.dev subdomain matches project name |
+| DEPLOY-03 | Cache-Control max-age=3600 (1 hour) | 01-04 | Balances content freshness vs CDN efficiency |
 
 ## Tech Decisions Locked
 
@@ -94,16 +100,19 @@ Progress: `[#######---] 75%` (3 of 4 plans complete in Phase 1)
 
 ## Blockers / Concerns
 
-- System git requires Xcode license acceptance (`sudo xcodebuild -license accept`) - using `DEVELOPER_DIR=/Library/Developer/CommandLineTools /usr/bin/git` as workaround
-- Plan 04 (Deployment) now unblocked - Plans 01, 02, 03 all complete
+- System git requires Xcode license acceptance (`sudo xcodebuild -license accept`) - using dulwich or `DEVELOPER_DIR=/Library/Developer/CommandLineTools /usr/bin/git` as workaround
+- Phase 1 complete. No blockers for Phase 2.
+- Custom domain safelink.serverlord.in not yet configured (optional - site live at pages.dev URL)
+- Next action: Phase verification of all Phase 1 must_haves against live site, then plan Phase 2 (Multi-Language)
 
 ---
 
 ## Session Continuity
 
-Last session: 2026-03-13
-Stopped at: Completed 01-03-content-pages-PLAN.md
+Last session: 2026-03-15
+Stopped at: Completed 01-04-deployment-PLAN.md — Phase 1 fully complete
 Resume file: None
+Next: Phase verification then plan Phase 2 (Multi-Language, 10 languages)
 
 ---
 *State initialized: 2026-03-12*
@@ -111,3 +120,4 @@ Resume file: None
 *Plan 01-02 complete: 2026-03-13*
 *Plan 01-01 complete: 2026-03-13*
 *Plan 01-03 complete: 2026-03-13*
+*Plan 01-04 complete: 2026-03-15 — Phase 1 COMPLETE*
