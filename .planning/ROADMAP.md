@@ -57,10 +57,12 @@ I18N-01, I18N-02, I18N-03, I18N-04, I18N-05, I18N-06, I18N-07, I18N-08, I18N-09,
 6. Build generates all ~10,000 language-variant HTML files and total file count stays under 20,000
 7. A spot-check of 3 languages by a native/tool confirms emergency instructions are correctly translated
 
-**Plans:**
-1. Translation files — en.json as source, hi.json (Hindi), and all 8 regional language JSON files
-2. i18n build integration — extend build.py to render all pages x all languages, URL prefix routing
-3. Script rendering fixes — line-height, lang attributes, ASCII numerals enforcement, font-family
+**Plans:** 4 plans
+Plans:
+- [ ] 02-01-PLAN.md — UI string translations (en.json + 9 languages) and state name translations
+- [ ] 02-02-PLAN.md — Guide and content page translations (9 languages x 10 source files = 90 files)
+- [ ] 02-03-PLAN.md — Build system i18n integration + template updates + script rendering CSS
+- [ ] 02-04-PLAN.md — Validation, Puppeteer i18n tests, and human verification
 
 ---
 
@@ -125,4 +127,5 @@ All 46 unique v1 requirements covered.
 *Roadmap created: 2026-03-12*
 *Plans created: 2026-03-12*
 *Phase 1 complete: 2026-03-15*
+*Phase 2 planned: 2026-03-15*
 *Milestone: v1 -- Public launch*
