@@ -5,18 +5,18 @@
 See: .planning/PROJECT.md (updated 2026-03-12)
 
 **Core value:** Anyone in India can reach critical emergency information within seconds on any connection, in their own language.
-**Current focus:** Phase 1 — Foundation & English Site
+**Current focus:** Phase 2 — Multi-Language (10 Languages)
 
 ---
 
 ## Current Status
 
-**Phase:** 1 of 4 (Foundation & English Site) — COMPLETE
-**Plan:** 04 of 04 complete (All waves complete: Data + Build + Content Pages + Deployment)
-**Status:** Phase 1 complete - Site live at https://safelink-india.pages.dev/
-**Last activity:** 2026-03-15 - Completed 01-04 Deployment, Phase 1 fully done
+**Phase:** 2 of 4 (Multi-Language)
+**Plan:** 01 of 04 complete (Translation data files)
+**Status:** In progress
+**Last activity:** 2026-03-15 - Completed 02-01-PLAN.md (UI string and state name translations)
 
-Progress: `[##########] 100%` (4 of 4 plans complete in Phase 1)
+Progress: `[#############.........] 63%` (5 of 8 plans complete overall)
 
 ---
 
@@ -25,7 +25,7 @@ Progress: `[##########] 100%` (4 of 4 plans complete in Phase 1)
 | Phase | Name | Status | Plans |
 |-------|------|--------|-------|
 | 1 | Foundation & English Site | **COMPLETE** | 4 plans (3 waves) - all done |
-| 2 | Multi-Language (10 Languages) | Pending | Not planned |
+| 2 | Multi-Language (10 Languages) | **In Progress** | 4 plans - 1/4 complete |
 | 3 | Live Alert Banner | Pending | Not planned |
 | 4 | PWA, SEO & Launch Polish | Pending | Not planned |
 
@@ -38,6 +38,15 @@ Progress: `[##########] 100%` (4 of 4 plans complete in Phase 1)
 | 03 | Content Pages | 2 | Complete | 1,058 HTML pages, all validated, 31 Puppeteer tests pass |
 | 04 | Deployment | 3 | **Complete** | Live: https://safelink-india.pages.dev/ (commit: 97ce6d7) |
 
+### Phase 2 Plan Status
+
+| Plan | Name | Wave | Status | Summary |
+|------|------|------|--------|---------|
+| 01 | Translation Data | 1 | **Complete** | 10 UI string files (66 keys each) + 9 state name files (36 states each) |
+| 02 | Build System i18n | 1 | Pending | |
+| 03 | URL Routing | 1 | Pending | |
+| 04 | Language Switcher | 1 | Pending | |
+
 ---
 
 ## Key Files
@@ -49,15 +58,11 @@ Progress: `[##########] 100%` (4 of 4 plans complete in Phase 1)
 | `.planning/ROADMAP.md` | 4-phase plan with success criteria |
 | `.planning/config.json` | Workflow: YOLO, Quick, Parallel, Quality model |
 | `.planning/research/SUMMARY.md` | Research findings summary |
-| `.planning/phases/01-foundation-english-site/01-RESEARCH.md` | Phase 1 research |
-| `.planning/phases/01-foundation-english-site/01-data-pipeline-PLAN.md` | Plan 01: Data files |
 | `.planning/phases/01-foundation-english-site/01-data-pipeline-SUMMARY.md` | Plan 01: COMPLETE |
-| `.planning/phases/01-foundation-english-site/02-build-system-PLAN.md` | Plan 02: Build system |
 | `.planning/phases/01-foundation-english-site/02-build-system-SUMMARY.md` | Plan 02: COMPLETE |
-| `.planning/phases/01-foundation-english-site/03-content-pages-PLAN.md` | Plan 03: Integration + testing |
 | `.planning/phases/01-foundation-english-site/03-content-pages-SUMMARY.md` | Plan 03: COMPLETE |
-| `.planning/phases/01-foundation-english-site/04-deployment-PLAN.md` | Plan 04: CF Pages deploy |
 | `.planning/phases/01-foundation-english-site/04-deployment-SUMMARY.md` | Plan 04: COMPLETE |
+| `.planning/phases/02-multi-language/02-01-SUMMARY.md` | Plan 02-01: COMPLETE |
 | `deploy.sh` | Build + deploy script (python build.py + wrangler pages deploy) |
 | `dist/_headers` | Cloudflare Pages HTTP security and cache headers |
 | `test_pages.js` | Puppeteer test suite (31 tests) |
@@ -67,6 +72,9 @@ Progress: `[##########] 100%` (4 of 4 plans complete in Phase 1)
 | `data/emergency_numbers.json` | National + 36 state emergency numbers |
 | `data/guides/*.json` | 5 disaster safety guides |
 | `data/content/*.json` | 5 content page data files |
+| `data/i18n/en.json` | English source strings (66 keys) |
+| `data/i18n/*.json` | 10 language UI translation files |
+| `data/names_i18n/*.json` | 9 language state name translation files |
 | `build.py` | Static site generator (Jinja2) |
 | `templates/` | 10 Jinja2 templates (7 main + 3 macros) |
 | `requirements.txt` | Python dependencies |
@@ -87,6 +95,9 @@ Progress: `[##########] 100%` (4 of 4 plans complete in Phase 1)
 | DEPLOY-01 | Direct upload (wrangler pages deploy) not Git integration | 01-04 | Decouples deployment from repo, no Cloudflare Git access needed |
 | DEPLOY-02 | CF Pages project name: safelink-india | 01-04 | Pages.dev subdomain matches project name |
 | DEPLOY-03 | Cache-Control max-age=3600 (1 hour) | 01-04 | Balances content freshness vs CDN efficiency |
+| I18N-01 | Used actual state codes from states.json (CT, OR, TG, UT) | 02-01 | Data files are authoritative source of state codes |
+| I18N-02 | 66 flat keys per language file for all template strings | 02-01 | Covers all 10 Jinja2 templates including macros |
+| I18N-03 | State name files include empty districts/cities objects | 02-01 | Ready for future population |
 
 ## Tech Decisions Locked
 
@@ -94,6 +105,7 @@ Progress: `[##########] 100%` (4 of 4 plans complete in Phase 1)
 - **Live alerts:** Cloudflare Worker + KV cache (SACHET + IMD)
 - **PWA:** Vanilla service worker (stale-while-revalidate)
 - **i18n:** URL prefix per language (/hi/, /ta/, etc.), build-time rendering
+- **i18n data:** Flat-key JSON in data/i18n/, place names in data/names_i18n/
 - **Domain:** safelink.serverlord.in
 
 ---
@@ -101,18 +113,17 @@ Progress: `[##########] 100%` (4 of 4 plans complete in Phase 1)
 ## Blockers / Concerns
 
 - System git requires Xcode license acceptance (`sudo xcodebuild -license accept`) - using dulwich or `DEVELOPER_DIR=/Library/Developer/CommandLineTools /usr/bin/git` as workaround
-- Phase 1 complete. No blockers for Phase 2.
 - Custom domain safelink.serverlord.in not yet configured (optional - site live at pages.dev URL)
-- Next action: Phase verification of all Phase 1 must_haves against live site, then plan Phase 2 (Multi-Language)
+- Phase 2 Plan 01 complete. Ready for Plans 02-04 (build integration, URL routing, language switcher)
 
 ---
 
 ## Session Continuity
 
 Last session: 2026-03-15
-Stopped at: Completed 01-04-deployment-PLAN.md — Phase 1 fully complete
+Stopped at: Completed 02-01-PLAN.md (translation data files)
 Resume file: None
-Next: Phase verification then plan Phase 2 (Multi-Language, 10 languages)
+Next: Execute remaining Phase 2 plans (02-02 through 02-04)
 
 ---
 *State initialized: 2026-03-12*
@@ -120,4 +131,5 @@ Next: Phase verification then plan Phase 2 (Multi-Language, 10 languages)
 *Plan 01-02 complete: 2026-03-13*
 *Plan 01-01 complete: 2026-03-13*
 *Plan 01-03 complete: 2026-03-13*
-*Plan 01-04 complete: 2026-03-15 — Phase 1 COMPLETE*
+*Plan 01-04 complete: 2026-03-15 -- Phase 1 COMPLETE*
+*Plan 02-01 complete: 2026-03-15 -- Translation data files*
