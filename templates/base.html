@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{% block title %}SafeLink India{% endblock %} - Emergency Info</title>
-<meta name="description" content="{% block description %}Emergency information for India. Works on 2G.{% endblock %}">
+<title>{% block title %}SafeLink India{% endblock %} - {{ t('page_title_suffix') }}</title>
+<meta name="description" content="{% block description %}{{ t('tagline') }}{% endblock %}">
 </head>
-<body style="font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;font-size:1rem;line-height:1.6;max-width:45em;margin:0 auto;padding:0 0.75rem;color:#212121">
-<a href="#main" style="position:absolute;left:-9999px">Skip to content</a>
+<body style="font-family:{{ lang_css.font_extra }}system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;font-size:1rem;line-height:{{ lang_css.line_height }};max-width:45em;margin:0 auto;padding:0 0.75rem;color:#212121">
+<a href="#main" style="position:absolute;left:-9999px">{{ t('skip_to_content') }}</a>
 <header>
 {% block header %}
-<h1 style="font-size:1.375rem;margin-bottom:0">{% block h1 %}SafeLink India{% endblock %}</h1>
-<p style="margin-top:0"><i><span style="font-size:0.85rem">Emergency info for India &mdash; works on 2G</span></i></p>
+<h1 style="font-size:1.375rem;margin-bottom:0">{% block h1 %}{{ t('site_name') }}{% endblock %}</h1>
+<p style="margin-top:0"><i><span style="font-size:0.85rem">{{ t('tagline') }}</span></i></p>
 {% include "macros/emergency_bar.html" %}
 {% endblock %}
 </header>
@@ -19,9 +19,11 @@
 {% block content %}{% endblock %}
 </main>
 <hr>
-<p style="color:#d32f2f;font-weight:bold;border:1px solid #d32f2f;padding:0.5rem;margin:0.5rem 0;background:#ffebee;text-align:center"><strong>WARNING:</strong> General information only. <a href="/disclaimer/" style="color:#d32f2f">Read disclaimer</a> | Emergency: <a href="tel:112" style="color:#d32f2f">112</a></p>
+<p style="color:#d32f2f;font-weight:bold;border:1px solid #d32f2f;padding:0.5rem;margin:0.5rem 0;background:#ffebee;text-align:center"><strong>{{ t('warning_label') }}</strong> {{ t('warning_text') }} <a href="{{ url('/disclaimer/') }}" style="color:#d32f2f">{{ t('read_disclaimer') }}</a> | {{ t('emergency_label') }}: <a href="tel:112" style="color:#d32f2f">112</a></p>
 <footer>
-<small>{% block footer_extra %}{% endblock %}<a href="/">Home</a> | <a href="/about/">About</a> | <a href="/disclaimer/">Disclaimer</a> | <a href="/firstaid/">First Aid</a> | <a href="/kit/">Emergency Kit</a></small>
+<small>{% block footer_extra %}{% endblock %}<a href="{{ url('/') }}">{{ t('footer_home') }}</a> | <a href="{{ url('/about/') }}">{{ t('footer_about') }}</a> | <a href="{{ url('/disclaimer/') }}">{{ t('footer_disclaimer') }}</a> | <a href="{{ url('/firstaid/') }}">{{ t('footer_firstaid') }}</a> | <a href="{{ url('/kit/') }}">{{ t('footer_kit') }}</a></small>
+<br>
+<small>{{ t('inspired_by') }} <a href="https://safe-now.live/?utm_source=safelink-india&amp;utm_medium=footer&amp;utm_campaign=inspiration" rel="noopener">safe-now.live</a> &mdash; {{ t('built_by') }} <a href="https://serverlord.in/?utm_source=safelink-india&amp;utm_medium=footer&amp;utm_campaign=creator" rel="noopener">ServerLord</a> / <a href="https://atharvakulkarni.link/?utm_source=safelink-india&amp;utm_medium=footer&amp;utm_campaign=creator" rel="noopener">Atharva Kulkarni</a></small>
 </footer>
 {% include "macros/language_switcher.html" %}
 </body>

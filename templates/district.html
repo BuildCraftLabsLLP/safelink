@@ -1,33 +1,33 @@
 {%- extends "base.html" -%}
 {%- from "macros/breadcrumb.html" import breadcrumb -%}
 
-{%- block title %}{{ district.name }} District, {{ state.name }} - Emergency Numbers{% endblock -%}
-{%- block description %}Emergency numbers for {{ district.name }} district in {{ state.name }}, India.{% endblock -%}
-{%- block h1 %}{{ district.name }} District{% endblock -%}
+{%- block title %}{{ district.name }}, {{ state.display_name|default(state.name) }} - {{ t('emergency_numbers') }}{% endblock -%}
+{%- block description %}{{ t('emergency_numbers') }} - {{ district.name }}, {{ state.display_name|default(state.name) }}{% endblock -%}
+{%- block h1 %}{{ district.name }}{% endblock -%}
 
 {% block content %}
-{{ breadcrumb([{"url": "/", "label": "Home"}, {"url": "/state/" ~ state.slug ~ "/", "label": state.name}, {"url": "", "label": district.name}]) }}
+{{ breadcrumb([{"url": url("/"), "label": t('home_breadcrumb')}, {"url": url("/state/" ~ state.slug ~ "/"), "label": state.display_name|default(state.name)}, {"url": "", "label": district.name}]) }}
 
-<h2 style="font-size:1.125rem">Emergency Numbers</h2>
+<h2 style="font-size:1.125rem">{{ t('emergency_numbers') }}</h2>
 <p style="background:#e8f5e9;padding:0.5rem;border:1px solid #2e7d32;margin:0.25rem 0">
-National Emergency: <a href="tel:112"><b>112</b></a><br>
-Police: <a href="tel:100">100</a> | Fire: <a href="tel:101">101</a> | Ambulance: <a href="tel:108">108</a><br>
+{{ t('national_emergency') }} <a href="tel:112"><b>112</b></a><br>
+{{ t('police_label') }}: <a href="tel:100">100</a> | {{ t('fire_label') }}: <a href="tel:101">101</a> | {{ t('ambulance_label') }}: <a href="tel:108">108</a><br>
 {%- if state_numbers.disaster_helpline %}
-Disaster Helpline: <a href="tel:{{ state_numbers.disaster_helpline }}">{{ state_numbers.disaster_helpline }}</a><br>
+{{ t('disaster_helpline') }} <a href="tel:{{ state_numbers.disaster_helpline }}">{{ state_numbers.disaster_helpline }}</a><br>
 {%- endif %}
 {%- if state_numbers.seoc %}
-SEOC: <a href="tel:{{ state_numbers.seoc }}">{{ state_numbers.seoc }}</a>
+{{ t('seoc_label') }} <a href="tel:{{ state_numbers.seoc }}">{{ state_numbers.seoc }}</a>
 {%- endif %}
 </p>
 
-<p><b>District HQ:</b> {{ district.district_hq }}</p>
+<p><b>{{ t('district_hq') }}</b> {{ district.district_hq }}</p>
 
-<p><a href="/state/{{ state.slug }}/">&larr; Back to {{ state.name }}</a></p>
+<p><a href="{{ url('/state/' ~ state.slug ~ '/') }}">{{ t('back_to_state', state=state.display_name|default(state.name)) }}</a></p>
 
-<h2 style="font-size:1.125rem">Resources</h2>
+<h2 style="font-size:1.125rem">{{ t('resources_heading') }}</h2>
 <p>
 <a href="https://ndma.gov.in">NDMA</a> |
 NDRF: <a href="tel:+919711077372">+91-9711077372</a> |
-NDMA Toll-free: <a href="tel:18001100551">1800-11-0551</a>
+{{ t('ndma_toll_free') }} <a href="tel:18001100551">1800-11-0551</a>
 </p>
 {% endblock %}

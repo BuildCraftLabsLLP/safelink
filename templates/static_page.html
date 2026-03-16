@@ -2,11 +2,11 @@
 {%- from "macros/breadcrumb.html" import breadcrumb -%}
 
 {%- block title %}{{ page.title }}{% endblock -%}
-{%- block description %}{{ page.subtitle|default(page.title ~ ' - SafeLink India') }}{% endblock -%}
+{%- block description %}{{ page.subtitle|default(page.title ~ ' - ' ~ t('site_name')) }}{% endblock -%}
 {%- block h1 %}{{ page.title }}{% endblock -%}
 
 {% block content %}
-{{ breadcrumb([{"url": "/", "label": "Home"}, {"url": "", "label": page.title}]) }}
+{{ breadcrumb([{"url": url("/"), "label": t('home_breadcrumb')}, {"url": "", "label": page.title}]) }}
 
 {% if page.subtitle %}
 <p><i>{{ page.subtitle }}</i></p>

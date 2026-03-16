@@ -2,11 +2,11 @@
 {%- from "macros/breadcrumb.html" import breadcrumb -%}
 
 {%- block title %}{{ guide.title }}{% endblock -%}
-{%- block description %}{{ guide.subtitle|default(guide.title ~ '. Actionable disaster safety information for India.') }}{% endblock -%}
+{%- block description %}{{ guide.subtitle|default(guide.title ~ '. ' ~ t('tagline')) }}{% endblock -%}
 {%- block h1 %}{{ guide.title }}{% endblock -%}
 
 {% block content %}
-{{ breadcrumb([{"url": "/", "label": "Home"}, {"url": "", "label": guide.title}]) }}
+{{ breadcrumb([{"url": url("/"), "label": t('home_breadcrumb')}, {"url": "", "label": guide.title}]) }}
 
 {% if guide.subtitle %}
 <p><i>{{ guide.subtitle }}</i></p>
@@ -22,7 +22,7 @@
 {% endfor %}
 
 {% if guide.emergency_actions %}
-<h2 style="font-size:1.125rem">Emergency Actions</h2>
+<h2 style="font-size:1.125rem">{{ t('emergency_actions') }}</h2>
 <p style="background:#ffebee;padding:0.5rem;border:1px solid #d32f2f;margin:0.25rem 0">
 {%- for action in guide.emergency_actions %}
 <b>{{ action }}</b>{% if not loop.last %}<br>{% endif %}
@@ -31,7 +31,7 @@
 {% endif %}
 
 {% if guide.india_specific %}
-<h2 style="font-size:1.125rem">India-Specific Notes</h2>
+<h2 style="font-size:1.125rem">{{ t('india_specific_notes') }}</h2>
 <ul>
 {%- for note in guide.india_specific %}
 <li>{{ note }}</li>
@@ -40,11 +40,11 @@
 {% endif %}
 
 {% if guides %}
-<h2 style="font-size:1.125rem">Other Guides</h2>
+<h2 style="font-size:1.125rem">{{ t('other_guides') }}</h2>
 <p>
 {%- for gtype, g in guides|dictsort %}
 {%- if gtype != guide.type %}
-<a href="/guide/{{ gtype }}/">{{ g.title }}</a>{% if not loop.last %} | {% endif %}
+<a href="{{ url('/guide/' ~ gtype ~ '/') }}">{{ g.title }}</a>{% if not loop.last %} | {% endif %}
 {%- endif %}
 {%- endfor %}
 </p>

@@ -1,73 +1,73 @@
 {%- extends "base.html" -%}
 {%- from "macros/breadcrumb.html" import breadcrumb -%}
 
-{%- block title %}{{ state.name }} Emergency Numbers{% endblock -%}
-{%- block description %}Emergency numbers and disaster safety for {{ state.name }}, India. Police, fire, ambulance, disaster helplines.{% endblock -%}
-{%- block h1 %}{{ state.name }}{% endblock -%}
+{%- block title %}{{ t('state_emergency_numbers', state=state.display_name|default(state.name)) }}{% endblock -%}
+{%- block description %}{{ t('state_emergency_numbers', state=state.display_name|default(state.name)) }}{% endblock -%}
+{%- block h1 %}{{ state.display_name|default(state.name) }}{% endblock -%}
 
 {% block content %}
-{{ breadcrumb([{"url": "/", "label": "Home"}, {"url": "", "label": state.name}]) }}
+{{ breadcrumb([{"url": url("/"), "label": t('home_breadcrumb')}, {"url": "", "label": state.display_name|default(state.name)}]) }}
 
 {% if state_numbers %}
-<h2 style="font-size:1.125rem">{{ state.name }} Emergency Numbers</h2>
+<h2 style="font-size:1.125rem">{{ t('state_emergency_numbers', state=state.display_name|default(state.name)) }}</h2>
 <p style="background:#e8f5e9;padding:0.5rem;border:1px solid #2e7d32;margin:0.25rem 0">
 {%- if state_numbers.disaster_helpline %}
-Disaster Helpline: <a href="tel:{{ state_numbers.disaster_helpline }}"><b>{{ state_numbers.disaster_helpline }}</b></a><br>
+{{ t('disaster_helpline') }} <a href="tel:{{ state_numbers.disaster_helpline }}"><b>{{ state_numbers.disaster_helpline }}</b></a><br>
 {%- endif %}
 {%- if state_numbers.seoc %}
-SEOC: <a href="tel:{{ state_numbers.seoc }}">{{ state_numbers.seoc }}</a><br>
+{{ t('seoc_label') }} <a href="tel:{{ state_numbers.seoc }}">{{ state_numbers.seoc }}</a><br>
 {%- endif %}
 {%- if state_numbers.seoc_mobile %}
-SEOC Mobile: <a href="tel:{{ state_numbers.seoc_mobile }}">{{ state_numbers.seoc_mobile }}</a><br>
+{{ t('seoc_mobile') }} <a href="tel:{{ state_numbers.seoc_mobile }}">{{ state_numbers.seoc_mobile }}</a><br>
 {%- endif %}
 {%- if state_numbers.whatsapp %}
-WhatsApp: {{ state_numbers.whatsapp }}<br>
+{{ t('whatsapp_label') }} {{ state_numbers.whatsapp }}<br>
 {%- endif %}
 {%- if state_numbers.toll_free %}
-Toll-free: <a href="tel:{{ state_numbers.toll_free }}">{{ state_numbers.toll_free }}</a><br>
+{{ t('toll_free') }} <a href="tel:{{ state_numbers.toll_free }}">{{ state_numbers.toll_free }}</a><br>
 {%- endif %}
 {%- if state_numbers.sdrf %}
-SDRF: <a href="tel:{{ state_numbers.sdrf }}">{{ state_numbers.sdrf }}</a><br>
+{{ t('sdrf_label') }} <a href="tel:{{ state_numbers.sdrf }}">{{ state_numbers.sdrf }}</a><br>
 {%- endif %}
 {%- if state_numbers.additional %}
 {%- for extra in state_numbers.additional %}
 {{ extra.label }}: <a href="tel:{{ extra.number }}">{{ extra.number }}</a><br>
 {%- endfor %}
 {%- endif %}
-National Emergency: <a href="tel:112"><b>112</b></a>
+{{ t('national_emergency') }} <a href="tel:112"><b>112</b></a>
 </p>
 {% endif %}
 
-<h2 style="font-size:1.125rem">Quick Reference</h2>
-<p style="background:#fff3e0;padding:0.5rem;border:1px solid #e65100;margin:0.25rem 0"><b>Earthquake:</b> DROP, COVER, HOLD ON<br><b>Cyclone:</b> Move to pucca shelter<br><b>Flood:</b> Do NOT wade through water<br><b>Fire:</b> Get low, get out, call <a href="tel:101">101</a><br><b>Gas leak:</b> Do NOT use electrical switches</p>
+<h2 style="font-size:1.125rem">{{ t('quick_reference') }}</h2>
+<p style="background:#fff3e0;padding:0.5rem;border:1px solid #e65100;margin:0.25rem 0"><b>{{ t('earthquake_drop') }}</b> {{ t('earthquake_action') }}<br><b>{{ t('cyclone_action_brief') }}</b> {{ t('cyclone_shelter') }}<br><b>{{ t('flood_action_brief') }}</b> {{ t('flood_warning') }}<br><b>{{ t('fire_action_brief') }}</b> {{ t('fire_action') }}<br><b>{{ t('gas_leak_brief') }}</b> {{ t('gas_leak_action') }}</p>
 
 {% if districts %}
-<h2 style="font-size:1.125rem">Districts</h2>
+<h2 style="font-size:1.125rem">{{ t('districts_heading') }}</h2>
 <p>
 {%- for d in districts %}
-<a href="/state/{{ state.slug }}/district/{{ d.slug }}/">{{ d.name }}</a>{% if not loop.last %} | {% endif %}
+<a href="{{ url('/state/' ~ state.slug ~ '/district/' ~ d.slug ~ '/') }}">{{ d.name }}</a>{% if not loop.last %} | {% endif %}
 {%- endfor %}
 </p>
 {% endif %}
 
 {% if cities %}
-<h2 style="font-size:1.125rem">Cities</h2>
+<h2 style="font-size:1.125rem">{{ t('cities_heading') }}</h2>
 <p>
 {%- for c in cities %}
-<a href="/state/{{ state.slug }}/city/{{ c.slug }}/">{{ c.name }}</a>{% if not loop.last %} | {% endif %}
+<a href="{{ url('/state/' ~ state.slug ~ '/city/' ~ c.slug ~ '/') }}">{{ c.name }}</a>{% if not loop.last %} | {% endif %}
 {%- endfor %}
 </p>
 {% endif %}
 
-<h2 style="font-size:1.125rem">Resources</h2>
+<h2 style="font-size:1.125rem">{{ t('resources_heading') }}</h2>
 <p>
 {%- if state.sdma_url %}
-<a href="{{ state.sdma_url }}">{{ state.name }} SDMA</a> | {% endif %}
+<a href="{{ state.sdma_url }}">{{ t('sdma_label', state=state.display_name|default(state.name)) }}</a> | {% endif %}
 <a href="https://ndma.gov.in">NDMA</a> |
-<a href="https://pmcares.gov.in/en/">PM CARES</a> |
+<a href="https://pmcares.gov.in/en/">{{ t('pm_cares_fund') }}</a> |
 NDRF: <a href="tel:+919711077372">+91-9711077372</a> |
-<a href="https://sachet.ndma.gov.in">SACHET</a>
+<a href="https://sachet.ndma.gov.in">{{ t('sachet_early_warnings') }}</a>
 </p>
 
-<p style="font-size:0.8rem;color:#616161">Last verified: {{ state.last_verified }}</p>
+<p style="font-size:0.8rem;color:#616161">{{ t('last_verified', date=state.last_verified) }}</p>
 {% endblock %}
