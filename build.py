@@ -3,7 +3,7 @@
 
 Reads JSON data files from data/ and renders Jinja2 templates into
 static HTML pages in dist/. Every generated page must be under 15KB
-to ensure 2G-friendly loading times.
+(English) or 20KB (non-English) to ensure 2G-friendly loading times.
 """
 
 import json
@@ -24,10 +24,33 @@ DATA_DIR = BASE_DIR / "data"
 DIST_DIR = BASE_DIR / "dist"
 TEMPLATES_DIR = BASE_DIR / "templates"
 
-PAGE_FATAL_BYTES = 15_360   # 15 KB - hard limit
+PAGE_FATAL_BYTES = 15_360   # 15 KB - hard limit (English)
 PAGE_WARN_BYTES = 12_288    # 12 KB - warning threshold
+PAGE_FATAL_BYTES_I18N = 20_480  # 20 KB limit for non-English (Indic scripts are larger in UTF-8)
 
-CURRENT_LANG = "en"
+LANGUAGES = ["en", "hi", "ta", "te", "bn", "mr", "kn", "ml", "gu", "pa"]
+
+LANG_CSS = {
+    "en": {"line_height": "1.6", "font_extra": ""},
+    "hi": {"line_height": "1.8", "font_extra": "'Noto Sans Devanagari',"},
+    "ta": {"line_height": "1.8", "font_extra": "'Noto Sans Tamil',"},
+    "te": {"line_height": "1.8", "font_extra": "'Noto Sans Telugu',"},
+    "bn": {"line_height": "1.8", "font_extra": "'Noto Sans Bengali',"},
+    "mr": {"line_height": "1.8", "font_extra": "'Noto Sans Devanagari',"},
+    "kn": {"line_height": "1.8", "font_extra": "'Noto Sans Kannada',"},
+    "ml": {"line_height": "2.0", "font_extra": "'Noto Sans Malayalam',"},
+    "gu": {"line_height": "1.8", "font_extra": "'Noto Sans Gujarati',"},
+    "pa": {"line_height": "1.8", "font_extra": "'Noto Sans Gurmukhi',"},
+}
+
+INDIC_DIGIT_MAP = {}
+for _base in [0x0966, 0x09E6, 0x0A66, 0x0AE6, 0x0B66, 0x0BE6, 0x0C66, 0x0CE6, 0x0D66]:
+    for _i in range(10):
+        INDIC_DIGIT_MAP[chr(_base + _i)] = str(_i)
+
+def ascii_digits(text):
+    """Replace Indic digits with ASCII equivalents."""
+    return ''.join(INDIC_DIGIT_MAP.get(c, c) for c in str(text))
 
 # ---------------------------------------------------------------------------
 # Data loading
@@ -62,6 +85,79 @@ def load_all_data():
         data["content"][cf.stem] = load_json(cf)
 
     return data
+
+
+def load_translations():
+    """Load UI string translations from data/i18n/*.json."""
+    translations = {}
+    i18n_dir = DATA_DIR / "i18n"
+    if i18n_dir.exists():
+        for f in i18n_dir.glob("*.json"):
+            translations[f.stem] = load_json(f)
+    return translations
+
+
+def load_name_translations():
+    """Load place name translations from data/names_i18n/*.json."""
+    names = {}
+    names_dir = DATA_DIR / "names_i18n"
+    if names_dir.exists():
+        for f in names_dir.glob("*.json"):
+            names[f.stem] = load_json(f)
+    return names
+
+
+def load_guide_translations(lang):
+    """Load guide translations for a specific language."""
+    guides = {}
+    guide_dir = DATA_DIR / "guides_i18n" / lang
+    if guide_dir.exists():
+        for f in sorted(guide_dir.glob("*.json")):
+            guides[f.stem] = load_json(f)
+    return guides
+
+
+def load_content_translations(lang):
+    """Load content page translations for a specific language."""
+    content = {}
+    content_dir = DATA_DIR / "content_i18n" / lang
+    if content_dir.exists():
+        for f in sorted(content_dir.glob("*.json")):
+            content[f.stem] = load_json(f)
+    return content
+
+
+def make_translate_func(translations, lang):
+    """Create a t() function that looks up keys in the given language."""
+    en_strings = translations.get("en", {})
+    lang_strings = translations.get(lang, {})
+    def t(key, **kwargs):
+        val = lang_strings.get(key, en_strings.get(key, key))
+        if kwargs:
+            for k, v in kwargs.items():
+                val = val.replace("{" + k + "}", str(v))
+        return val
+    return t
+
+
+def make_url_func(lang):
+    """Create a url() function that prefixes paths with language code."""
+    prefix = f"/{lang}" if lang != "en" else ""
+    def url(path):
+        if path.startswith("http"):
+            return path
+        return f"{prefix}{path}"
+    return url
+
+
+def get_translated_state_name(state, lang, name_translations):
+    """Get translated state name, falling back to English."""
+    if lang == "en":
+        return state["name"]
+    lang_names = name_translations.get(lang, {})
+    state_names = lang_names.get("states", {})
+    return state_names.get(state["code"], state["name"])
+
 
 # ---------------------------------------------------------------------------
 # Data validation
@@ -158,6 +254,7 @@ def create_env():
         trim_blocks=True,
         lstrip_blocks=True,
     )
+    env.filters["ascii_digits"] = ascii_digits
     return env
 
 # ---------------------------------------------------------------------------
@@ -174,7 +271,7 @@ class BuildStats:
         self.fatal = False
 
 
-def write_page(env, stats, output_path, template_name, context):
+def write_page(env, stats, output_path, template_name, context, lang="en"):
     """Render *template_name* with *context* and write to dist/*output_path*.
 
     Returns the byte size of the rendered page.
@@ -191,8 +288,10 @@ def write_page(env, stats, output_path, template_name, context):
     stats.pages += 1
     stats.total_bytes += size
 
-    if size > PAGE_FATAL_BYTES:
-        msg = f"FATAL: {output_path} is {size:,} bytes (limit {PAGE_FATAL_BYTES:,})"
+    fatal_limit = PAGE_FATAL_BYTES if lang == "en" else PAGE_FATAL_BYTES_I18N
+
+    if size > fatal_limit:
+        msg = f"FATAL: {output_path} is {size:,} bytes (limit {fatal_limit:,})"
         print(f"  [FATAL] {msg}")
         stats.warnings.append(msg)
         stats.fatal = True
@@ -204,29 +303,34 @@ def write_page(env, stats, output_path, template_name, context):
     return size
 
 # ---------------------------------------------------------------------------
-# Page builders — one function per page type
+# Page builders -- one function per page type
 # ---------------------------------------------------------------------------
 
-def build_homepage(env, stats, data):
-    """Build dist/index.html."""
-    print("Building homepage...")
+def build_homepage(env, stats, data, lang, prefix, t_func, url_func, lang_data):
+    """Build homepage for a given language."""
     states_sorted = sorted(data["states"], key=lambda s: s["name"])
     national = data["emergency_numbers"].get("national", {})
-    guides = data.get("guides", {})
 
-    write_page(env, stats, "index.html", "home.html", {
+    # Add display_name to each state for templates
+    for s in states_sorted:
+        s["display_name"] = get_translated_state_name(s, lang, lang_data["name_translations"])
+
+    guides = lang_data["guides"] if lang != "en" and lang_data["guides"] else data.get("guides", {})
+
+    write_page(env, stats, f"{prefix}index.html", "home.html", {
         "states": states_sorted,
         "national": national,
         "guides": guides,
         "current_path": "/",
-        "current_lang": CURRENT_LANG,
-    })
+        "current_lang": lang,
+        "t": t_func,
+        "url": url_func,
+        "lang_css": lang_data["lang_css"],
+    }, lang=lang)
 
 
-def build_state_pages(env, stats, data):
-    """Build dist/state/{slug}/index.html for every state."""
-    print("Building state pages...")
-    states_by_code = {s["code"]: s for s in data["states"]}
+def build_state_pages(env, stats, data, lang, prefix, t_func, url_func, lang_data):
+    """Build state pages for a given language."""
     districts_by_state = {}
     cities_by_state = {}
 
@@ -250,21 +354,25 @@ def build_state_pages(env, stats, data):
         )
         state_numbers = state_numbers_all.get(code, {})
 
-        write_page(env, stats, f"state/{slug}/index.html", "state.html", {
-            "state": state,
+        state_display_name = get_translated_state_name(state, lang, lang_data["name_translations"])
+
+        write_page(env, stats, f"{prefix}state/{slug}/index.html", "state.html", {
+            "state": {**state, "display_name": state_display_name},
             "districts": state_districts,
             "cities": state_cities,
             "state_numbers": state_numbers,
             "national": national,
-            "guides": data.get("guides", {}),
+            "guides": lang_data["guides"] if lang != "en" and lang_data["guides"] else data.get("guides", {}),
             "current_path": f"/state/{slug}/",
-            "current_lang": CURRENT_LANG,
-        })
+            "current_lang": lang,
+            "t": t_func,
+            "url": url_func,
+            "lang_css": lang_data["lang_css"],
+        }, lang=lang)
 
 
-def build_district_pages(env, stats, data):
-    """Build dist/state/{state_slug}/district/{district_slug}/index.html."""
-    print("Building district pages...")
+def build_district_pages(env, stats, data, lang, prefix, t_func, url_func, lang_data):
+    """Build district pages for a given language."""
     states_by_code = {s["code"]: s for s in data["states"]}
     national = data["emergency_numbers"].get("national", {})
     state_numbers_all = data["emergency_numbers"].get("states", {})
@@ -277,24 +385,29 @@ def build_district_pages(env, stats, data):
         dist_slug = district["slug"]
         state_numbers = state_numbers_all.get(district["state_code"], {})
 
+        state_display_name = get_translated_state_name(state, lang, lang_data["name_translations"])
+
         write_page(
             env, stats,
-            f"state/{state_slug}/district/{dist_slug}/index.html",
+            f"{prefix}state/{state_slug}/district/{dist_slug}/index.html",
             "district.html",
             {
                 "district": district,
-                "state": state,
+                "state": {**state, "display_name": state_display_name},
                 "state_numbers": state_numbers,
                 "national": national,
                 "current_path": f"/state/{state_slug}/district/{dist_slug}/",
-                "current_lang": CURRENT_LANG,
+                "current_lang": lang,
+                "t": t_func,
+                "url": url_func,
+                "lang_css": lang_data["lang_css"],
             },
+            lang=lang,
         )
 
 
-def build_city_pages(env, stats, data):
-    """Build dist/state/{state_slug}/city/{city_slug}/index.html."""
-    print("Building city pages...")
+def build_city_pages(env, stats, data, lang, prefix, t_func, url_func, lang_data):
+    """Build city pages for a given language."""
     states_by_code = {s["code"]: s for s in data["states"]}
     national = data["emergency_numbers"].get("national", {})
     state_numbers_all = data["emergency_numbers"].get("states", {})
@@ -307,55 +420,66 @@ def build_city_pages(env, stats, data):
         city_slug = city["slug"]
         state_numbers = state_numbers_all.get(city["state_code"], {})
 
+        state_display_name = get_translated_state_name(state, lang, lang_data["name_translations"])
+
         write_page(
             env, stats,
-            f"state/{state_slug}/city/{city_slug}/index.html",
+            f"{prefix}state/{state_slug}/city/{city_slug}/index.html",
             "city.html",
             {
                 "city": city,
-                "state": state,
+                "state": {**state, "display_name": state_display_name},
                 "state_numbers": state_numbers,
                 "national": national,
                 "current_path": f"/state/{state_slug}/city/{city_slug}/",
-                "current_lang": CURRENT_LANG,
+                "current_lang": lang,
+                "t": t_func,
+                "url": url_func,
+                "lang_css": lang_data["lang_css"],
             },
+            lang=lang,
         )
 
 
-def build_guide_pages(env, stats, data):
-    """Build dist/guide/{type}/index.html for every guide."""
-    print("Building guide pages...")
-    guides = data.get("guides", {})
+def build_guide_pages(env, stats, data, lang, prefix, t_func, url_func, lang_data):
+    """Build guide pages for a given language."""
+    guides = lang_data["guides"] if lang != "en" and lang_data["guides"] else data.get("guides", {})
     national = data["emergency_numbers"].get("national", {})
 
     for guide_type, guide in sorted(guides.items()):
-        write_page(env, stats, f"guide/{guide_type}/index.html", "guide.html", {
+        write_page(env, stats, f"{prefix}guide/{guide_type}/index.html", "guide.html", {
             "guide": guide,
             "guides": guides,
             "national": national,
             "current_path": f"/guide/{guide_type}/",
-            "current_lang": CURRENT_LANG,
-        })
+            "current_lang": lang,
+            "t": t_func,
+            "url": url_func,
+            "lang_css": lang_data["lang_css"],
+        }, lang=lang)
 
 
-def build_static_pages(env, stats, data):
-    """Build dist/{page}/index.html for each content page."""
-    print("Building static pages...")
-    content = data.get("content", {})
+def build_static_pages(env, stats, data, lang, prefix, t_func, url_func, lang_data):
+    """Build static content pages for a given language."""
+    content = lang_data["content"] if lang != "en" and lang_data["content"] else data.get("content", {})
     national = data["emergency_numbers"].get("national", {})
 
     for page_name, page_data in sorted(content.items()):
         write_page(
             env, stats,
-            f"{page_name}/index.html",
+            f"{prefix}{page_name}/index.html",
             "static_page.html",
             {
                 "page": page_data,
                 "page_name": page_name,
                 "national": national,
                 "current_path": f"/{page_name}/",
-                "current_lang": CURRENT_LANG,
+                "current_lang": lang,
+                "t": t_func,
+                "url": url_func,
+                "lang_css": lang_data["lang_css"],
             },
+            lang=lang,
         )
 
 # ---------------------------------------------------------------------------
@@ -366,7 +490,7 @@ def build():
     """Run the full build pipeline."""
     start = time.time()
     print("=" * 60)
-    print("SafeLink India — Static Site Build")
+    print("SafeLink India -- Static Site Build")
     print("=" * 60)
 
     # ------------------------------------------------------------------
@@ -401,37 +525,62 @@ def build():
         sys.exit(1)
 
     # ------------------------------------------------------------------
-    # 4. Prepare output directory
+    # 4. Load translations
+    # ------------------------------------------------------------------
+    print("\nLoading translations...")
+    translations = load_translations()
+    name_translations = load_name_translations()
+    print(f"  UI strings: {len(translations)} languages")
+    print(f"  Name translations: {len(name_translations)} languages")
+
+    # ------------------------------------------------------------------
+    # 5. Prepare output directory
     # ------------------------------------------------------------------
     if DIST_DIR.exists():
         shutil.rmtree(DIST_DIR)
     DIST_DIR.mkdir(parents=True)
 
     # ------------------------------------------------------------------
-    # 5. Create Jinja2 environment
+    # 6. Create Jinja2 environment
     # ------------------------------------------------------------------
     env = create_env()
     stats = BuildStats()
 
     # ------------------------------------------------------------------
-    # 6. Build all page types
+    # 7. Build all page types for each language
     # ------------------------------------------------------------------
     print("\nGenerating pages...\n")
 
-    build_homepage(env, stats, data)
-    build_state_pages(env, stats, data)
-    build_district_pages(env, stats, data)
-    build_city_pages(env, stats, data)
-    build_guide_pages(env, stats, data)
-    build_static_pages(env, stats, data)
+    for lang in LANGUAGES:
+        prefix = f"{lang}/" if lang != "en" else ""
+        t_func = make_translate_func(translations, lang)
+        url_func = make_url_func(lang)
+
+        # Load language-specific data
+        lang_data = {
+            "lang_css": LANG_CSS.get(lang, LANG_CSS["en"]),
+            "name_translations": name_translations,
+            "guides": load_guide_translations(lang) if lang != "en" else {},
+            "content": load_content_translations(lang) if lang != "en" else {},
+        }
+
+        print(f"  [{lang.upper()}] Building pages...")
+
+        build_homepage(env, stats, data, lang, prefix, t_func, url_func, lang_data)
+        build_state_pages(env, stats, data, lang, prefix, t_func, url_func, lang_data)
+        build_district_pages(env, stats, data, lang, prefix, t_func, url_func, lang_data)
+        build_city_pages(env, stats, data, lang, prefix, t_func, url_func, lang_data)
+        build_guide_pages(env, stats, data, lang, prefix, t_func, url_func, lang_data)
+        build_static_pages(env, stats, data, lang, prefix, t_func, url_func, lang_data)
 
     # ------------------------------------------------------------------
-    # 7. Build summary
+    # 8. Build summary
     # ------------------------------------------------------------------
     elapsed = time.time() - start
     print("\n" + "=" * 60)
     print("BUILD SUMMARY")
     print("=" * 60)
+    print(f"  Languages       : {len(LANGUAGES)} ({', '.join(LANGUAGES)})")
     print(f"  Pages generated : {stats.pages:,}")
     print(f"  Total size      : {stats.total_bytes:,} bytes ({stats.total_bytes / 1024:.1f} KB)")
     if stats.pages > 0:
@@ -444,7 +593,7 @@ def build():
             print(f"    - {w}")
 
     if stats.fatal:
-        print("\nFATAL: One or more pages exceeded the 15KB limit.")
+        print("\nFATAL: One or more pages exceeded the size limit.")
         print("Fix templates to reduce page size before deploying.")
         sys.exit(1)
 
