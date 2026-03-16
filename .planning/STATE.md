@@ -12,11 +12,11 @@ See: .planning/PROJECT.md (updated 2026-03-12)
 ## Current Status
 
 **Phase:** 2 of 4 (Multi-Language)
-**Plan:** 01 of 04 complete (Translation data files)
+**Plan:** 02 of 04 complete (Guide and content page translations)
 **Status:** In progress
-**Last activity:** 2026-03-15 - Completed 02-01-PLAN.md (UI string and state name translations)
+**Last activity:** 2026-03-16 - Completed 02-02-PLAN.md (Guide and content page translations)
 
-Progress: `[#############.........] 63%` (5 of 8 plans complete overall)
+Progress: `[###############.......] 75%` (6 of 8 plans complete overall)
 
 ---
 
@@ -25,7 +25,7 @@ Progress: `[#############.........] 63%` (5 of 8 plans complete overall)
 | Phase | Name | Status | Plans |
 |-------|------|--------|-------|
 | 1 | Foundation & English Site | **COMPLETE** | 4 plans (3 waves) - all done |
-| 2 | Multi-Language (10 Languages) | **In Progress** | 4 plans - 1/4 complete |
+| 2 | Multi-Language (10 Languages) | **In Progress** | 4 plans - 2/4 complete |
 | 3 | Live Alert Banner | Pending | Not planned |
 | 4 | PWA, SEO & Launch Polish | Pending | Not planned |
 
@@ -43,7 +43,7 @@ Progress: `[#############.........] 63%` (5 of 8 plans complete overall)
 | Plan | Name | Wave | Status | Summary |
 |------|------|------|--------|---------|
 | 01 | Translation Data | 1 | **Complete** | 10 UI string files (66 keys each) + 9 state name files (36 states each) |
-| 02 | Build System i18n | 1 | Pending | |
+| 02 | Guide & Content Translations | 1 | **Complete** | 90 files: 45 guide + 45 content translations for 9 languages |
 | 03 | URL Routing | 1 | Pending | |
 | 04 | Language Switcher | 1 | Pending | |
 
@@ -63,6 +63,7 @@ Progress: `[#############.........] 63%` (5 of 8 plans complete overall)
 | `.planning/phases/01-foundation-english-site/03-content-pages-SUMMARY.md` | Plan 03: COMPLETE |
 | `.planning/phases/01-foundation-english-site/04-deployment-SUMMARY.md` | Plan 04: COMPLETE |
 | `.planning/phases/02-multi-language/02-01-SUMMARY.md` | Plan 02-01: COMPLETE |
+| `.planning/phases/02-multi-language/02-02-SUMMARY.md` | Plan 02-02: COMPLETE |
 | `deploy.sh` | Build + deploy script (python build.py + wrangler pages deploy) |
 | `dist/_headers` | Cloudflare Pages HTTP security and cache headers |
 | `test_pages.js` | Puppeteer test suite (31 tests) |
@@ -75,6 +76,8 @@ Progress: `[#############.........] 63%` (5 of 8 plans complete overall)
 | `data/i18n/en.json` | English source strings (66 keys) |
 | `data/i18n/*.json` | 10 language UI translation files |
 | `data/names_i18n/*.json` | 9 language state name translation files |
+| `data/guides_i18n/{lang}/*.json` | 45 guide translation files (9 langs x 5 guides) |
+| `data/content_i18n/{lang}/*.json` | 45 content page translation files (9 langs x 5 pages) |
 | `build.py` | Static site generator (Jinja2) |
 | `templates/` | 10 Jinja2 templates (7 main + 3 macros) |
 | `requirements.txt` | Python dependencies |
@@ -114,16 +117,16 @@ Progress: `[#############.........] 63%` (5 of 8 plans complete overall)
 
 - System git requires Xcode license acceptance (`sudo xcodebuild -license accept`) - using dulwich or `DEVELOPER_DIR=/Library/Developer/CommandLineTools /usr/bin/git` as workaround
 - Custom domain safelink.serverlord.in not yet configured (optional - site live at pages.dev URL)
-- Phase 2 Plan 01 complete. Ready for Plans 02-04 (build integration, URL routing, language switcher)
+- Phase 2 Plans 01-02 complete. Ready for Plans 03-04 (URL routing, language switcher)
 
 ---
 
 ## Session Continuity
 
-Last session: 2026-03-15
-Stopped at: Completed 02-01-PLAN.md (translation data files)
+Last session: 2026-03-16
+Stopped at: Completed 02-02-PLAN.md (guide and content page translations)
 Resume file: None
-Next: Execute remaining Phase 2 plans (02-02 through 02-04)
+Next: Execute remaining Phase 2 plans (02-03 through 02-04)
 
 ---
 *State initialized: 2026-03-12*
@@ -133,3 +136,4 @@ Next: Execute remaining Phase 2 plans (02-02 through 02-04)
 *Plan 01-03 complete: 2026-03-13*
 *Plan 01-04 complete: 2026-03-15 -- Phase 1 COMPLETE*
 *Plan 02-01 complete: 2026-03-15 -- Translation data files*
+*Plan 02-02 complete: 2026-03-16 -- Guide and content page translations*
