@@ -12,11 +12,11 @@ See: .planning/PROJECT.md (updated 2026-03-12)
 ## Current Status
 
 **Phase:** 2 of 4 (Multi-Language)
-**Plan:** 02 of 04 complete (Guide and content page translations)
+**Plan:** 03 of 04 complete (Build system i18n integration)
 **Status:** In progress
-**Last activity:** 2026-03-16 - Completed 02-02-PLAN.md (Guide and content page translations)
+**Last activity:** 2026-03-16 - Completed 02-03-PLAN.md (Build system i18n integration)
 
-Progress: `[###############.......] 75%` (6 of 8 plans complete overall)
+Progress: `[##################....] 88%` (7 of 8 plans complete overall)
 
 ---
 
@@ -25,7 +25,7 @@ Progress: `[###############.......] 75%` (6 of 8 plans complete overall)
 | Phase | Name | Status | Plans |
 |-------|------|--------|-------|
 | 1 | Foundation & English Site | **COMPLETE** | 4 plans (3 waves) - all done |
-| 2 | Multi-Language (10 Languages) | **In Progress** | 4 plans - 2/4 complete |
+| 2 | Multi-Language (10 Languages) | **In Progress** | 4 plans - 3/4 complete |
 | 3 | Live Alert Banner | Pending | Not planned |
 | 4 | PWA, SEO & Launch Polish | Pending | Not planned |
 
@@ -44,7 +44,7 @@ Progress: `[###############.......] 75%` (6 of 8 plans complete overall)
 |------|------|------|--------|---------|
 | 01 | Translation Data | 1 | **Complete** | 10 UI string files (66 keys each) + 9 state name files (36 states each) |
 | 02 | Guide & Content Translations | 1 | **Complete** | 90 files: 45 guide + 45 content translations for 9 languages |
-| 03 | URL Routing | 1 | Pending | |
+| 03 | Build System i18n | 1 | **Complete** | 10,580 pages across 10 languages, t()/url() in all templates, per-language CSS |
 | 04 | Language Switcher | 1 | Pending | |
 
 ---
@@ -64,6 +64,7 @@ Progress: `[###############.......] 75%` (6 of 8 plans complete overall)
 | `.planning/phases/01-foundation-english-site/04-deployment-SUMMARY.md` | Plan 04: COMPLETE |
 | `.planning/phases/02-multi-language/02-01-SUMMARY.md` | Plan 02-01: COMPLETE |
 | `.planning/phases/02-multi-language/02-02-SUMMARY.md` | Plan 02-02: COMPLETE |
+| `.planning/phases/02-multi-language/02-03-SUMMARY.md` | Plan 02-03: COMPLETE |
 | `deploy.sh` | Build + deploy script (python build.py + wrangler pages deploy) |
 | `dist/_headers` | Cloudflare Pages HTTP security and cache headers |
 | `test_pages.js` | Puppeteer test suite (31 tests) |
@@ -78,8 +79,8 @@ Progress: `[###############.......] 75%` (6 of 8 plans complete overall)
 | `data/names_i18n/*.json` | 9 language state name translation files |
 | `data/guides_i18n/{lang}/*.json` | 45 guide translation files (9 langs x 5 guides) |
 | `data/content_i18n/{lang}/*.json` | 45 content page translation files (9 langs x 5 pages) |
-| `build.py` | Static site generator (Jinja2) |
-| `templates/` | 10 Jinja2 templates (7 main + 3 macros) |
+| `build.py` | Static site generator (Jinja2) - now builds 10 languages |
+| `templates/` | 10 Jinja2 templates (7 main + 3 macros) - i18n-enabled with t()/url() |
 | `requirements.txt` | Python dependencies |
 
 ---
@@ -101,6 +102,9 @@ Progress: `[###############.......] 75%` (6 of 8 plans complete overall)
 | I18N-01 | Used actual state codes from states.json (CT, OR, TG, UT) | 02-01 | Data files are authoritative source of state codes |
 | I18N-02 | 66 flat keys per language file for all template strings | 02-01 | Covers all 10 Jinja2 templates including macros |
 | I18N-03 | State name files include empty districts/cities objects | 02-01 | Ready for future population |
+| I18N-04 | 20KB fatal limit for non-English pages | 02-03 | Indic UTF-8 text is ~3x larger than English; 15KB too tight |
+| I18N-05 | Compact language labels (EN/HI/TA) not full names | 02-03 | Saves bytes, reduces page width, better for mobile |
+| I18N-06 | English pages have no URL prefix, others get /hi/, /ta/, etc. | 02-03 | English is default/canonical |
 
 ## Tech Decisions Locked
 
@@ -117,16 +121,16 @@ Progress: `[###############.......] 75%` (6 of 8 plans complete overall)
 
 - System git requires Xcode license acceptance (`sudo xcodebuild -license accept`) - using dulwich or `DEVELOPER_DIR=/Library/Developer/CommandLineTools /usr/bin/git` as workaround
 - Custom domain safelink.serverlord.in not yet configured (optional - site live at pages.dev URL)
-- Phase 2 Plans 01-02 complete. Ready for Plans 03-04 (URL routing, language switcher)
+- Phase 2 Plans 01-03 complete. Ready for Plan 04 (final testing/deployment)
 
 ---
 
 ## Session Continuity
 
 Last session: 2026-03-16
-Stopped at: Completed 02-02-PLAN.md (guide and content page translations)
+Stopped at: Completed 02-03-PLAN.md (build system i18n integration)
 Resume file: None
-Next: Execute remaining Phase 2 plans (02-03 through 02-04)
+Next: Execute Plan 02-04 (final Phase 2 plan)
 
 ---
 *State initialized: 2026-03-12*
@@ -137,3 +141,4 @@ Next: Execute remaining Phase 2 plans (02-03 through 02-04)
 *Plan 01-04 complete: 2026-03-15 -- Phase 1 COMPLETE*
 *Plan 02-01 complete: 2026-03-15 -- Translation data files*
 *Plan 02-02 complete: 2026-03-16 -- Guide and content page translations*
+*Plan 02-03 complete: 2026-03-16 -- Build system i18n integration (10,580 pages)*
