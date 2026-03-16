@@ -7,7 +7,7 @@
 
 const puppeteer = require('puppeteer');
 
-const BASE_URL = 'http://localhost:8080';
+const BASE_URL = process.argv[2] || 'http://localhost:8080';
 
 (async () => {
   const browser = await puppeteer.launch({
@@ -23,6 +23,10 @@ const BASE_URL = 'http://localhost:8080';
   }
   function fail(msg) {
     failures.push(msg);
+  }
+  function assert(cond, msg) {
+    if (cond) pass(msg);
+    else fail(msg);
   }
 
   // -----------------------------------------------------------------------
@@ -53,9 +57,9 @@ const BASE_URL = 'http://localhost:8080';
   if (stateLinks.length >= 36) pass(`Homepage has ${stateLinks.length} state links`);
   else fail(`Homepage has ${stateLinks.length} state links, expected 36+`);
 
-  // NAV-06: Language switcher
-  const langSwitcher = await page.evaluate(() => document.body.textContent.includes('Hindi'));
-  if (langSwitcher) pass('Homepage has language switcher (Hindi)');
+  // NAV-06: Language switcher (compact labels: EN, HI, TA, etc.)
+  const langSwitcher = await page.evaluate(() => document.body.textContent.includes('HI'));
+  if (langSwitcher) pass('Homepage has language switcher (HI)');
   else fail('Homepage missing language switcher');
 
   // A11Y-01: Skip-to-content
@@ -118,7 +122,7 @@ const BASE_URL = 'http://localhost:8080';
   if (stateQuickRef) pass('State page has quick-reference box');
   else fail('State page missing quick-reference box');
 
-  const stateLang = await page.evaluate(() => document.body.textContent.includes('Hindi'));
+  const stateLang = await page.evaluate(() => document.body.textContent.includes('HI'));
   if (stateLang) pass('State page has language switcher');
   else fail('State page missing language switcher');
 
@@ -224,6 +228,82 @@ const BASE_URL = 'http://localhost:8080';
   const cityContent = await page.evaluate(() => document.body.textContent);
   if (cityContent.includes('Delhi')) pass('City page (New Delhi) has content');
   else fail('City page (New Delhi) missing content');
+
+  // -----------------------------------------------------------------------
+  // I18N Tests (Phase 2)
+  // -----------------------------------------------------------------------
+  console.log('Testing i18n pages...');
+
+  // I18N-02: Hindi homepage
+  await page.goto(`${BASE_URL}/hi/`, { waitUntil: 'domcontentloaded' });
+  let hiLang = await page.$eval('html', el => el.getAttribute('lang'));
+  assert(hiLang === 'hi', `Hindi page lang="${hiLang}" (expected "hi")`);
+  let hiContent = await page.content();
+  assert(/[\u0900-\u097F]/.test(hiContent), 'Hindi homepage missing Devanagari text');
+  // I18N-11: ASCII digits on Hindi page
+  let hi112 = await page.$eval('a[href="tel:112"]', el => el.textContent.trim()).catch(() => '');
+  assert(/^\d+$/.test(hi112), `Hindi 112 link not ASCII: "${hi112}"`);
+  console.log('  Hindi homepage: lang, Devanagari, ASCII digits ✓');
+
+  // I18N-03: Tamil Nadu in Tamil
+  await page.goto(`${BASE_URL}/ta/state/tamil-nadu/`, { waitUntil: 'domcontentloaded' });
+  let taLang = await page.$eval('html', el => el.getAttribute('lang'));
+  assert(taLang === 'ta', `Tamil page lang="${taLang}" (expected "ta")`);
+  let taContent = await page.content();
+  assert(/[\u0B80-\u0BFF]/.test(taContent), 'Tamil Nadu page missing Tamil script');
+  assert(taContent.includes('line-height:1.8'), 'Tamil page line-height not 1.8');
+  console.log('  Tamil Nadu page: lang, Tamil script, line-height ✓');
+
+  // I18N-04..10: Each remaining language homepage
+  const langChecks = [
+    { code: 'te', name: 'Telugu', re: /[\u0C00-\u0C7F]/ },
+    { code: 'bn', name: 'Bengali', re: /[\u0980-\u09FF]/ },
+    { code: 'mr', name: 'Marathi', re: /[\u0900-\u097F]/ },
+    { code: 'kn', name: 'Kannada', re: /[\u0C80-\u0CFF]/ },
+    { code: 'ml', name: 'Malayalam', re: /[\u0D00-\u0D7F]/ },
+    { code: 'gu', name: 'Gujarati', re: /[\u0A80-\u0AFF]/ },
+    { code: 'pa', name: 'Punjabi', re: /[\u0A00-\u0A7F]/ },
+  ];
+  for (const lc of langChecks) {
+    const r = await page.goto(`${BASE_URL}/${lc.code}/`, { waitUntil: 'domcontentloaded' });
+    assert(r.status() === 200, `${lc.name} homepage status ${r.status()}`);
+    const lAttr = await page.$eval('html', el => el.getAttribute('lang'));
+    assert(lAttr === lc.code, `${lc.name} lang="${lAttr}" (expected "${lc.code}")`);
+    const lContent = await page.content();
+    assert(lc.re.test(lContent), `${lc.name} homepage missing ${lc.name} script`);
+    console.log(`  ${lc.name} homepage: lang, script ✓`);
+  }
+
+  // I18N-12: lang attribute on non-homepage
+  await page.goto(`${BASE_URL}/hi/state/maharashtra/`, { waitUntil: 'domcontentloaded' });
+  let hiStateLang = await page.$eval('html', el => el.getAttribute('lang'));
+  assert(hiStateLang === 'hi', `Hindi Maharashtra page lang="${hiStateLang}"`);
+  console.log('  Hindi Maharashtra state page: lang ✓');
+
+  // Language switcher: same-page navigation
+  await page.goto(`${BASE_URL}/state/maharashtra/`, { waitUntil: 'domcontentloaded' });
+  const enContent = await page.content();
+  assert(enContent.includes('href="/hi/state/maharashtra/"'), 'Switcher missing Hindi link for Maharashtra');
+  assert(!enContent.match(/href="\/en\//), 'Switcher has /en/ prefix (should not exist)');
+  console.log('  Language switcher: Hindi link, no /en/ prefix ✓');
+
+  // Active language highlighted
+  await page.goto(`${BASE_URL}/hi/`, { waitUntil: 'domcontentloaded' });
+  const hiPageContent = await page.content();
+  assert(hiPageContent.includes('<b ') && hiPageContent.includes('>HI<'), 'Hindi active lang not highlighted');
+  console.log('  Language switcher active lang (HI) highlighted ✓');
+
+  // Guide translation
+  await page.goto(`${BASE_URL}/hi/guide/cyclone/`, { waitUntil: 'domcontentloaded' });
+  const hiGuide = await page.content();
+  assert(/[\u0900-\u097F]/.test(hiGuide), 'Hindi cyclone guide missing Devanagari');
+  console.log('  Hindi cyclone guide: translated content ✓');
+
+  // Malayalam line-height 2.0
+  await page.goto(`${BASE_URL}/ml/`, { waitUntil: 'domcontentloaded' });
+  const mlContent = await page.content();
+  assert(mlContent.includes('line-height:2.0'), 'Malayalam page line-height not 2.0');
+  console.log('  Malayalam line-height 2.0 ✓');
 
   await browser.close();
 
