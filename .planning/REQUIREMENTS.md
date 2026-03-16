@@ -45,18 +45,18 @@
 
 ### Internationalisation
 
-- [ ] **I18N-01**: All page content available in English (default, no URL prefix)
-- [ ] **I18N-02**: All page content available in Hindi (/hi/ URL prefix)
-- [ ] **I18N-03**: All page content available in Tamil (/ta/)
-- [ ] **I18N-04**: All page content available in Telugu (/te/)
-- [ ] **I18N-05**: All page content available in Bengali (/bn/)
-- [ ] **I18N-06**: All page content available in Marathi (/mr/)
-- [ ] **I18N-07**: All page content available in Kannada (/kn/)
-- [ ] **I18N-08**: All page content available in Malayalam (/ml/)
-- [ ] **I18N-09**: All page content available in Gujarati (/gu/)
-- [ ] **I18N-10**: All page content available in Punjabi (/pa/)
-- [ ] **I18N-11**: Phone numbers always rendered in ASCII digits regardless of page language
-- [ ] **I18N-12**: Correct `lang` attribute set on `<html>` for each language page (critical for screen readers + browser rendering)
+- [x] **I18N-01**: All page content available in English (default, no URL prefix)
+- [x] **I18N-02**: All page content available in Hindi (/hi/ URL prefix)
+- [x] **I18N-03**: All page content available in Tamil (/ta/)
+- [x] **I18N-04**: All page content available in Telugu (/te/)
+- [x] **I18N-05**: All page content available in Bengali (/bn/)
+- [x] **I18N-06**: All page content available in Marathi (/mr/)
+- [x] **I18N-07**: All page content available in Kannada (/kn/)
+- [x] **I18N-08**: All page content available in Malayalam (/ml/)
+- [x] **I18N-09**: All page content available in Gujarati (/gu/)
+- [x] **I18N-10**: All page content available in Punjabi (/pa/)
+- [x] **I18N-11**: Phone numbers always rendered in ASCII digits regardless of page language
+- [x] **I18N-12**: Correct `lang` attribute set on `<html>` for each language page (critical for screen readers + browser rendering)
 
 ### Performance & Technical
 
@@ -138,7 +138,7 @@
 | PERF-01 to PERF-03 | Phase 1 | Complete ✓ |
 | TECH-01, TECH-02, TECH-04, TECH-05 | Phase 1 | Complete ✓ |
 | A11Y-01 to A11Y-02 | Phase 1 | Complete ✓ |
-| I18N-01 to I18N-12 | Phase 2 | Pending |
+| I18N-01 to I18N-12 | Phase 2 | Complete ✓ |
 | ALERT-01 to ALERT-04 | Phase 3 | Pending |
 | TECH-03 | Phase 3 | Pending |
 | PWA-01 to PWA-05 | Phase 4 | Pending |

@@ -57,12 +57,16 @@ I18N-01, I18N-02, I18N-03, I18N-04, I18N-05, I18N-06, I18N-07, I18N-08, I18N-09,
 6. Build generates all ~10,000 language-variant HTML files and total file count stays under 20,000
 7. A spot-check of 3 languages by a native/tool confirms emergency instructions are correctly translated
 
+**Status:** Complete ✓
+**Completed:** 2026-03-17
+**Pages:** 10,580 (1,058 × 10 languages)
+
 **Plans:** 4 plans
 Plans:
-- [ ] 02-01-PLAN.md — UI string translations (en.json + 9 languages) and state name translations
-- [ ] 02-02-PLAN.md — Guide and content page translations (9 languages x 10 source files = 90 files)
-- [ ] 02-03-PLAN.md — Build system i18n integration + template updates + script rendering CSS
-- [ ] 02-04-PLAN.md — Validation, Puppeteer i18n tests, and human verification
+- [x] 02-01-PLAN.md — UI string translations (en.json + 9 languages) and state name translations
+- [x] 02-02-PLAN.md — Guide and content page translations (9 languages x 10 source files = 90 files)
+- [x] 02-03-PLAN.md — Build system i18n integration + template updates + script rendering CSS
+- [x] 02-04-PLAN.md — Validation, Puppeteer i18n tests, and human verification
 
 ---
 
@@ -128,4 +132,5 @@ All 46 unique v1 requirements covered.
 *Plans created: 2026-03-12*
 *Phase 1 complete: 2026-03-15*
 *Phase 2 planned: 2026-03-15*
+*Phase 2 complete: 2026-03-17*
 *Milestone: v1 -- Public launch*
