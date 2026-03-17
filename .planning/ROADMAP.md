@@ -28,7 +28,7 @@ A11Y-01, A11Y-02
 6. Every page is under 15KB (verified by build script check)
 7. Language switcher links render on every page (even though non-English pages don't exist yet)
 
-**Status:** Complete ✓
+**Status:** Complete
 **Completed:** 2026-03-15
 **Deployment:** https://safelink-india.pages.dev/
 
@@ -57,9 +57,9 @@ I18N-01, I18N-02, I18N-03, I18N-04, I18N-05, I18N-06, I18N-07, I18N-08, I18N-09,
 6. Build generates all ~10,000 language-variant HTML files and total file count stays under 20,000
 7. A spot-check of 3 languages by a native/tool confirms emergency instructions are correctly translated
 
-**Status:** Complete ✓
+**Status:** Complete
 **Completed:** 2026-03-17
-**Pages:** 10,580 (1,058 × 10 languages)
+**Pages:** 10,580 (1,058 x 10 languages)
 
 **Plans:** 4 plans
 Plans:
@@ -85,9 +85,10 @@ ALERT-01, ALERT-02, ALERT-03, ALERT-04, TECH-03
 5. Alert timestamp shows "Alerts as of: [time]" with the correct cache time
 6. Worker KV cache is populated — second request returns cached response (verify via cache-hit header)
 
-**Plans:**
-1. Cloudflare Worker — fetch SACHET CAP/RSS + IMD API, normalize to common schema, KV caching
-2. Alert banner UI — minimal JS snippet on state/home pages to fetch /api/alerts and render banner
+**Plans:** 2 plans
+Plans:
+- [ ] 03-01-PLAN.md — Cloudflare Pages Function: SACHET RSS fetch, XML parsing, state filtering, KV caching, /api/alerts endpoint
+- [ ] 03-02-PLAN.md — Alert banner UI: build.py data-state attribute, inline JS snippet, Puppeteer tests, visual verification
 
 ---
 
@@ -133,4 +134,5 @@ All 46 unique v1 requirements covered.
 *Phase 1 complete: 2026-03-15*
 *Phase 2 planned: 2026-03-15*
 *Phase 2 complete: 2026-03-17*
+*Phase 3 planned: 2026-03-17*
 *Milestone: v1 -- Public launch*
