@@ -1,0 +1,7 @@
+name = "safelink-india"
+pages_build_output_dir = "./dist"
+compatibility_date = "2025-01-01"
+
+[[kv_namespaces]]
+binding = "ALERTS_KV"
+id = "PLACEHOLDER_NAMESPACE_ID"

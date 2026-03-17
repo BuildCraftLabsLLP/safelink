@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "puppeteer": "^24.39.0"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^5.5.6"
   }
 }
