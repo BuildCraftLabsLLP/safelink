@@ -305,6 +305,62 @@ const BASE_URL = process.argv[2] || 'http://localhost:8080';
   assert(mlContent.includes('line-height:2.0'), 'Malayalam page line-height not 2.0');
   console.log('  Malayalam line-height 2.0 ✓');
 
+  // -----------------------------------------------------------------------
+  // ALERT-01..04: Alert Banner (data-state attribute + inline script)
+  // -----------------------------------------------------------------------
+  console.log('\n--- Alert Banner Tests ---');
+
+  // data-state="MH" on Maharashtra state page
+  await page.goto(`${BASE_URL}/state/maharashtra/`, { waitUntil: 'domcontentloaded' });
+  const mhStateAttr = await page.$eval('body', el => el.getAttribute('data-state'));
+  assert(mhStateAttr === 'MH', `Maharashtra state page data-state="${mhStateAttr}" (expected "MH")`);
+  console.log('  Maharashtra state page data-state="MH" ✓');
+
+  // data-state="MH" on a Maharashtra district page
+  await page.goto(`${BASE_URL}/state/maharashtra/district/solapur/`, { waitUntil: 'domcontentloaded' });
+  const mhDistAttr = await page.$eval('body', el => el.getAttribute('data-state'));
+  assert(mhDistAttr === 'MH', `Maharashtra district page data-state="${mhDistAttr}" (expected "MH")`);
+  console.log('  Maharashtra district page data-state="MH" ✓');
+
+  // data-state="" on homepage
+  await page.goto(`${BASE_URL}/`, { waitUntil: 'domcontentloaded' });
+  const homeAttr = await page.$eval('body', el => el.getAttribute('data-state'));
+  assert(homeAttr === '', `Homepage data-state="${homeAttr}" (expected "")`);
+  console.log('  Homepage data-state="" ✓');
+
+  // data-state="" on guide page
+  await page.goto(`${BASE_URL}/guide/cyclone/`, { waitUntil: 'domcontentloaded' });
+  const guideAttr = await page.$eval('body', el => el.getAttribute('data-state'));
+  assert(guideAttr === '', `Cyclone guide data-state="${guideAttr}" (expected "")`);
+  console.log('  Cyclone guide page data-state="" ✓');
+
+  // Alert script present on English homepage
+  await page.goto(`${BASE_URL}/`, { waitUntil: 'domcontentloaded' });
+  const homeContent = await page.content();
+  assert(homeContent.includes('/api/alerts'), 'English homepage missing /api/alerts script');
+  console.log('  English homepage has /api/alerts script ✓');
+
+  // Alert script present on Hindi homepage
+  await page.goto(`${BASE_URL}/hi/`, { waitUntil: 'domcontentloaded' });
+  const hiHomeContent = await page.content();
+  assert(hiHomeContent.includes('/api/alerts'), 'Hindi homepage missing /api/alerts script');
+  console.log('  Hindi homepage has /api/alerts script ✓');
+
+  // No banner rendered when no alerts (fetch fails on static file server)
+  // When loaded via http server without the Worker, fetch to /api/alerts returns 404
+  // The script should fail silently and not render any banner
+  await page.goto(`${BASE_URL}/state/maharashtra/`, { waitUntil: 'domcontentloaded' });
+  await new Promise(r => setTimeout(r, 1000)); // wait for fetch to fail
+  const bannerExists = await page.evaluate(() => {
+    const divs = document.querySelectorAll('div');
+    for (const d of divs) {
+      if (d.style && d.style.cssText && d.style.cssText.includes('b71c1c')) return true;
+    }
+    return false;
+  });
+  assert(!bannerExists, 'Alert banner rendered when no alerts should be shown (fetch to static server failed)');
+  console.log('  No banner when API unavailable (fails silently) ✓');
+
   await browser.close();
 
   // -----------------------------------------------------------------------
