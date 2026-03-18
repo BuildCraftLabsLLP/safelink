@@ -85,10 +85,13 @@ ALERT-01, ALERT-02, ALERT-03, ALERT-04, TECH-03
 5. Alert timestamp shows "Alerts as of: [time]" with the correct cache time
 6. Worker KV cache is populated — second request returns cached response (verify via cache-hit header)
 
+**Status:** Complete ✓
+**Completed:** 2026-03-19
+
 **Plans:** 2 plans
 Plans:
-- [ ] 03-01-PLAN.md — Cloudflare Pages Function: SACHET RSS fetch, XML parsing, state filtering, KV caching, /api/alerts endpoint
-- [ ] 03-02-PLAN.md — Alert banner UI: build.py data-state attribute, inline JS snippet, Puppeteer tests, visual verification
+- [x] 03-01-PLAN.md — Cloudflare Pages Function: SACHET RSS fetch, XML parsing, state filtering, KV caching, /api/alerts endpoint
+- [x] 03-02-PLAN.md — Alert banner UI: build.py data-state attribute, inline JS snippet, Puppeteer tests, visual verification
 
 ---
 
@@ -135,4 +138,5 @@ All 46 unique v1 requirements covered.
 *Phase 2 planned: 2026-03-15*
 *Phase 2 complete: 2026-03-17*
 *Phase 3 planned: 2026-03-17*
+*Phase 3 complete: 2026-03-19*
 *Milestone: v1 -- Public launch*
