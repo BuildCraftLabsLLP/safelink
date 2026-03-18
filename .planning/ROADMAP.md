@@ -85,7 +85,7 @@ ALERT-01, ALERT-02, ALERT-03, ALERT-04, TECH-03
 5. Alert timestamp shows "Alerts as of: [time]" with the correct cache time
 6. Worker KV cache is populated — second request returns cached response (verify via cache-hit header)
 
-**Status:** Complete ✓
+**Status:** Complete
 **Completed:** 2026-03-19
 
 **Plans:** 2 plans
@@ -112,10 +112,12 @@ SEO-01, SEO-02, SEO-03
 6. Lighthouse PWA score >= 90 on homepage
 7. Page load on simulated 2G (Lighthouse throttling) under 3 seconds for homepage
 
-**Plans:**
-1. PWA — manifest.json, sw.js (stale-while-revalidate for HTML, network-first for alerts, offline indicator)
-2. SEO — hreflang tags in build pipeline, sitemap.xml generation, geo.region meta tags
-3. Launch checklist — Lighthouse audit, 2G load test, mobile check across 3 languages, disclaimer/about review
+**Plans:** 4 plans
+Plans:
+- [ ] 04-01-PLAN.md — Static PWA assets: icon PNGs, manifest.json, sw.js, robots.txt in static/ directory
+- [ ] 04-02-PLAN.md — About page content: mission, team, data sources, disclaimer, error reporting
+- [ ] 04-03-PLAN.md — Template + build integration: hreflang, canonical, geo.region, SW reg, offline indicator, sitemap.xml generation
+- [ ] 04-04-PLAN.md — Deploy, Puppeteer tests (Phase 4 coverage), human verification
 
 ---
 
@@ -139,4 +141,5 @@ All 46 unique v1 requirements covered.
 *Phase 2 complete: 2026-03-17*
 *Phase 3 planned: 2026-03-17*
 *Phase 3 complete: 2026-03-19*
+*Phase 4 planned: 2026-03-19*
 *Milestone: v1 -- Public launch*
