@@ -11,6 +11,7 @@ import os
 import shutil
 import sys
 import time
+import xml.etree.ElementTree as ET
 from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader
@@ -324,6 +325,7 @@ def build_homepage(env, stats, data, lang, prefix, t_func, url_func, lang_data):
         "current_path": "/",
         "current_lang": lang,
         "state_code": "",
+        "geo_region": "",
         "t": t_func,
         "url": url_func,
         "lang_css": lang_data["lang_css"],
@@ -367,6 +369,7 @@ def build_state_pages(env, stats, data, lang, prefix, t_func, url_func, lang_dat
             "current_path": f"/state/{slug}/",
             "current_lang": lang,
             "state_code": code,
+            "geo_region": f"IN-{code}",
             "t": t_func,
             "url": url_func,
             "lang_css": lang_data["lang_css"],
@@ -401,6 +404,7 @@ def build_district_pages(env, stats, data, lang, prefix, t_func, url_func, lang_
                 "current_path": f"/state/{state_slug}/district/{dist_slug}/",
                 "current_lang": lang,
                 "state_code": district["state_code"],
+                "geo_region": f"IN-{district['state_code']}",
                 "t": t_func,
                 "url": url_func,
                 "lang_css": lang_data["lang_css"],
@@ -437,6 +441,7 @@ def build_city_pages(env, stats, data, lang, prefix, t_func, url_func, lang_data
                 "current_path": f"/state/{state_slug}/city/{city_slug}/",
                 "current_lang": lang,
                 "state_code": city["state_code"],
+                "geo_region": f"IN-{city['state_code']}",
                 "t": t_func,
                 "url": url_func,
                 "lang_css": lang_data["lang_css"],
@@ -458,6 +463,7 @@ def build_guide_pages(env, stats, data, lang, prefix, t_func, url_func, lang_dat
             "current_path": f"/guide/{guide_type}/",
             "current_lang": lang,
             "state_code": "",
+            "geo_region": "",
             "t": t_func,
             "url": url_func,
             "lang_css": lang_data["lang_css"],
@@ -481,12 +487,109 @@ def build_static_pages(env, stats, data, lang, prefix, t_func, url_func, lang_da
                 "current_path": f"/{page_name}/",
                 "current_lang": lang,
                 "state_code": "",
+                "geo_region": "",
                 "t": t_func,
                 "url": url_func,
                 "lang_css": lang_data["lang_css"],
             },
             lang=lang,
         )
+
+# ---------------------------------------------------------------------------
+# Sitemap generation
+# ---------------------------------------------------------------------------
+
+def generate_sitemap(data):
+    """Generate sitemap.xml with URLs for all pages across all languages."""
+    base_url = "https://safelink.serverlord.in"
+    ns = "http://www.sitemaps.org/schemas/sitemap/0.9"
+    root = ET.Element("urlset")
+    root.set("xmlns", ns)
+
+    count = 0
+
+    # Collect guide types and content page names
+    guide_types = sorted(data.get("guides", {}).keys())
+    content_pages = sorted(data.get("content", {}).keys())
+
+    for lang in LANGUAGES:
+        lang_prefix = f"/{lang}" if lang != "en" else ""
+
+        # Homepage
+        url_el = ET.SubElement(root, "url")
+        loc = ET.SubElement(url_el, "loc")
+        loc.text = f"{base_url}{lang_prefix}/"
+        count += 1
+
+        # State pages
+        for state in data["states"]:
+            url_el = ET.SubElement(root, "url")
+            loc = ET.SubElement(url_el, "loc")
+            loc.text = f"{base_url}{lang_prefix}/state/{state['slug']}/"
+            count += 1
+
+        # District pages
+        states_by_code = {s["code"]: s for s in data["states"]}
+        for district in data["districts"]:
+            state = states_by_code.get(district["state_code"])
+            if not state:
+                continue
+            url_el = ET.SubElement(root, "url")
+            loc = ET.SubElement(url_el, "loc")
+            loc.text = f"{base_url}{lang_prefix}/state/{state['slug']}/district/{district['slug']}/"
+            count += 1
+
+        # City pages
+        for city in data["cities"]:
+            state = states_by_code.get(city["state_code"])
+            if not state:
+                continue
+            url_el = ET.SubElement(root, "url")
+            loc = ET.SubElement(url_el, "loc")
+            loc.text = f"{base_url}{lang_prefix}/state/{state['slug']}/city/{city['slug']}/"
+            count += 1
+
+        # Guide pages
+        for guide_type in guide_types:
+            url_el = ET.SubElement(root, "url")
+            loc = ET.SubElement(url_el, "loc")
+            loc.text = f"{base_url}{lang_prefix}/guide/{guide_type}/"
+            count += 1
+
+        # Static/content pages
+        for page_name in content_pages:
+            url_el = ET.SubElement(root, "url")
+            loc = ET.SubElement(url_el, "loc")
+            loc.text = f"{base_url}{lang_prefix}/{page_name}/"
+            count += 1
+
+    tree = ET.ElementTree(root)
+    ET.indent(tree, space="  ")
+    sitemap_path = DIST_DIR / "sitemap.xml"
+    tree.write(str(sitemap_path), encoding="UTF-8", xml_declaration=True)
+    print(f"  Generated sitemap.xml with {count} URLs")
+    return count
+
+
+# ---------------------------------------------------------------------------
+# Static file copy
+# ---------------------------------------------------------------------------
+
+def copy_static_files():
+    """Copy files from static/ directory to dist/."""
+    static_dir = BASE_DIR / "static"
+    if not static_dir.exists():
+        print("  WARNING: static/ directory not found, skipping static file copy")
+        return 0
+
+    copied = 0
+    for item in sorted(static_dir.iterdir()):
+        if item.is_file():
+            shutil.copy2(str(item), str(DIST_DIR / item.name))
+            copied += 1
+    print(f"  Copied {copied} static files to dist/")
+    return copied
+
 
 # ---------------------------------------------------------------------------
 # Main build orchestrator
@@ -580,7 +683,14 @@ def build():
         build_static_pages(env, stats, data, lang, prefix, t_func, url_func, lang_data)
 
     # ------------------------------------------------------------------
-    # 8. Build summary
+    # 8. Copy static files and generate sitemap
+    # ------------------------------------------------------------------
+    print("\nPost-processing...")
+    copy_static_files()
+    generate_sitemap(data)
+
+    # ------------------------------------------------------------------
+    # 9. Build summary
     # ------------------------------------------------------------------
     elapsed = time.time() - start
     print("\n" + "=" * 60)

@@ -11,6 +11,9 @@ cat > dist/_headers << 'HEADERS'
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
   Cache-Control: public, max-age=3600
+
+/sw.js
+  Cache-Control: no-cache, no-store, must-revalidate
 HEADERS
 
 echo ""
