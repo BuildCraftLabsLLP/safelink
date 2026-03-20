@@ -3,23 +3,23 @@
   "sections": [
     {
       "heading": "What is SafeLink India?",
-      "content": "SafeLink India is a free, lightweight emergency information website designed to work on any internet connection, including 2G. It provides critical emergency numbers, disaster safety guides, and government relief information for all 36 states and union territories of India."
+      "content": "SafeLink India is a free, lightweight emergency information website built so anyone in India can reach critical emergency information within seconds on any connection. It works on 2G networks and low-end devices, providing emergency phone numbers and disaster safety guides for all 36 states and union territories in 10 Indian languages (English, Hindi, Tamil, Telugu, Bengali, Marathi, Kannada, Malayalam, Gujarati, and Punjabi). Every page is designed to load fast when it matters most."
     },
     {
-      "heading": "Why This Exists",
-      "content": "During emergencies, people need fast access to critical information. Many existing resources are heavy websites that fail to load on slow connections. SafeLink India keeps every page under 15KB so it loads in seconds even on the slowest networks."
+      "heading": "Our Team",
+      "content": "SafeLink India is built by Atharva Kulkarni (ServerLord) as a solo open-source project dedicated to helping people access emergency information when they need it most. Learn more at serverlord.in or atharvakulkarni.link. Contributions and feedback are welcome."
     },
     {
       "heading": "Data Sources",
-      "content": "Emergency numbers are sourced from official government websites including india.gov.in, 112.gov.in, ndma.gov.in, and individual state disaster management authority (SDMA) websites. Disaster safety guidance follows NDMA published guidelines."
+      "content": "Emergency information is compiled from four primary sources: SACHET (System for Advisories and Alerts by Central and State Agencies for Hazard Mitigation), NDMA's disaster alert platform at sachet.ndma.gov.in; IMD (India Meteorological Department) for weather and cyclone warnings at imd.gov.in; NDMA (National Disaster Management Authority) for safety guidelines and advisories at ndma.gov.in; and State Government Portals, specifically individual State Disaster Management Authority (SDMA) websites, for state-specific emergency helplines and local information."
     },
     {
-      "heading": "Languages",
-      "content": "SafeLink India aims to be available in 10 languages: English, Hindi, Tamil, Telugu, Bengali, Marathi, Kannada, Malayalam, Gujarati, and Punjabi. Language support is being added progressively."
+      "heading": "Disclaimer",
+      "content": "Emergency numbers and information displayed on SafeLink India may become outdated as governments update helplines and services. Always verify critical numbers through official sources before relying on them in an emergency. SafeLink India is an independent information resource and is not affiliated with any government agency. In a life-threatening emergency, call 112 (India's national emergency number)."
     },
     {
-      "heading": "Contact",
-      "content": "This is an open-source project. If you find incorrect information, please report it so we can update our records."
+      "heading": "Report an Error",
+      "content": "If you find incorrect information on SafeLink India, such as a wrong phone number, outdated helpline, or translation error, please raise an issue on the GitHub repository or contact us through serverlord.in. Accurate information saves lives, and error reports are welcomed and acted on promptly."
     }
   ]
 }
