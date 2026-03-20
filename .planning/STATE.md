@@ -12,11 +12,11 @@ See: .planning/PROJECT.md (updated 2026-03-12)
 ## Current Status
 
 **Phase:** 4 of 4 (PWA, SEO & Launch Polish)
-**Plan:** 2 of 4 in phase
+**Plan:** 3 of 4 in phase
 **Status:** In progress
-**Last activity:** 2026-03-20 - Completed 04-02-PLAN.md (About Page Content)
+**Last activity:** 2026-03-20 - Completed 04-01-PLAN.md (PWA Static Assets)
 
-Progress: `[##############################.] 75%` (3 of 4 phases complete, Phase 4: 2/4 plans done)
+Progress: `[##############################..] 81%` (3 of 4 phases complete, Phase 4: 3/4 plans done)
 
 ---
 
@@ -27,13 +27,13 @@ Progress: `[##############################.] 75%` (3 of 4 phases complete, Phase
 | 1 | Foundation & English Site | **COMPLETE** | 4 plans (3 waves) - all done |
 | 2 | Multi-Language (10 Languages) | **COMPLETE** | 4 plans - all done |
 | 3 | Live Alert Banner | **COMPLETE** | 2 plans - all done |
-| 4 | PWA, SEO & Launch Polish | **In Progress** | 4 plans - 2 complete |
+| 4 | PWA, SEO & Launch Polish | **In Progress** | 4 plans - 3 complete |
 
 ### Phase 4 Plan Status
 
 | Plan | Name | Wave | Status | Summary |
 |------|------|------|--------|---------|
-| 01 | PWA & Offline | 1 | Pending | -- |
+| 01 | PWA & Offline | 1 | **Complete** | manifest.json, sw.js (stale-while-revalidate), icons, robots.txt |
 | 02 | About Page Content | 1 | **Complete** | 5 sections: mission, team, data sources, disclaimer, error reporting |
 | 03 | SEO & Meta | 1 | Pending | -- |
 | 04 | Final Polish | 1 | Pending | -- |
@@ -76,6 +76,7 @@ Progress: `[##############################.] 75%` (3 of 4 phases complete, Phase
 | `.planning/phases/02-multi-language/02-03-SUMMARY.md` | Plan 02-03: COMPLETE |
 | `.planning/phases/02-multi-language/02-04-SUMMARY.md` | Plan 02-04: COMPLETE |
 | `.planning/phases/02-multi-language/02-VERIFICATION.md` | Phase 2 verification: 9/9 passed |
+| `.planning/phases/04-pwa-seo-launch-polish/04-01-SUMMARY.md` | Plan 04-01: COMPLETE |
 | `.planning/phases/04-pwa-seo-launch-polish/04-02-SUMMARY.md` | Plan 04-02: COMPLETE |
 | `deploy.sh` | Build + deploy script (python build.py + wrangler pages deploy) |
 | `dist/_headers` | Cloudflare Pages HTTP security and cache headers |
@@ -117,6 +118,10 @@ Progress: `[##############################.] 75%` (3 of 4 phases complete, Phase
 | I18N-04 | 20KB fatal limit for non-English pages | 02-03 | Indic UTF-8 text is ~3x larger than English; 15KB too tight |
 | I18N-05 | Compact language labels (EN/HI/TA) not full names | 02-03 | Saves bytes, reduces page width, better for mobile |
 | I18N-06 | English pages have no URL prefix, others get /hi/, /ta/, etc. | 02-03 | English is default/canonical |
+| PWA-01 | Pillow for icon generation with stdlib fallback | 04-01 | Simpler code when Pillow available, portability preserved |
+| PWA-02 | SW stale-while-revalidate: 24h freshness, 7d lifetime | 04-01 | Balance between offline capability and content freshness |
+| PWA-03 | API fallback returns {alerts:[], cached:true} | 04-01 | Graceful degradation when offline |
+| PWA-04 | No asset caching in SW (inline styles per BUILD-02) | 04-01 | No external CSS/JS to cache |
 
 ## Tech Decisions Locked
 
@@ -140,9 +145,9 @@ Progress: `[##############################.] 75%` (3 of 4 phases complete, Phase
 ## Session Continuity
 
 Last session: 2026-03-20
-Stopped at: Completed 04-02-PLAN.md (About Page Content)
+Stopped at: Completed 04-01-PLAN.md (PWA Static Assets)
 Resume file: None
-Next: Continue Phase 4 remaining plans (04-01, 04-03, 04-04)
+Next: Continue Phase 4 remaining plans (04-03, 04-04)
 
 ---
 *State initialized: 2026-03-12*
@@ -158,3 +163,4 @@ Next: Continue Phase 4 remaining plans (04-01, 04-03, 04-04)
 *Phase 2 complete: 2026-03-17 -- Multi-Language (10 languages, 10,580 pages)*
 *Phase 3 complete: 2026-03-19 -- Live Alert Banner (14/14 verified, 71 Puppeteer tests pass)*
 *Plan 04-02 complete: 2026-03-20 -- About page content (5 sections, all launch requirements met)*
+*Plan 04-01 complete: 2026-03-20 -- PWA static assets (manifest, sw.js, icons, robots.txt)*
