@@ -1,0 +1,19 @@
+{
+  "name": "SafeLink India",
+  "short_name": "SafeLink",
+  "description": "Emergency numbers and disaster safety for India",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#FF9933",
+  "background_color": "#FF9933",
+  "lang": "en",
+  "scope": "/",
+  "icons": [
+    {"src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
+    {"src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+  ],
+  "shortcuts": [
+    {"name": "Emergency Numbers", "short_name": "Emergencies", "url": "/", "description": "National emergency numbers for India"},
+    {"name": "Safety Guides", "short_name": "Guides", "url": "/guide/cyclone/", "description": "Disaster safety guides"}
+  ]
+}
