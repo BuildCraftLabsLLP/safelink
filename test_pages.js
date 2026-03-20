@@ -361,6 +361,148 @@ const BASE_URL = process.argv[2] || 'http://localhost:8080';
   assert(!bannerExists, 'Alert banner rendered when no alerts should be shown (fetch to static server failed)');
   console.log('  No banner when API unavailable (fails silently) ✓');
 
+  // -----------------------------------------------------------------------
+  // PWA Metadata Tests (Phase 4)
+  // -----------------------------------------------------------------------
+  console.log('\n--- PWA Metadata Tests ---');
+
+  // Test against English homepage
+  await page.goto(`${BASE_URL}/`, { waitUntil: 'domcontentloaded' });
+
+  const manifestLink = await page.evaluate(() => {
+    const el = document.querySelector('link[rel="manifest"]');
+    return el ? el.href : null;
+  });
+  assert(manifestLink && manifestLink.includes('/manifest.json'), 'manifest link present');
+  console.log('  manifest link present ✓');
+
+  const themeColor = await page.evaluate(() => {
+    const el = document.querySelector('meta[name="theme-color"]');
+    return el ? el.content : null;
+  });
+  assert(themeColor === '#FF9933', `theme-color meta present (got "${themeColor}")`);
+  console.log('  theme-color meta present ✓');
+
+  const pageHtmlPWA = await page.content();
+  assert(pageHtmlPWA.includes('serviceWorker'), 'SW registration script present');
+  console.log('  SW registration script present ✓');
+
+  assert(pageHtmlPWA.includes('_ol'), 'offline indicator script present');
+  console.log('  offline indicator script present ✓');
+
+  // manifest.json accessible
+  const manifestResp = await page.goto(`${BASE_URL}/manifest.json`, { waitUntil: 'domcontentloaded' });
+  const manifestBody = await manifestResp.text();
+  assert(manifestResp.status() === 200, `manifest.json accessible (status ${manifestResp.status()})`);
+  assert(manifestBody.includes('SafeLink India'), 'manifest.json contains SafeLink India');
+  console.log('  manifest.json accessible ✓');
+
+  // sw.js accessible
+  const swResp = await page.goto(`${BASE_URL}/sw.js`, { waitUntil: 'domcontentloaded' });
+  const swBody = await swResp.text();
+  assert(swResp.status() === 200, `sw.js accessible (status ${swResp.status()})`);
+  assert(swBody.includes('CACHE_NAME'), 'sw.js contains CACHE_NAME');
+  console.log('  sw.js accessible ✓');
+
+  // -----------------------------------------------------------------------
+  // SEO Metadata Tests (Phase 4)
+  // -----------------------------------------------------------------------
+  console.log('\n--- SEO Metadata Tests ---');
+
+  // Homepage hreflang tests
+  await page.goto(`${BASE_URL}/`, { waitUntil: 'domcontentloaded' });
+
+  const hreflangLinks = await page.evaluate(() => {
+    return document.querySelectorAll('link[rel="alternate"][hreflang]').length;
+  });
+  assert(hreflangLinks >= 11, `hreflang x-default on homepage (found ${hreflangLinks} hreflang links)`);
+  console.log(`  hreflang links on homepage: ${hreflangLinks} ✓`);
+
+  const hasHreflangEn = await page.evaluate(() => {
+    const links = document.querySelectorAll('link[rel="alternate"][hreflang]');
+    for (const l of links) { if (l.getAttribute('hreflang') === 'en') return true; }
+    return false;
+  });
+  assert(hasHreflangEn, 'hreflang en on homepage');
+  console.log('  hreflang en on homepage ✓');
+
+  const hasHreflangHi = await page.evaluate(() => {
+    const links = document.querySelectorAll('link[rel="alternate"][hreflang]');
+    for (const l of links) {
+      if (l.getAttribute('hreflang') === 'hi' && l.href.includes('/hi/')) return true;
+    }
+    return false;
+  });
+  assert(hasHreflangHi, 'hreflang hi on homepage');
+  console.log('  hreflang hi on homepage ✓');
+
+  const canonicalLink = await page.evaluate(() => {
+    const el = document.querySelector('link[rel="canonical"]');
+    return el ? el.href : null;
+  });
+  assert(canonicalLink && canonicalLink.length > 0, 'canonical link on homepage');
+  console.log('  canonical link on homepage ✓');
+
+  // geo.region on state page
+  await page.goto(`${BASE_URL}/state/maharashtra/`, { waitUntil: 'domcontentloaded' });
+  const geoRegionState = await page.evaluate(() => {
+    const el = document.querySelector('meta[name="geo.region"]');
+    return el ? el.content : null;
+  });
+  assert(geoRegionState === 'IN-MH', `geo.region on state page (got "${geoRegionState}")`);
+  console.log('  geo.region on state page: IN-MH ✓');
+
+  // geo.region on district page (Pune)
+  await page.goto(`${BASE_URL}/state/maharashtra/district/pune/`, { waitUntil: 'domcontentloaded' });
+  const geoRegionDistrict = await page.evaluate(() => {
+    const el = document.querySelector('meta[name="geo.region"]');
+    return el ? el.content : null;
+  });
+  assert(geoRegionDistrict && geoRegionDistrict.startsWith('IN-'), `geo.region on district page (got "${geoRegionDistrict}")`);
+  console.log(`  geo.region on district page: ${geoRegionDistrict} ✓`);
+
+  // geo.region absent on homepage
+  await page.goto(`${BASE_URL}/`, { waitUntil: 'domcontentloaded' });
+  const geoRegionHome = await page.evaluate(() => {
+    return document.querySelector('meta[name="geo.region"]');
+  });
+  assert(geoRegionHome === null, 'geo.region absent on homepage');
+  console.log('  geo.region absent on homepage ✓');
+
+  // sitemap.xml accessible
+  const sitemapResp = await page.goto(`${BASE_URL}/sitemap.xml`, { waitUntil: 'domcontentloaded' });
+  const sitemapBody = await sitemapResp.text();
+  assert(sitemapResp.status() === 200, `sitemap.xml accessible (status ${sitemapResp.status()})`);
+  assert(sitemapBody.includes('urlset'), 'sitemap.xml contains urlset');
+  console.log('  sitemap.xml accessible ✓');
+
+  // robots.txt accessible
+  const robotsResp = await page.goto(`${BASE_URL}/robots.txt`, { waitUntil: 'domcontentloaded' });
+  const robotsBody = await robotsResp.text();
+  assert(robotsResp.status() === 200, `robots.txt accessible (status ${robotsResp.status()})`);
+  assert(robotsBody.toLowerCase().includes('sitemap.xml'), 'robots.txt contains sitemap.xml reference');
+  console.log('  robots.txt accessible ✓');
+
+  // -----------------------------------------------------------------------
+  // PWA - Non-English Pages Tests (Phase 4)
+  // -----------------------------------------------------------------------
+  console.log('\n--- PWA Non-English Pages Tests ---');
+
+  // hreflang on Hindi homepage
+  await page.goto(`${BASE_URL}/hi/`, { waitUntil: 'domcontentloaded' });
+  const hiHreflangCount = await page.evaluate(() => {
+    return document.querySelectorAll('link[rel="alternate"][hreflang]').length;
+  });
+  assert(hiHreflangCount >= 11, `hreflang on Hindi homepage (found ${hiHreflangCount})`);
+  console.log(`  hreflang on Hindi homepage: ${hiHreflangCount} ✓`);
+
+  // manifest link on Hindi homepage
+  const hiManifestLink = await page.evaluate(() => {
+    return document.querySelector('link[rel="manifest"]') !== null;
+  });
+  assert(hiManifestLink, 'manifest link on Hindi homepage');
+  console.log('  manifest link on Hindi homepage ✓');
+
   await browser.close();
 
   // -----------------------------------------------------------------------
