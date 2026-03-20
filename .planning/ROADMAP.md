@@ -112,12 +112,15 @@ SEO-01, SEO-02, SEO-03
 6. Lighthouse PWA score >= 90 on homepage
 7. Page load on simulated 2G (Lighthouse throttling) under 3 seconds for homepage
 
+**Status:** Complete
+**Completed:** 2026-03-21
+
 **Plans:** 4 plans
 Plans:
-- [ ] 04-01-PLAN.md — Static PWA assets: icon PNGs, manifest.json, sw.js, robots.txt in static/ directory
-- [ ] 04-02-PLAN.md — About page content: mission, team, data sources, disclaimer, error reporting
-- [ ] 04-03-PLAN.md — Template + build integration: hreflang, canonical, geo.region, SW reg, offline indicator, sitemap.xml generation
-- [ ] 04-04-PLAN.md — Deploy, Puppeteer tests (Phase 4 coverage), human verification
+- [x] 04-01-PLAN.md — Static PWA assets: icon PNGs, manifest.json, sw.js, robots.txt in static/ directory
+- [x] 04-02-PLAN.md — About page content: mission, team, data sources, disclaimer, error reporting
+- [x] 04-03-PLAN.md — Template + build integration: hreflang, canonical, geo.region, SW reg, offline indicator, sitemap.xml generation
+- [x] 04-04-PLAN.md — Deploy, Puppeteer tests (Phase 4 coverage), human verification
 
 ---
 
@@ -142,4 +145,5 @@ All 46 unique v1 requirements covered.
 *Phase 3 planned: 2026-03-17*
 *Phase 3 complete: 2026-03-19*
 *Phase 4 planned: 2026-03-19*
-*Milestone: v1 -- Public launch*
+*Phase 4 complete: 2026-03-21*
+*Milestone: v1 -- Public launch -- ALL PHASES COMPLETE*

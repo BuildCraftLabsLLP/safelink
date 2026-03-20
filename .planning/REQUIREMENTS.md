@@ -71,17 +71,17 @@
 
 ### PWA / Offline
 
-- [ ] **PWA-01**: manifest.json present making site installable as a PWA
-- [ ] **PWA-02**: Service worker caches visited pages for offline use
-- [ ] **PWA-03**: Stale-while-revalidate strategy for HTML pages (serve cached, update in background)
-- [ ] **PWA-04**: Network-first strategy for /api/alerts (live data prioritised)
-- [ ] **PWA-05**: Offline indicator shown when user has no network connection ("⚠ You are offline — information may be outdated")
+- [x] **PWA-01**: manifest.json present making site installable as a PWA
+- [x] **PWA-02**: Service worker caches visited pages for offline use
+- [x] **PWA-03**: Stale-while-revalidate strategy for HTML pages (serve cached, update in background)
+- [x] **PWA-04**: Network-first strategy for /api/alerts (live data prioritised)
+- [x] **PWA-05**: Offline indicator shown when user has no network connection ("⚠ You are offline — information may be outdated")
 
 ### SEO & Accessibility
 
-- [ ] **SEO-01**: hreflang alternate links added to every page for all 10 language variants
-- [ ] **SEO-02**: sitemap.xml generated covering all pages
-- [ ] **SEO-03**: `<meta name="geo.region">` on state/district pages
+- [x] **SEO-01**: hreflang alternate links added to every page for all 10 language variants
+- [x] **SEO-02**: sitemap.xml generated covering all pages
+- [x] **SEO-03**: `<meta name="geo.region">` on state/district pages
 - [x] **A11Y-01**: Skip-to-content link on every page
 - [x] **A11Y-02**: Disclaimer and About pages present
 
@@ -141,8 +141,8 @@
 | I18N-01 to I18N-12 | Phase 2 | Complete ✓ |
 | ALERT-01 to ALERT-04 | Phase 3 | Complete ✓ |
 | TECH-03 | Phase 3 | Complete ✓ |
-| PWA-01 to PWA-05 | Phase 4 | Pending |
-| SEO-01 to SEO-03 | Phase 4 | Pending |
+| PWA-01 to PWA-05 | Phase 4 | Complete ✓ |
+| SEO-01 to SEO-03 | Phase 4 | Complete ✓ |
 
 **Coverage:**
 - v1 requirements: 46 total
