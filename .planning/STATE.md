@@ -2,59 +2,35 @@
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-03-12)
+See: .planning/PROJECT.md (updated 2026-03-21 after v1.0 milestone)
 
 **Core value:** Anyone in India can reach critical emergency information within seconds on any connection, in their own language.
-**Current focus:** PROJECT COMPLETE - All 4 phases delivered
+**Current focus:** Planning next milestone (v2.0)
 
 ---
 
 ## Current Status
 
-**Phase:** 4 of 4 (PWA, SEO & Launch Polish)
-**Plan:** 4 of 4 in phase (04-04 complete)
-**Status:** PROJECT COMPLETE
-**Last activity:** 2026-03-21 - Completed 04-04-PLAN.md (Deploy, Tests & Human Verification)
+**Phase:** Not started — ready to plan v2.0
+**Plan:** Not started
+**Status:** Ready to plan
+**Last activity:** 2026-03-21 — v1.0 milestone complete (tagged v1.0)
 
-Progress: `[################################] 100%` (4 of 4 phases complete, all 14 plans done)
+Progress: `[################################] v1.0 COMPLETE` (4 of 4 phases, all 14 plans done)
 
 ---
 
-## Phase Progress
+## v1.0 Summary
 
 | Phase | Name | Status | Plans |
 |-------|------|--------|-------|
-| 1 | Foundation & English Site | **COMPLETE** | 4 plans (3 waves) - all done |
-| 2 | Multi-Language (10 Languages) | **COMPLETE** | 4 plans - all done |
-| 3 | Live Alert Banner | **COMPLETE** | 2 plans - all done |
-| 4 | PWA, SEO & Launch Polish | **COMPLETE** | 4 plans - all done |
+| 1 | Foundation & English Site | ✅ COMPLETE | 4/4 |
+| 2 | Multi-Language (10 Languages) | ✅ COMPLETE | 4/4 |
+| 3 | Live Alert Banner | ✅ COMPLETE | 2/2 |
+| 4 | PWA, SEO & Launch Polish | ✅ COMPLETE | 4/4 |
 
-### Phase 4 Plan Status
-
-| Plan | Name | Wave | Status | Summary |
-|------|------|------|--------|---------|
-| 01 | PWA & Offline | 1 | **Complete** | manifest.json, sw.js (stale-while-revalidate), icons, robots.txt |
-| 02 | About Page Content | 1 | **Complete** | 5 sections: mission, team, data sources, disclaimer, error reporting |
-| 03 | SEO & Meta | 2 | **Complete** | hreflang, canonical, manifest, SW reg, offline indicator, geo.region, sitemap.xml (10,580 URLs) |
-| 04 | Deploy, Tests & Verification | 3 | **Complete** | 92 Puppeteer tests, human-verified PWA/SEO/about |
-
-### Phase 1 Plan Status
-
-| Plan | Name | Wave | Status | Summary |
-|------|------|------|--------|---------|
-| 01 | Data Pipeline | 1 | Complete | 14 JSON files: 36 states, 786 districts, 225 cities, emergency numbers, 5 guides, 5 content |
-| 02 | Build System | 1 | Complete | build.py + 10 Jinja2 templates |
-| 03 | Content Pages | 2 | Complete | 1,058 HTML pages, all validated, 31 Puppeteer tests pass |
-| 04 | Deployment | 3 | **Complete** | Live: https://safelink-india.pages.dev/ (commit: 97ce6d7) |
-
-### Phase 2 Plan Status
-
-| Plan | Name | Wave | Status | Summary |
-|------|------|------|--------|---------|
-| 01 | Translation Data | 1 | **Complete** | 10 UI string files (66 keys each) + 9 state name files (36 states each) |
-| 02 | Guide & Content Translations | 1 | **Complete** | 90 files: 45 guide + 45 content translations for 9 languages |
-| 03 | Build System i18n | 1 | **Complete** | 10,580 pages across 10 languages, t()/url() in all templates, per-language CSS |
-| 04 | Validation & Testing | 1 | **Complete** | 64 Puppeteer tests pass, ASCII scan clean, visual verified |
+**Shipped:** 10,580 pages, 10 languages, 46/46 requirements, 92 Puppeteer tests passing
+**Live at:** https://safelink-india.pages.dev/
 
 ---
 
@@ -62,117 +38,42 @@ Progress: `[################################] 100%` (4 of 4 phases complete, all
 
 | File | Purpose |
 |------|---------|
-| `.planning/PROJECT.md` | Project context, constraints, decisions |
-| `.planning/REQUIREMENTS.md` | 46 v1 requirements with REQ-IDs |
-| `.planning/ROADMAP.md` | 4-phase plan with success criteria |
+| `.planning/PROJECT.md` | Project context, constraints, decisions (updated for v2) |
+| `.planning/ROADMAP.md` | Collapsed v1.0 + placeholder for v2.0 |
+| `.planning/MILESTONES.md` | v1.0 milestone record |
+| `.planning/milestones/v1.0-ROADMAP.md` | Full v1.0 roadmap archive |
+| `.planning/milestones/v1.0-REQUIREMENTS.md` | Archived v1.0 requirements (all 46 ✓) |
+| `.planning/milestones/v1.0-MILESTONE-AUDIT.md` | v1.0 audit: 46/46 requirements, 5 tech debt items |
 | `.planning/config.json` | Workflow: YOLO, Quick, Parallel, Quality model |
-| `.planning/research/SUMMARY.md` | Research findings summary |
-| `.planning/phases/01-foundation-english-site/01-data-pipeline-SUMMARY.md` | Plan 01: COMPLETE |
-| `.planning/phases/01-foundation-english-site/02-build-system-SUMMARY.md` | Plan 02: COMPLETE |
-| `.planning/phases/01-foundation-english-site/03-content-pages-SUMMARY.md` | Plan 03: COMPLETE |
-| `.planning/phases/01-foundation-english-site/04-deployment-SUMMARY.md` | Plan 04: COMPLETE |
-| `.planning/phases/02-multi-language/02-01-SUMMARY.md` | Plan 02-01: COMPLETE |
-| `.planning/phases/02-multi-language/02-02-SUMMARY.md` | Plan 02-02: COMPLETE |
-| `.planning/phases/02-multi-language/02-03-SUMMARY.md` | Plan 02-03: COMPLETE |
-| `.planning/phases/02-multi-language/02-04-SUMMARY.md` | Plan 02-04: COMPLETE |
-| `.planning/phases/02-multi-language/02-VERIFICATION.md` | Phase 2 verification: 9/9 passed |
-| `.planning/phases/04-pwa-seo-launch-polish/04-01-SUMMARY.md` | Plan 04-01: COMPLETE |
-| `.planning/phases/04-pwa-seo-launch-polish/04-02-SUMMARY.md` | Plan 04-02: COMPLETE |
-| `.planning/phases/04-pwa-seo-launch-polish/04-03-SUMMARY.md` | Plan 04-03: COMPLETE |
-| `deploy.sh` | Build + deploy script (python build.py + wrangler pages deploy) |
-| `dist/_headers` | Cloudflare Pages HTTP security and cache headers |
-| `.planning/phases/04-pwa-seo-launch-polish/04-04-SUMMARY.md` | Plan 04-04: COMPLETE |
+| `build.py` | Static site generator (10 languages, 10,580 pages) |
 | `test_pages.js` | Puppeteer test suite (92 tests) |
-| `data/states.json` | 36 Indian states and UTs |
-| `data/districts.json` | 786 districts with state_code FK |
-| `data/cities.json` | 225 major cities with state_code FK |
-| `data/emergency_numbers.json` | National + 36 state emergency numbers |
-| `data/guides/*.json` | 5 disaster safety guides |
-| `data/content/*.json` | 5 content page data files |
-| `data/i18n/en.json` | English source strings (66 keys) |
-| `data/i18n/*.json` | 10 language UI translation files |
-| `data/names_i18n/*.json` | 9 language state name translation files |
-| `data/guides_i18n/{lang}/*.json` | 45 guide translation files (9 langs x 5 guides) |
-| `data/content_i18n/{lang}/*.json` | 45 content page translation files (9 langs x 5 pages) |
-| `build.py` | Static site generator (Jinja2) - now builds 10 languages |
-| `templates/` | 10 Jinja2 templates (7 main + 3 macros) - i18n-enabled with t()/url() |
-| `requirements.txt` | Python dependencies |
+| `deploy.sh` | Build + deploy script |
+| `functions/api/alerts.js` | Cloudflare Pages Function for /api/alerts |
 
 ---
 
-## Accumulated Decisions
+## Tech Debt (v2 backlog)
 
-| ID | Decision | Plan | Context |
-|----|----------|------|---------|
-| BUILD-01 | Jinja2 trim_blocks + lstrip_blocks enabled | 01-02 | Reduces whitespace for smaller pages |
-| BUILD-02 | All styles inline, zero external CSS | 01-02 | Matches safe-now.live, no render-blocking resources |
-| BUILD-03 | HTML entities for non-Latin scripts in language switcher | 01-02 | Reliable rendering |
-| DATA-01 | state_code used as foreign key in districts and cities | 01-01 | Enables referential integrity validation |
-| DATA-02 | 786 districts covering all 36 states/UTs | 01-01 | Exceeds 750 minimum, reflects latest reorganizations |
-| DATA-03 | 225 cities covering every state/UT capital | 01-01 | Exceeds 200 minimum, includes tier-2/3 cities |
-| JINJA2-01 | Use bracket notation for dict keys that shadow Python methods | 01-03 | section['items'] not section.items to avoid dict.items() collision |
-| DEPLOY-01 | Direct upload (wrangler pages deploy) not Git integration | 01-04 | Decouples deployment from repo, no Cloudflare Git access needed |
-| DEPLOY-02 | CF Pages project name: safelink-india | 01-04 | Pages.dev subdomain matches project name |
-| DEPLOY-03 | Cache-Control max-age=3600 (1 hour) | 01-04 | Balances content freshness vs CDN efficiency |
-| I18N-01 | Used actual state codes from states.json (CT, OR, TG, UT) | 02-01 | Data files are authoritative source of state codes |
-| I18N-02 | 66 flat keys per language file for all template strings | 02-01 | Covers all 10 Jinja2 templates including macros |
-| I18N-03 | State name files include empty districts/cities objects | 02-01 | Ready for future population |
-| I18N-04 | 20KB fatal limit for non-English pages | 02-03 | Indic UTF-8 text is ~3x larger than English; 15KB too tight |
-| I18N-05 | Compact language labels (EN/HI/TA) not full names | 02-03 | Saves bytes, reduces page width, better for mobile |
-| I18N-06 | English pages have no URL prefix, others get /hi/, /ta/, etc. | 02-03 | English is default/canonical |
-| PWA-01 | Pillow for icon generation with stdlib fallback | 04-01 | Simpler code when Pillow available, portability preserved |
-| PWA-02 | SW stale-while-revalidate: 24h freshness, 7d lifetime | 04-01 | Balance between offline capability and content freshness |
-| PWA-03 | API fallback returns {alerts:[], cached:true} | 04-01 | Graceful degradation when offline |
-| PWA-04 | No asset caching in SW (inline styles per BUILD-02) | 04-01 | No external CSS/JS to cache |
-| SEO-01 | Hardcoded 10 hreflang link tags (no Jinja loop) | 04-03 | Avoids loop overhead, keeps template readable |
-| SEO-02 | English canonical has no URL prefix, non-English uses /lang/ | 04-03 | Matches I18N-06 decision |
-| SEO-03 | geo.region uses ISO 3166-2 format (IN-{state_code}) | 04-03 | Standard geo meta tag format for Indian states |
-| SEO-04 | Sitemap uses only loc tags (no lastmod/priority/changefreq) | 04-03 | Keeps file smaller (~1MB for 10,580 URLs) |
-| SEO-05 | SW registration and offline indicator inline minified | 04-03 | No external JS, matches BUILD-02 pattern |
-| DEPLOY-04 | Fixed placeholder KV namespace ID in wrangler.toml | 04-04 | Real namespace f7829bd4ace8419f841a46e52ac1bee5 |
-
-## Tech Decisions Locked
-
-- **Stack:** Python + Jinja2 -> static HTML -> Cloudflare Pages
-- **Live alerts:** Cloudflare Worker + KV cache (SACHET + IMD)
-- **PWA:** Vanilla service worker (stale-while-revalidate)
-- **i18n:** URL prefix per language (/hi/, /ta/, etc.), build-time rendering
-- **i18n data:** Flat-key JSON in data/i18n/, place names in data/names_i18n/
-- **Domain:** safelink.serverlord.in
+| Item | Impact |
+|------|--------|
+| deploy.sh _headers missing `/api/alerts Cache-Control: no-store` | CF CDN may cache Worker responses up to 1 hour |
+| District/city names render in English on non-English pages | name_translations covers only 36 state names |
+| `copy_static_files()` only copies top-level static/ files | Subdirectories silently skipped |
+| SW only precaches / on install | State pages need prior visit for offline |
+| manifest.json `lang` hardcoded `'en'` | Non-English PWA installs get English label |
 
 ---
 
-## Blockers / Concerns
+## Next Steps
 
-- System git requires Xcode license acceptance (`sudo xcodebuild -license accept`) - using dulwich or `DEVELOPER_DIR=/Library/Developer/CommandLineTools /usr/bin/git` as workaround
-- Custom domain safelink.serverlord.in not yet configured (optional - site live at pages.dev URL)
-- PROJECT COMPLETE - no remaining blockers
+Run `/gsd:new-milestone` to start v2.0 planning.
 
----
-
-## Session Continuity
-
-Last session: 2026-03-21
-Stopped at: PROJECT COMPLETE - All 4 phases, 14 plans delivered
-Resume file: None
-Next: None - project complete
+Potential v2.0 focus areas:
+- Extended guide coverage: gas leak, drought, tsunami, building collapse (EXT-01..04)
+- Additional languages: Odia, Assamese, Urdu (LANG-01..03)
+- Enhanced features: language auto-detection, cyclone tracker, seasonal calendar (ENH-01..06)
+- Tech debt resolution (5 items above)
 
 ---
 *State initialized: 2026-03-12*
-*Phase 1 planned: 2026-03-12*
-*Plan 01-02 complete: 2026-03-13*
-*Plan 01-01 complete: 2026-03-13*
-*Plan 01-03 complete: 2026-03-13*
-*Plan 01-04 complete: 2026-03-15 -- Phase 1 COMPLETE*
-*Plan 02-01 complete: 2026-03-15 -- Translation data files*
-*Plan 02-02 complete: 2026-03-16 -- Guide and content page translations*
-*Plan 02-03 complete: 2026-03-16 -- Build system i18n integration (10,580 pages)*
-*Plan 02-04 complete: 2026-03-17 -- Validation & testing (64 tests pass)*
-*Phase 2 complete: 2026-03-17 -- Multi-Language (10 languages, 10,580 pages)*
-*Phase 3 complete: 2026-03-19 -- Live Alert Banner (14/14 verified, 71 Puppeteer tests pass)*
-*Plan 04-02 complete: 2026-03-20 -- About page content (5 sections, all launch requirements met)*
-*Plan 04-01 complete: 2026-03-20 -- PWA static assets (manifest, sw.js, icons, robots.txt)*
-*Plan 04-03 complete: 2026-03-20 -- SEO & Meta integration (hreflang, canonical, sitemap, geo.region, SW reg, offline indicator)*
-*Plan 04-04 complete: 2026-03-21 -- Deploy, tests & human verification (92 tests, human-approved)*
-*Phase 4 complete: 2026-03-21 -- PWA, SEO & Launch Polish (all 8 requirements met)*
-*PROJECT COMPLETE: 2026-03-21 -- SafeLink India: 10,580 pages, 10 languages, PWA, live alerts, SEO*
+*v1.0 complete: 2026-03-21*
