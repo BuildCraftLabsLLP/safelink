@@ -1,19 +1,61 @@
 {
   "national": {
-    "emergency": {"number": "112", "label": "National Emergency"},
-    "police": {"number": "100", "label": "Police"},
-    "fire": {"number": "101", "label": "Fire"},
-    "ambulance": {"number": "102", "label": "Ambulance"},
-    "ambulance_medical": {"number": "108", "label": "Medical Emergency"},
-    "disaster": {"number": "1070", "label": "Disaster Helpline"},
-    "ndrf": {"number": "+91-9711077372", "label": "NDRF"},
-    "ndma": {"number": "1800-11-0551", "label": "NDMA (toll-free)"},
-    "ndma_control_room": {"number": "011-26701728", "label": "NDMA Control Room"},
-    "women": {"number": "181", "label": "Women Helpline"},
-    "child": {"number": "1098", "label": "Child Helpline"},
-    "senior_citizen": {"number": "14567", "label": "Senior Citizen"},
-    "mental_health_icall": {"number": "+91-9152987821", "label": "iCall"},
-    "mental_health_vandrevala": {"number": "1860-2662-345", "label": "Vandrevala Foundation"},
+    "emergency": {
+      "number": "112",
+      "label": "National Emergency"
+    },
+    "police": {
+      "number": "100",
+      "label": "Police"
+    },
+    "fire": {
+      "number": "101",
+      "label": "Fire"
+    },
+    "ambulance": {
+      "number": "102",
+      "label": "Ambulance"
+    },
+    "ambulance_medical": {
+      "number": "108",
+      "label": "Medical Emergency"
+    },
+    "disaster": {
+      "number": "1070",
+      "label": "Disaster Helpline"
+    },
+    "ndrf": {
+      "number": "+91-9711077372",
+      "label": "NDRF"
+    },
+    "ndma": {
+      "number": "1800-11-0551",
+      "label": "NDMA (toll-free)"
+    },
+    "ndma_control_room": {
+      "number": "011-26701728",
+      "label": "NDMA Control Room"
+    },
+    "women": {
+      "number": "181",
+      "label": "Women Helpline"
+    },
+    "child": {
+      "number": "1098",
+      "label": "Child Helpline"
+    },
+    "senior_citizen": {
+      "number": "14567",
+      "label": "Senior Citizen"
+    },
+    "mental_health_icall": {
+      "number": "+91-9152987821",
+      "label": "iCall"
+    },
+    "mental_health_vandrevala": {
+      "number": "1860-2662-345",
+      "label": "Vandrevala Foundation"
+    },
     "pm_cares_url": "https://pmcares.gov.in/en/",
     "pmnrf_url": "https://pmnrf.gov.in/en/"
   },
@@ -88,11 +130,14 @@
     },
     "MH": {
       "disaster_helpline": "1070",
-      "seoc": "11077",
+      "seoc": "1077",
       "seoc_mobile": "+91-9321587143",
       "sdma_url": "https://sdma.maharashtra.gov.in",
       "additional": [
-        {"number": "1916", "label": "Mumbai Flood Helpline"}
+        {
+          "number": "1916",
+          "label": "Mumbai Flood Helpline"
+        }
       ]
     },
     "MN": {

@@ -32,11 +32,7 @@
 
 {% if guide.india_specific %}
 <h2 style="font-size:1.125rem">{{ t('india_specific_notes') }}</h2>
-<ul>
-{%- for note in guide.india_specific %}
-<li>{{ note }}</li>
-{%- endfor %}
-</ul>
+<p>{{ guide.india_specific }}</p>
 {% endif %}
 
 {% if guides %}
