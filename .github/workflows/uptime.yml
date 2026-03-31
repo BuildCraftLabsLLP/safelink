@@ -1,0 +1,28 @@
+name: Uptime Check
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # every 5 minutes
+  workflow_dispatch:        # allow manual trigger
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check homepage
+        run: |
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 https://safelink.serverlord.in/)
+          echo "Homepage status: $STATUS"
+          [ "$STATUS" = "200" ] || (echo "FAIL: homepage returned $STATUS" && exit 1)
+
+      - name: Check alert API
+        run: |
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 "https://safelink.serverlord.in/api/alerts")
+          echo "Alert API status: $STATUS"
+          [ "$STATUS" = "200" ] || (echo "FAIL: /api/alerts returned $STATUS" && exit 1)
+
+      - name: Check Hindi homepage
+        run: |
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 https://safelink.serverlord.in/hi/)
+          echo "Hindi homepage status: $STATUS"
+          [ "$STATUS" = "200" ] || (echo "FAIL: /hi/ returned $STATUS" && exit 1)
