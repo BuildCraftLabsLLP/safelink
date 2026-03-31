@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Active Alerts - Emergency Info</title>
+<meta name="description" content="Live disaster and weather alerts for India from NDMA SACHET.">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#FF9933">
+<link rel="canonical" href="https://safelink.serverlord.in/alerts">
+</head>
+<body style="font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;font-size:1rem;line-height:1.6;max-width:45em;margin:0 auto;padding:0 0.75rem;color:#212121">
+<a href="#main" style="position:absolute;left:-9999px">Skip to content</a>
+<header>
+<h1 style="font-size:1.375rem;margin-bottom:0">SafeLink India</h1>
+<p style="margin-top:0"><i><span style="font-size:0.85rem">Emergency info for India — works on 2G</span></i></p>
+<p style="background:#e3f2fd;padding:0.5rem;border:1px solid #1565c0;margin:0.25rem 0">
+<b><a href="tel:112" style="color:#1565c0">112</a></b> Emergency |
+<b><a href="tel:100">100</a></b> Police |
+<b><a href="tel:101">101</a></b> Fire |
+<b><a href="tel:108">108</a></b> Ambulance |
+<b><a href="tel:1070">1070</a></b> Disaster
+</p>
+</header>
+<main id="main">
+<p style="font-size:0.85rem;margin:0.25rem 0"><a href="/">Home</a> &gt; <b>Active Alerts</b></p>
+<h2 style="font-size:1.125rem">Active Alerts — All India</h2>
+<p style="font-size:0.85rem;color:#616161;margin:0.25rem 0">Live alerts from <a href="https://sachet.ndma.gov.in">NDMA SACHET</a>. Updated every 15 minutes.</p>
+<div id="alerts-container"><p style="color:#616161">Loading alerts…</p></div>
+</main>
+<hr>
+<p style="color:#d32f2f;font-weight:bold;border:1px solid #d32f2f;padding:0.5rem;margin:0.5rem 0;background:#ffebee;text-align:center"><strong>WARNING:</strong> General information only. <a href="/disclaimer/" style="color:#d32f2f">Read disclaimer</a> | Emergency: <a href="tel:112" style="color:#d32f2f">112</a></p>
+<footer>
+<small><a href="/">Home</a> | <a href="/about/">About</a> | <a href="/disclaimer/">Disclaimer</a> | <a href="/firstaid/">First Aid</a> | <a href="/kit/">Emergency Kit</a></small>
+<br>
+<small>Inspired by <a href="https://safe-now.live/" rel="noopener">safe-now.live</a> &mdash; Built by <a href="https://serverlord.in/" rel="noopener">ServerLord</a> / <a href="https://atharvakulkarni.link/" rel="noopener">Atharva Kulkarni</a></small>
+</footer>
+<script>
+!function(){
+  var v={"Extreme":"#d32f2f","Severe":"#e65100","Moderate":"#f57f17","Minor":"#1565c0","Unknown":"#616161"};
+  var b={"Extreme":"#ffebee","Severe":"#fff3e0","Moderate":"#fff8e1","Minor":"#e3f2fd","Unknown":"#f5f5f5"};
+  var el=document.getElementById("alerts-container");
+  fetch("/api/alerts").then(function(r){return r.json()}).then(function(d){
+    if(!d.alerts||!d.alerts.length){
+      el.innerHTML='<p style="color:#616161">No active alerts at this time.</p>';
+      return;
+    }
+    var html='';
+    d.alerts.forEach(function(a){
+      var color=v[a.severity]||"#333",bg=b[a.severity]||"#fff3e0";
+      html+='<div style="background:'+bg+';border-left:3px solid '+color+';padding:.5rem .75rem;margin:.5rem 0">';
+      html+='<b style="color:'+color+'">'+a.severity+'</b> &mdash; '+a.headline;
+      if(a.link)html+=' <a href="'+a.link+'" style="color:#1565c0;font-size:.8rem" rel="noopener">source</a>';
+      html+='</div>';
+    });
+    if(d.cached_at){
+      html+='<p style="font-size:.75rem;color:#616161;margin:.5rem 0">Alerts as of: '+new Date(d.cached_at).toLocaleString()+'</p>';
+    }
+    el.innerHTML=html;
+  }).catch(function(){
+    el.innerHTML='<p style="color:#d32f2f">Could not load alerts. Check <a href="https://sachet.ndma.gov.in">SACHET directly</a>.</p>';
+  });
+}();
+</script>
+</body>
+</html>
