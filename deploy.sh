@@ -18,7 +18,10 @@ HEADERS
 
 echo ""
 echo "Deploying to Cloudflare Pages..."
-npx wrangler pages deploy dist/ --project-name safelink-india
+# Deploy to the production branch (main). Without --branch, wrangler uses the
+# current git branch, which Cloudflare treats as a Preview deploy and does NOT
+# update the custom domain (safelink.buildcraft.town).
+npx wrangler pages deploy dist/ --project-name safelink-india --branch main
 
 echo ""
 echo "Deployment complete!"
