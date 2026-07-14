@@ -6,6 +6,8 @@
 <title>{% block title %}SafeLink India{% endblock %} - {{ t('page_title_suffix') }}</title>
 <meta name="description" content="{% block description %}{{ t('tagline') }}{% endblock %}">
 <link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/icon-192.png">
 <meta name="theme-color" content="#FF9933">
 {% if geo_region %}<meta name="geo.region" content="{{ geo_region }}">{% endif %}
 <link rel="canonical" href="https://safelink.buildcraft.town{% if current_lang != 'en' %}/{{ current_lang }}{% endif %}{{ current_path }}">

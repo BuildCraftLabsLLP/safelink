@@ -39,7 +39,7 @@ Python deps: `pip install -r requirements.txt` (jinja2, python-slugify). Node de
 1. Loads and validates the data model from `data/*.json` (`states`, `districts`, `cities`, `emergency_numbers`), aborting on validation failure.
 2. Loops over `LANGUAGES = ["en", "hi", "ta", "te", "bn", "mr", "kn", "ml", "gu", "pa"]`. English renders at the site root; every other language renders under a path prefix (`/hi/...`, `/ta/...`). This prefix convention drives URLs, the sitemap, and the `hreflang` tags in `templates/base.html`.
 3. Renders Jinja2 templates in `templates/` (`home`, `state`, `district`, `city`, `guide`, `static_page`, all extending `base.html`) into `dist/`.
-4. Copies everything in `static/` verbatim into `dist/` (this is how `robots.txt`, `llms.txt`, `manifest.json`, `sw.js`, icons, and the standalone `alerts.html` ship), then generates `sitemap.xml` covering every URL in every language.
+4. Copies everything in `static/` verbatim into `dist/` (this is how `robots.txt`, `llms.txt`, `manifest.json`, `sw.js`, `favicon.svg`, icons, and the standalone `alerts.html` ship), then generates `sitemap.xml` covering every URL in every language.
 
 **Translation layers** are separate JSON trees, all consumed by `build.py`:
 - `data/i18n/<lang>.json` — UI strings (the `t()` function)
@@ -53,6 +53,8 @@ English content lives in `data/content/` and `data/guides/`. The `scripts/gen_*.
 - The client half is inline JS in `templates/base.html`: it reads `data-state` off `<body>`, fetches `/api/alerts`, and injects the top alert banner (capped at 3 alerts + overflow link). This is the one place JS is deliberately shipped.
 
 **PWA / offline**: `static/sw.js` (service worker) + `static/manifest.json` make the site installable and available offline after first visit.
+
+**Favicon / app icon**: `static/favicon.svg` is a ~255-byte vector "SL" mark (white on `#FF9933`) linked from `<head>` in `templates/base.html` (and `static/alerts.html`) via `<link rel="icon" type="image/svg+xml">` — chosen as an SVG so it stays tiny and never competes with the per-page HTML budget. The same head links `apple-touch-icon` to `static/icon-192.png` for the iOS home screen; Android/PWA install icons come from `icon-192.png`/`icon-512.png` in `manifest.json`. If the "SL"/orange branding changes, update `favicon.svg`, the two PNG icons, and `theme_color`/`background_color` in `manifest.json` together.
 
 ## Deployment topology
 

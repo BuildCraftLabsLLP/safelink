@@ -48,7 +48,7 @@ data/
 templates/             # Jinja2 templates (7 page types + 3 macros)
 functions/
   api/alerts.js        # Cloudflare Pages Function — NDMA SACHET alert API
-static/                # PWA assets (manifest, sw.js, icons, robots.txt)
+static/                # PWA assets (manifest, sw.js, favicon.svg, icons, robots.txt)
 build.py               # Static site generator
 deploy.sh              # Build + deploy script
 test_pages.js          # Puppeteer test suite (92 tests)
