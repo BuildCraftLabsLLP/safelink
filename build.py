@@ -256,6 +256,8 @@ def create_env():
         lstrip_blocks=True,
     )
     env.filters["ascii_digits"] = ascii_digits
+    # Build date (UTC, ISO -- language-neutral) shown in the footer "Updated" line.
+    env.globals["build_stamp"] = time.strftime("%Y-%m-%d", time.gmtime())
     return env
 
 # ---------------------------------------------------------------------------
@@ -279,6 +281,12 @@ def write_page(env, stats, output_path, template_name, context, lang="en"):
     """
     template = env.get_template(template_name)
     html = template.render(**context)
+    # Self-referential page size for the footer: measure the rendered page, then
+    # substitute the @@PAGE_KB@@ token. Rounding to whole KB absorbs the few-byte
+    # delta introduced by replacing the token itself.
+    if "@@PAGE_KB@@" in html:
+        approx_kb = max(1, round(len(html.encode("utf-8")) / 1024))
+        html = html.replace("@@PAGE_KB@@", str(approx_kb))
     html_bytes = html.encode("utf-8")
     size = len(html_bytes)
 

@@ -33,6 +33,8 @@ Python deps: `pip install -r requirements.txt` (jinja2, python-slugify). Node de
 
 `build.py` **fails the build (`sys.exit(1)`)** if any page exceeds **15 KB (English)** or **20 KB (non-English)** — see `PAGE_FATAL_BYTES` / `PAGE_FATAL_BYTES_I18N` in `build.py`. A warning fires at 12 KB. This budget is the reason the whole site avoids external assets. Any template or content change must stay under budget; check the build's size warnings before deploying.
 
+The footer carries a small honest stats line (`{{ t('updated') }}: {{ build_stamp }} · @@PAGE_KB@@ KB`). `build_stamp` is a Jinja global set in `create_env()` to the UTC build date (ISO, language-neutral). `@@PAGE_KB@@` is a token `write_page()` replaces *after* rendering with the page's own size in KB (rounded, so the few-byte substitution delta doesn't matter) — this is the only self-referential bit of the build. There is deliberately no visit counter or request-timing (those need a live backend and don't apply to pre-rendered pages). The static `static/alerts.html` is copied verbatim, so it has no dynamic stats line.
+
 ## Architecture
 
 **Static generation (`build.py`)** is the core. It:
