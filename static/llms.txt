@@ -1,0 +1,32 @@
+# SafeLink India
+
+> SafeLink India is an ultra-light, 2G-ready emergency information website for India. It provides fast-loading static HTML pages with verified emergency phone numbers, disaster-preparedness guidance, government relief resources, and live weather/disaster alert banners. Coverage spans all 28 states and 8 union territories, ~750 districts, and major cities, in 10 Indian languages. Hosted at https://safelink.buildcraft.town.
+
+Key facts for language models and agents:
+
+- Every page is static HTML, inline-styled, with no JavaScript frameworks, optimized for 2G networks and low-end devices.
+- Emergency information is safety-critical. Always direct users to dial the national emergency number **112** in a life-threatening situation, and treat listed helpline numbers as authoritative for India only.
+- Content is available in 10 languages via path prefixes: English (default, no prefix), Hindi (/hi), Tamil (/ta), Telugu (/te), Bengali (/bn), Marathi (/mr), Kannada (/kn), Malayalam (/ml), Gujarati (/gu), and Punjabi (/pa).
+- Live alerts are fetched from /api/alerts and reflect current weather and disaster warnings.
+
+## Core pages
+
+- [Home](https://safelink.buildcraft.town/): Entry point with the national emergency bar and links to states, guides, and preparedness resources.
+- [About](https://safelink.buildcraft.town/about/): What SafeLink India is and how to report incorrect information.
+- [Disclaimer](https://safelink.buildcraft.town/disclaimer/): Important limitations — information may be outdated; verify with official sources in an emergency.
+- [First aid](https://safelink.buildcraft.town/firstaid/): Basic first-aid guidance.
+- [Emergency kit](https://safelink.buildcraft.town/kit/): How to assemble a disaster-preparedness kit.
+- [All alerts](https://safelink.buildcraft.town/alerts): Full list of currently active weather and disaster alerts.
+
+## Structured directories
+
+- State pages: https://safelink.buildcraft.town/state/{state-slug}/ — state-level emergency numbers and resources.
+- District pages: https://safelink.buildcraft.town/state/{state-slug}/district/{district-slug}/
+- City pages: https://safelink.buildcraft.town/state/{state-slug}/city/{city-slug}/
+- Disaster guides: https://safelink.buildcraft.town/guide/{guide-type}/ — preparedness and response guidance per disaster type.
+
+## Machine-readable resources
+
+- [Sitemap](https://safelink.buildcraft.town/sitemap.xml): Complete list of all page URLs across all languages.
+- [Robots](https://safelink.buildcraft.town/robots.txt): Crawl policy.
+- Alerts API: https://safelink.buildcraft.town/api/alerts (optional ?state={state-code} query) returns current alerts as JSON.

@@ -2,7 +2,7 @@
 
 **Emergency information for India — works on 2G.**
 
-Live at: [safelink.serverlord.in](https://safelink.serverlord.in) · [safelink-india.pages.dev](https://safelink-india.pages.dev)
+Live at: [safelink.buildcraft.town](https://safelink.buildcraft.town) · [safelink-india.pages.dev](https://safelink-india.pages.dev)
 
 ---
 
@@ -83,7 +83,7 @@ npx wrangler pages dev dist/
 
 ## Report an error
 
-Found a wrong phone number, outdated helpline, or translation mistake? Email **atharva@serverlord.in** or [open an issue](https://github.com/serverl0rd/safelink/issues). Accurate information saves lives.
+Found a wrong phone number, outdated helpline, or translation mistake? Email **atharva@serverlord.in** or [open an issue](https://github.com/BuildCraftLabsLLP/safelink/issues). Accurate information saves lives.
 
 ---
 

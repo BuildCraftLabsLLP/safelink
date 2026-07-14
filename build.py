@@ -501,7 +501,7 @@ def build_static_pages(env, stats, data, lang, prefix, t_func, url_func, lang_da
 
 def generate_sitemap(data):
     """Generate sitemap.xml with URLs for all pages across all languages."""
-    base_url = "https://safelink.serverlord.in"
+    base_url = "https://safelink.buildcraft.town"
     ns = "http://www.sitemaps.org/schemas/sitemap/0.9"
     root = ET.Element("urlset")
     root.set("xmlns", ns)

@@ -22,4 +22,4 @@ npx wrangler pages deploy dist/ --project-name safelink-india
 
 echo ""
 echo "Deployment complete!"
-echo "Site: https://safelink.serverlord.in"
+echo "Site: https://safelink.buildcraft.town"

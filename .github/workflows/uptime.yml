@@ -11,18 +11,18 @@ jobs:
     steps:
       - name: Check homepage
         run: |
-          STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 https://safelink.serverlord.in/)
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 https://safelink.buildcraft.town/)
           echo "Homepage status: $STATUS"
           [ "$STATUS" = "200" ] || (echo "FAIL: homepage returned $STATUS" && exit 1)
 
       - name: Check alert API
         run: |
-          STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 "https://safelink.serverlord.in/api/alerts")
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 "https://safelink.buildcraft.town/api/alerts")
           echo "Alert API status: $STATUS"
           [ "$STATUS" = "200" ] || (echo "FAIL: /api/alerts returned $STATUS" && exit 1)
 
       - name: Check Hindi homepage
         run: |
-          STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 https://safelink.serverlord.in/hi/)
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 https://safelink.buildcraft.town/hi/)
           echo "Hindi homepage status: $STATUS"
           [ "$STATUS" = "200" ] || (echo "FAIL: /hi/ returned $STATUS" && exit 1)
